@@ -8,34 +8,17 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: 'Segoe UI', 'Apple SD Gothic Neo', sans-serif; background: #f5f3ff; color: #1e1b2e; }
 
-      <nav style="
-  position: sticky; top: 0; z-index: 999;
-  background: rgba(255,255,255,0.95);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid #ede9fe;
-  padding: 0 24px;
-  display: flex; align-items: center; justify-content: space-between;
-  height: 52px;
-  box-shadow: 0 1px 8px rgba(124,58,237,0.08);
-  font-family: 'Segoe UI', 'Apple SD Gothic Neo', sans-serif;
-">
-  <div style="display:flex; align-items:center; gap:10px;">
-    <span style="font-size:20px;">🎉</span>
-    <span style="font-weight:800; font-size:15px; color:#4c1d95;">NBC APM Manager</span>
-  </div>
-  <div style="display:flex; gap:6px;">
-    <a href="index.html" style="
-      padding: 7px 16px; border-radius: 20px; font-size: 13px; font-weight: 700;
-      text-decoration: none;
-      background: linear-gradient(135deg, #7c3aed, #a855f7); color: white;
-    ">📋 진행 가이드</a>
-    <a href="timetable.html" style="
-      padding: 7px 16px; border-radius: 20px; font-size: 13px; font-weight: 700;
-      text-decoration: none;
-      background: #f5f3ff; color: #7c3aed; border: 1.5px solid #ede9fe;
-    ">🗓️ 타임테이블</a>
-  </div>
-</nav>
+    nav {
+      position: sticky; top: 0; z-index: 999;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #ede9fe;
+      padding: 0 24px;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 52px;
+      box-shadow: 0 1px 8px rgba(124,58,237,0.08);
+      font-family: 'Segoe UI', 'Apple SD Gothic Neo', sans-serif;
+    }
 
     .hero {
       background: linear-gradient(135deg, #7c3aed, #a855f7, #ec4899);
@@ -81,7 +64,6 @@
       font-size: 18px; color: white;
     }
 
-    /* 타임라인 */
     .timeline { position: relative; padding-left: 32px; }
     .timeline::before {
       content: '';
@@ -108,7 +90,6 @@
     .timeline-item .title { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
     .timeline-item .desc { font-size: 14px; color: #555; line-height: 1.6; }
 
-    /* 카드 그리드 */
     .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
     .card {
       background: white;
@@ -143,7 +124,6 @@
     .tag-blue { background: #dbeafe; color: #1e40af; }
     .tag-orange { background: #ffedd5; color: #9a3412; }
 
-    /* 진행 스텝 */
     .steps { display: flex; flex-direction: column; gap: 16px; }
     .step {
       background: white;
@@ -163,7 +143,6 @@
     .step .step-content .step-title { font-size: 15px; font-weight: 700; margin-bottom: 6px; }
     .step .step-content .step-desc { font-size: 13px; color: #555; line-height: 1.7; }
 
-    /* 라디오 섹션 */
     .radio-box {
       background: linear-gradient(135deg, #1e1b2e, #2d1b69);
       border-radius: 20px;
@@ -183,7 +162,6 @@
     .radio-item .ri-title { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
     .radio-item .ri-desc { font-size: 12px; opacity: 0.7; line-height: 1.5; }
 
-    /* 체크리스트 */
     .checklist { background: white; border-radius: 16px; padding: 24px; box-shadow: 0 2px 12px rgba(0,0,0,0.05); }
     .checklist-item {
       display: flex; align-items: flex-start; gap: 12px;
@@ -199,7 +177,6 @@
     .checklist-item .check-label { line-height: 1.6; }
     .checklist-item .check-label strong { color: #4c1d95; }
 
-    /* 주의사항 */
     .notice {
       background: #fff7ed;
       border: 1px solid #fed7aa;
@@ -211,7 +188,6 @@
     .notice ul { padding-left: 18px; }
     .notice ul li { font-size: 13px; color: #7c2d12; line-height: 1.8; }
 
-    /* 진행자 팁 */
     .tip-box {
       background: linear-gradient(135deg, #ecfdf5, #d1fae5);
       border: 1px solid #6ee7b7;
@@ -247,8 +223,27 @@
 </head>
 <body>
 
+  <nav>
+    <div style="display:flex; align-items:center; gap:10px;">
+      <span style="font-size:20px;">🎉</span>
+      <span style="font-weight:800; font-size:15px; color:#4c1d95;">NBC APM Manager</span>
+    </div>
+    <div style="display:flex; gap:6px;">
+      <a href="index.html" style="
+        padding: 7px 16px; border-radius: 20px; font-size: 13px; font-weight: 700;
+        text-decoration: none;
+        background: linear-gradient(135deg, #7c3aed, #a855f7); color: white;
+      ">📋 진행 가이드</a>
+      <a href="timetable.html" style="
+        padding: 7px 16px; border-radius: 20px; font-size: 13px; font-weight: 700;
+        text-decoration: none;
+        background: #f5f3ff; color: #7c3aed; border: 1.5px solid #ede9fe;
+      ">🗓️ 타임테이블</a>
+    </div>
+  </nav>
+
   <div class="hero">
-    <div class="badge">🎨 디자인 부트캠프 공식 가이드</div>
+    <div class="badge">🎨 디자인 부트캠프 가이드 (초안)</div>
     <h1>🎉 밍글데이 이벤트<br>진행 가이드</h1>
     <p>발표회 이후 지친 수강생들을 위한<br>온라인 이벤트 & 미니게임 진행 매뉴얼</p>
     <div class="meta">
@@ -261,7 +256,6 @@
 
   <div class="container">
 
-    <!-- 전체 타임라인 -->
     <div class="section-title">
       <div class="icon">⏱</div>
       전체 진행 타임라인 (예시 2시간)
@@ -307,7 +301,6 @@
 
     <div class="divider"></div>
 
-    <!-- 사연 라디오 -->
     <div class="section-title">
       <div class="icon">📻</div>
       사연 라디오 진행 가이드
@@ -318,30 +311,12 @@
       <p>발표회를 마친 수강생들의 솔직한 이야기를 라디오 형식으로 공유하는 코너입니다.<br>
       진행자가 DJ처럼 사연을 읽고, 공감과 위로의 분위기를 만들어주세요.</p>
       <div class="radio-items">
-        <div class="radio-item">
-          <div class="ri-title">😭 고생했어요 사연</div>
-          <div class="ri-desc">발표 준비하면서 힘들었던 순간, 밤샘 작업 이야기</div>
-        </div>
-        <div class="radio-item">
-          <div class="ri-title">😂 웃긴 에피소드</div>
-          <div class="ri-desc">발표 중 실수담, 팀원과의 웃긴 해프닝</div>
-        </div>
-        <div class="radio-item">
-          <div class="ri-title">💌 감사 전하기</div>
-          <div class="ri-desc">튜터/매니저/팀원에게 전하고 싶은 감사 메시지</div>
-        </div>
-        <div class="radio-item">
-          <div class="ri-title">🌟 나에게 한마디</div>
-          <div class="ri-desc">수료 후 자신에게 전하고 싶은 응원 메시지</div>
-        </div>
-        <div class="radio-item">
-          <div class="ri-title">🤔 솔직 고백</div>
-          <div class="ri-desc">부트캠프 하면서 가장 후회한 것 / 잘한 것</div>
-        </div>
-        <div class="radio-item">
-          <div class="ri-title">🎵 신청곡</div>
-          <div class="ri-desc">지금 이 순간 듣고 싶은 노래 + 사연 한 줄</div>
-        </div>
+        <div class="radio-item"><div class="ri-title">😭 고생했어요 사연</div><div class="ri-desc">발표 준비하면서 힘들었던 순간, 밤샘 작업 이야기</div></div>
+        <div class="radio-item"><div class="ri-title">😂 웃긴 에피소드</div><div class="ri-desc">발표 중 실수담, 팀원과의 웃긴 해프닝</div></div>
+        <div class="radio-item"><div class="ri-title">💌 감사 전하기</div><div class="ri-desc">튜터/매니저/팀원에게 전하고 싶은 감사 메시지</div></div>
+        <div class="radio-item"><div class="ri-title">🌟 나에게 한마디</div><div class="ri-desc">수료 후 자신에게 전하고 싶은 응원 메시지</div></div>
+        <div class="radio-item"><div class="ri-title">🤔 솔직 고백</div><div class="ri-desc">부트캠프 하면서 가장 후회한 것 / 잘한 것</div></div>
+        <div class="radio-item"><div class="ri-title">🎵 신청곡</div><div class="ri-desc">지금 이 순간 듣고 싶은 노래 + 사연 한 줄</div></div>
       </div>
     </div>
 
@@ -389,29 +364,20 @@
 
     <div class="divider"></div>
 
-    <!-- 젭 미니게임 -->
     <div class="section-title">
       <div class="icon">🎮</div>
       젭(ZEP) 미니게임 목록
     </div>
 
     <div class="card-grid">
-
       <div class="card">
         <div class="card-header">
           <div class="card-icon" style="background:#ede9fe;">🙋</div>
-          <div>
-            <div class="card-title">OX 퀴즈</div>
-            <div class="card-sub">전체 참여 · 10~15분</div>
-          </div>
+          <div><div class="card-title">OX 퀴즈</div><div class="card-sub">전체 참여 · 10~15분</div></div>
         </div>
         <div class="card-body">
-          젭 맵에 O/X 구역 설정. 진행자가 문제 읽으면 수강생이 이동해서 답 선택. 틀리면 탈락, 마지막 생존자 우승.
-          <br><br>
-          <strong>추천 문제 유형:</strong><br>
-          · 부트캠프 관련 상식 퀴즈<br>
-          · 디자인 트렌드 OX<br>
-          · "이 사람이 한 말이다 OX" (튜터/수강생 명언)
+          젭 맵에 O/X 구역 설정. 진행자가 문제 읽으면 수강생이 이동해서 답 선택. 틀리면 탈락, 마지막 생존자 우승.<br><br>
+          <strong>추천 문제 유형:</strong><br>· 부트캠프 관련 상식 퀴즈<br>· 디자인 트렌드 OX<br>· "이 사람이 한 말이다 OX"
         </div>
         <div class="tag-row">
           <span class="tag tag-purple">전체참여</span>
@@ -419,22 +385,14 @@
           <span class="tag tag-blue">쉬운난이도</span>
         </div>
       </div>
-
       <div class="card">
         <div class="card-header">
           <div class="card-icon" style="background:#fce7f3;">⚡</div>
-          <div>
-            <div class="card-title">스피드 퀴즈</div>
-            <div class="card-sub">팀전 · 15~20분</div>
-          </div>
+          <div><div class="card-title">스피드 퀴즈</div><div class="card-sub">팀전 · 15~20분</div></div>
         </div>
         <div class="card-body">
-          팀을 나눠 한 명이 설명, 나머지가 채팅으로 답 입력. 제한 시간 내 가장 많이 맞힌 팀 우승.
-          <br><br>
-          <strong>추천 주제:</strong><br>
-          · 디자인 툴 이름 맞히기<br>
-          · UI 용어 설명하기<br>
-          · 부트캠프 추억 키워드
+          팀을 나눠 한 명이 설명, 나머지가 채팅으로 답 입력. 제한 시간 내 가장 많이 맞힌 팀 우승.<br><br>
+          <strong>추천 주제:</strong><br>· 디자인 툴 이름 맞히기<br>· UI 용어 설명하기<br>· 부트캠프 추억 키워드
         </div>
         <div class="tag-row">
           <span class="tag tag-pink">팀전</span>
@@ -442,20 +400,14 @@
           <span class="tag tag-blue">중간난이도</span>
         </div>
       </div>
-
       <div class="card">
         <div class="card-header">
           <div class="card-icon" style="background:#d1fae5;">🎯</div>
-          <div>
-            <div class="card-title">이모지 빙고</div>
-            <div class="card-sub">개인전 · 15분</div>
-          </div>
+          <div><div class="card-title">이모지 빙고</div><div class="card-sub">개인전 · 15분</div></div>
         </div>
         <div class="card-body">
-          사전에 빙고판(3x3 또는 4x4) 배포. 진행자가 이모지/키워드 하나씩 부르면 해당하는 칸 체크. 빙고 완성되면 채팅에 "빙고!" 입력.
-          <br><br>
-          <strong>빙고 칸 예시:</strong><br>
-          · 밤샘한 적 있다 / 커피 3잔 이상 / 발표 떨렸다
+          사전에 빙고판 배포. 진행자가 이모지/키워드 하나씩 부르면 해당하는 칸 체크. 빙고 완성되면 채팅에 "빙고!" 입력.<br><br>
+          <strong>빙고 칸 예시:</strong><br>· 밤샘한 적 있다 / 커피 3잔 이상 / 발표 떨렸다
         </div>
         <div class="tag-row">
           <span class="tag tag-green">개인전</span>
@@ -463,22 +415,14 @@
           <span class="tag tag-blue">쉬운난이도</span>
         </div>
       </div>
-
       <div class="card">
         <div class="card-header">
           <div class="card-icon" style="background:#dbeafe;">🔤</div>
-          <div>
-            <div class="card-title">초성 퀴즈</div>
-            <div class="card-sub">전체 참여 · 10분</div>
-          </div>
+          <div><div class="card-title">초성 퀴즈</div><div class="card-sub">전체 참여 · 10분</div></div>
         </div>
         <div class="card-body">
-          진행자가 초성 공개, 채팅에 먼저 정답 입력한 사람이 포인트 획득. 젭 채팅창 활용.
-          <br><br>
-          <strong>추천 주제:</strong><br>
-          · 디자인 관련 단어 (ㅍ ㄹ ㅌ ㅇ = 프로토타입)<br>
-          · 부트캠프 관련 단어<br>
-          · 유명 디자이너/브랜드
+          진행자가 초성 공개, 채팅에 먼저 정답 입력한 사람이 포인트 획득.<br><br>
+          <strong>추천 주제:</strong><br>· 디자인 관련 단어 (ㅍ ㄹ ㅌ ㅇ = 프로토타입)<br>· 부트캠프 관련 단어
         </div>
         <div class="tag-row">
           <span class="tag tag-orange">채팅활용</span>
@@ -486,21 +430,14 @@
           <span class="tag tag-blue">쉬운난이도</span>
         </div>
       </div>
-
       <div class="card">
         <div class="card-header">
           <div class="card-icon" style="background:#ffedd5;">🗺️</div>
-          <div>
-            <div class="card-title">젭 보물찾기</div>
-            <div class="card-sub">개인전 · 15~20분</div>
-          </div>
+          <div><div class="card-title">젭 보물찾기</div><div class="card-sub">개인전 · 15~20분</div></div>
         </div>
         <div class="card-body">
-          젭 맵 곳곳에 오브젝트(힌트판) 숨겨두기. 수강생들이 맵을 돌아다니며 힌트 수집 후 최종 정답 채팅 입력.
-          <br><br>
-          <strong>힌트 예시:</strong><br>
-          · 각 구역마다 단어 조각 숨기기<br>
-          · 조각 모으면 문장 완성
+          젭 맵 곳곳에 오브젝트(힌트판) 숨겨두기. 수강생들이 맵을 돌아다니며 힌트 수집 후 최종 정답 채팅 입력.<br><br>
+          <strong>힌트 예시:</strong><br>· 각 구역마다 단어 조각 숨기기<br>· 조각 모으면 문장 완성
         </div>
         <div class="tag-row">
           <span class="tag tag-purple">젭맵활용</span>
@@ -508,22 +445,14 @@
           <span class="tag tag-orange">탐험형</span>
         </div>
       </div>
-
       <div class="card">
         <div class="card-header">
           <div class="card-icon" style="background:#fef3c7;">🎨</div>
-          <div>
-            <div class="card-title">이 디자인 누구꺼?</div>
-            <div class="card-sub">전체 참여 · 10~15분</div>
-          </div>
+          <div><div class="card-title">이 디자인 누구꺼?</div><div class="card-sub">전체 참여 · 10~15분</div></div>
         </div>
         <div class="card-body">
-          수강생들의 발표 결과물 일부를 화면 공유. 누구의 작품인지 채팅으로 맞히기. 디자인 부트캠프 특화 게임!
-          <br><br>
-          <strong>진행 팁:</strong><br>
-          · 사전에 수강생 동의 받기<br>
-          · 작품 일부만 크롭해서 공개<br>
-          · 작가 본인이 직접 설명하는 시간도 추가
+          수강생들의 발표 결과물 일부를 화면 공유. 누구의 작품인지 채팅으로 맞히기.<br><br>
+          <strong>진행 팁:</strong><br>· 사전에 수강생 동의 받기<br>· 작품 일부만 크롭해서 공개
         </div>
         <div class="tag-row">
           <span class="tag tag-pink">부트캠프특화</span>
@@ -531,157 +460,104 @@
           <span class="tag tag-green">소통형</span>
         </div>
       </div>
-
     </div>
 
     <div class="divider"></div>
 
-    <!-- 추가 온라인 이벤트 -->
     <div class="section-title">
       <div class="icon">✨</div>
       추가 온라인 이벤트 아이디어
     </div>
 
     <div class="card-grid">
-
       <div class="card">
         <div class="card-header">
           <div class="card-icon" style="background:#ede9fe;">🗳️</div>
-          <div>
-            <div class="card-title">실시간 투표 이벤트</div>
-            <div class="card-sub">Mentimeter / 슬리도 활용</div>
-          </div>
+          <div><div class="card-title">실시간 투표 이벤트</div><div class="card-sub">Mentimeter / 슬리도 활용</div></div>
         </div>
         <div class="card-body">
-          멘티미터나 슬리도로 실시간 투표 진행. 결과를 화면 공유하며 반응 유도.
-          <br><br>
-          <strong>투표 주제 예시:</strong><br>
-          · 부트캠프 기간 중 가장 힘들었던 주차는?<br>
-          · 나를 가장 잘 표현하는 이모지는?<br>
-          · 다음에 또 하고 싶은 프로젝트 유형은?
+          멘티미터나 슬리도로 실시간 투표 진행. 결과를 화면 공유하며 반응 유도.<br><br>
+          <strong>투표 주제 예시:</strong><br>· 부트캠프 기간 중 가장 힘들었던 주차는?<br>· 나를 가장 잘 표현하는 이모지는?
         </div>
         <div class="tag-row">
           <span class="tag tag-purple">외부툴활용</span>
           <span class="tag tag-green">실시간반응</span>
         </div>
       </div>
-
       <div class="card">
         <div class="card-header">
           <div class="card-icon" style="background:#fce7f3;">🏅</div>
-          <div>
-            <div class="card-title">수강생 어워즈</div>
-            <div class="card-sub">사전 투표 + 발표</div>
-          </div>
+          <div><div class="card-title">수강생 어워즈</div><div class="card-sub">사전 투표 + 발표</div></div>
         </div>
         <div class="card-body">
-          수강생들이 서로 투표해서 시상하는 코너. 진지한 상보다 웃긴 상 위주로!
-          <br><br>
-          <strong>추천 시상 카테고리:</strong><br>
-          · 가장 열정적이었던 수강생<br>
-          · 가장 많이 웃겼던 수강생<br>
-          · 밤샘 황제/황후<br>
-          · 피드백 장인<br>
-          · 갓생 살았던 수강생
+          수강생들이 서로 투표해서 시상하는 코너.<br><br>
+          <strong>추천 시상 카테고리:</strong><br>· 가장 열정적이었던 수강생<br>· 밤샘 황제/황후<br>· 피드백 장인
         </div>
         <div class="tag-row">
           <span class="tag tag-pink">사전준비필요</span>
           <span class="tag tag-orange">감동보장</span>
         </div>
       </div>
-
       <div class="card">
         <div class="card-header">
           <div class="card-icon" style="background:#d1fae5;">📸</div>
-          <div>
-            <div class="card-title">포토부스 이벤트</div>
-            <div class="card-sub">젭 포토존 활용</div>
-          </div>
+          <div><div class="card-title">포토부스 이벤트</div><div class="card-sub">젭 포토존 활용</div></div>
         </div>
         <div class="card-body">
-          젭 맵에 포토존 구역 만들기. 수강생들이 아바타로 포즈 잡고 스크린샷 찍어 채팅에 공유.
-          <br><br>
-          <strong>포토존 아이디어:</strong><br>
-          · 졸업 포토존 (학사모 오브젝트)<br>
-          · 팀별 단체 포토존<br>
-          · 튜터/매니저와 함께 찍기
+          젭 맵에 포토존 구역 만들기. 수강생들이 아바타로 포즈 잡고 스크린샷 찍어 채팅에 공유.<br><br>
+          <strong>포토존 아이디어:</strong><br>· 졸업 포토존 (학사모 오브젝트)<br>· 팀별 단체 포토존
         </div>
         <div class="tag-row">
           <span class="tag tag-green">젭맵활용</span>
           <span class="tag tag-blue">추억만들기</span>
         </div>
       </div>
-
       <div class="card">
         <div class="card-header">
           <div class="card-icon" style="background:#dbeafe;">🎤</div>
-          <div>
-            <div class="card-title">1분 소감 릴레이</div>
-            <div class="card-sub">자발적 참여형</div>
-          </div>
+          <div><div class="card-title">1분 소감 릴레이</div><div class="card-sub">자발적 참여형</div></div>
         </div>
         <div class="card-body">
-          원하는 수강생이 마이크 켜고 1분 소감 발표. 강요 없이 자발적으로. 진행자가 분위기 띄워주기.
-          <br><br>
-          <strong>진행 팁:</strong><br>
-          · 튜터/매니저가 먼저 시범 보이기<br>
-          · 소감 후 박수 이모지 유도<br>
-          · 너무 길어지면 부드럽게 마무리 유도
+          원하는 수강생이 마이크 켜고 1분 소감 발표.<br><br>
+          <strong>진행 팁:</strong><br>· 튜터/매니저가 먼저 시범 보이기<br>· 소감 후 박수 이모지 유도
         </div>
         <div class="tag-row">
           <span class="tag tag-blue">자발참여</span>
           <span class="tag tag-green">감동형</span>
         </div>
       </div>
-
       <div class="card">
         <div class="card-header">
           <div class="card-icon" style="background:#ffedd5;">🎰</div>
-          <div>
-            <div class="card-title">랜덤 경품 추첨</div>
-            <div class="card-sub">클로징 이벤트</div>
-          </div>
+          <div><div class="card-title">랜덤 경품 추첨</div><div class="card-sub">클로징 이벤트</div></div>
         </div>
         <div class="card-body">
-          이벤트 참여 포인트 합산 or 단순 랜덤 추첨. 화면 공유로 추첨 과정 공개.
-          <br><br>
-          <strong>추첨 툴:</strong><br>
-          · 구글 랜덤 번호 생성기<br>
-          · 휠오브네임즈 (wheelofnames.com)<br>
-          · 랜덤 추첨 사이트
+          이벤트 참여 포인트 합산 or 단순 랜덤 추첨.<br><br>
+          <strong>추첨 툴:</strong><br>· 구글 랜덤 번호 생성기<br>· 휠오브네임즈 (wheelofnames.com)
         </div>
         <div class="tag-row">
           <span class="tag tag-orange">클로징</span>
           <span class="tag tag-purple">경품이벤트</span>
         </div>
       </div>
-
       <div class="card">
         <div class="card-header">
           <div class="card-icon" style="background:#fef3c7;">💬</div>
-          <div>
-            <div class="card-title">익명 칭찬 릴레이</div>
-            <div class="card-sub">따뜻한 마무리 코너</div>
-          </div>
+          <div><div class="card-title">익명 칭찬 릴레이</div><div class="card-sub">따뜻한 마무리 코너</div></div>
         </div>
         <div class="card-body">
-          사전에 구글 폼으로 특정 수강생에게 익명 칭찬 메시지 받기. 진행자가 낭독하면 해당 수강생 리액션.
-          <br><br>
-          <strong>진행 팁:</strong><br>
-          · 모든 수강생이 최소 1개씩 받도록 유도<br>
-          · 클로징 직전에 배치하면 감동 마무리 가능
+          사전에 구글 폼으로 특정 수강생에게 익명 칭찬 메시지 받기.<br><br>
+          <strong>진행 팁:</strong><br>· 모든 수강생이 최소 1개씩 받도록 유도<br>· 클로징 직전에 배치하면 감동 마무리 가능
         </div>
         <div class="tag-row">
           <span class="tag tag-pink">감동보장</span>
           <span class="tag tag-green">사전준비필요</span>
         </div>
       </div>
-
     </div>
 
     <div class="divider"></div>
 
-    <!-- 역할 분담 -->
     <div class="section-title">
       <div class="icon">👥</div>
       역할 분담 가이드
@@ -692,89 +568,52 @@
         <div class="step-num">🎙</div>
         <div class="step-content">
           <div class="step-title">메인 진행자 (1명)</div>
-          <div class="step-desc">전체 흐름 진행, 사연 낭독, 게임 규칙 설명, 분위기 리드. 목소리 톤 관리 중요. 매니저 또는 진행 경험 있는 수강생 추천.</div>
+          <div class="step-desc">전체 흐름 진행, 사연 낭독, 게임 규칙 설명, 분위기 리드. 목소리 톤 관리 중요.</div>
         </div>
       </div>
       <div class="step">
         <div class="step-num">💬</div>
         <div class="step-content">
           <div class="step-title">채팅 모니터링 담당 (1~2명)</div>
-          <div class="step-desc">젭 채팅창 실시간 확인. 게임 정답 확인, 실시간 사연 수집, 문제 발생 시 진행자에게 전달. 매니저 담당 추천.</div>
+          <div class="step-desc">젭 채팅창 실시간 확인. 게임 정답 확인, 실시간 사연 수집, 문제 발생 시 진행자에게 전달.</div>
         </div>
       </div>
       <div class="step">
         <div class="step-num">🖥</div>
         <div class="step-content">
           <div class="step-title">기술 담당 (1명)</div>
-          <div class="step-desc">화면 공유, BGM 조절, 젭 맵 관리, 투표 툴 세팅. 이벤트 중 기술 오류 대응. 사전에 리허설 필수.</div>
+          <div class="step-desc">화면 공유, BGM 조절, 젭 맵 관리, 투표 툴 세팅. 사전에 리허설 필수.</div>
         </div>
       </div>
       <div class="step">
         <div class="step-num">📋</div>
         <div class="step-content">
           <div class="step-title">점수/기록 담당 (1명)</div>
-          <div class="step-desc">게임 점수 집계, 우승자 기록, 추첨 명단 관리. 스프레드시트 또는 노션 DB 활용.</div>
+          <div class="step-desc">게임 점수 집계, 우승자 기록, 추첨 명단 관리.</div>
         </div>
       </div>
     </div>
 
     <div class="divider"></div>
 
-    <!-- 사전 준비 체크리스트 -->
     <div class="section-title">
       <div class="icon">✅</div>
       사전 준비 체크리스트
     </div>
 
     <div class="checklist">
-      <div class="checklist-item">
-        <div class="check-box"></div>
-        <div class="check-label"><strong>[D-7]</strong> 이벤트 전체 기획안 확정 및 역할 분담</div>
-      </div>
-      <div class="checklist-item">
-        <div class="check-box"></div>
-        <div class="check-label"><strong>[D-5]</strong> 사연 수집 구글 폼 제작 및 수강생 공지</div>
-      </div>
-      <div class="checklist-item">
-        <div class="check-box"></div>
-        <div class="check-label"><strong>[D-5]</strong> 수강생 어워즈 / 익명 칭찬 투표 폼 제작</div>
-      </div>
-      <div class="checklist-item">
-        <div class="check-box"></div>
-        <div class="check-label"><strong>[D-3]</strong> 젭 맵 이벤트용 세팅 (OX 구역, 포토존, 보물 오브젝트 등)</div>
-      </div>
-      <div class="checklist-item">
-        <div class="check-box"></div>
-        <div class="check-label"><strong>[D-3]</strong> 퀴즈 문제 제작 (OX, 초성, 스피드퀴즈 각 10문제 이상)</div>
-      </div>
-      <div class="checklist-item">
-        <div class="check-box"></div>
-        <div class="check-label"><strong>[D-3]</strong> 빙고판 이미지 제작 및 배포 방법 결정</div>
-      </div>
-      <div class="checklist-item">
-        <div class="check-box"></div>
-        <div class="check-label"><strong>[D-2]</strong> 사연 큐레이션 완료 (읽을 순서 정하기)</div>
-      </div>
-      <div class="checklist-item">
-        <div class="check-box"></div>
-        <div class="check-label"><strong>[D-2]</strong> BGM 플레이리스트 준비 (라디오용 / 게임용 구분)</div>
-      </div>
-      <div class="checklist-item">
-        <div class="check-box"></div>
-        <div class="check-label"><strong>[D-2]</strong> 경품 준비 및 추첨 방식 결정</div>
-      </div>
-      <div class="checklist-item">
-        <div class="check-box"></div>
-        <div class="check-label"><strong>[D-1]</strong> 전체 리허설 (기술 담당 + 진행자 함께)</div>
-      </div>
-      <div class="checklist-item">
-        <div class="check-box"></div>
-        <div class="check-label"><strong>[D-1]</strong> 수강생에게 입장 링크 및 일정 최종 공지</div>
-      </div>
-      <div class="checklist-item">
-        <div class="check-box"></div>
-        <div class="check-label"><strong>[D-Day]</strong> 이벤트 30분 전 담당자 전원 입장 및 최종 점검</div>
-      </div>
+      <div class="checklist-item"><div class="check-box"></div><div class="check-label"><strong>[D-7]</strong> 이벤트 전체 기획안 확정 및 역할 분담</div></div>
+      <div class="checklist-item"><div class="check-box"></div><div class="check-label"><strong>[D-5]</strong> 사연 수집 구글 폼 제작 및 수강생 공지</div></div>
+      <div class="checklist-item"><div class="check-box"></div><div class="check-label"><strong>[D-5]</strong> 수강생 어워즈 / 익명 칭찬 투표 폼 제작</div></div>
+      <div class="checklist-item"><div class="check-box"></div><div class="check-label"><strong>[D-3]</strong> 젭 맵 이벤트용 세팅 (OX 구역, 포토존, 보물 오브젝트 등)</div></div>
+      <div class="checklist-item"><div class="check-box"></div><div class="check-label"><strong>[D-3]</strong> 퀴즈 문제 제작 (OX, 초성, 스피드퀴즈 각 10문제 이상)</div></div>
+      <div class="checklist-item"><div class="check-box"></div><div class="check-label"><strong>[D-3]</strong> 빙고판 이미지 제작 및 배포 방법 결정</div></div>
+      <div class="checklist-item"><div class="check-box"></div><div class="check-label"><strong>[D-2]</strong> 사연 큐레이션 완료 (읽을 순서 정하기)</div></div>
+      <div class="checklist-item"><div class="check-box"></div><div class="check-label"><strong>[D-2]</strong> BGM 플레이리스트 준비 (라디오용 / 게임용 구분)</div></div>
+      <div class="checklist-item"><div class="check-box"></div><div class="check-label"><strong>[D-2]</strong> 경품 준비 및 추첨 방식 결정</div></div>
+      <div class="checklist-item"><div class="check-box"></div><div class="check-label"><strong>[D-1]</strong> 전체 리허설 (기술 담당 + 진행자 함께)</div></div>
+      <div class="checklist-item"><div class="check-box"></div><div class="check-label"><strong>[D-1]</strong> 수강생에게 입장 링크 및 일정 최종 공지</div></div>
+      <div class="checklist-item"><div class="check-box"></div><div class="check-label"><strong>[D-Day]</strong> 이벤트 30분 전 담당자 전원 입장 및 최종 점검</div></div>
     </div>
 
     <div class="notice">
@@ -785,13 +624,11 @@
         <li>수강생 작품/사진 사용 시 반드시 사전 동의 받기</li>
         <li>젭 기술 오류 대비 백업 플랜 준비 (Zoom 또는 구글 미트)</li>
         <li>이벤트 시간이 너무 길어지지 않도록 각 코너 시간 엄수</li>
-        <li>참여 인원이 많으므로 채팅 정답 확인 시 "먼저 입력한 사람" 기준 명확히 공지</li>
       </ul>
     </div>
 
     <div class="divider"></div>
 
-    <!-- 진행 스크립트 예시 -->
     <div class="section-title">
       <div class="icon">📝</div>
       진행자 스크립트 예시
@@ -802,28 +639,28 @@
         <div class="step-num">🎬</div>
         <div class="step-content">
           <div class="step-title">오프닝 멘트</div>
-          <div class="step-desc">"안녕하세요 여러분! 오늘 발표회 정말 수고 많으셨어요 👏 이제부터는 잠깐 머리 비우고 같이 놀아볼 시간입니다! 오늘 밍글데이는 크게 라디오 코너와 미니게임으로 진행될 예정이에요. 부담 없이 편하게 즐겨주세요~"</div>
+          <div class="step-desc">"안녕하세요 여러분! 오늘 발표회 정말 수고 많으셨어요 👏 이제부터는 잠깐 머리 비우고 같이 놀아볼 시간입니다!"</div>
         </div>
       </div>
       <div class="step">
         <div class="step-num">📻</div>
         <div class="step-content">
           <div class="step-title">라디오 코너 시작 멘트</div>
-          <div class="step-desc">"자, 이제 밍글데이 라디오 코너를 시작할게요 🎙️ 여러분이 보내주신 소중한 사연들을 읽어드릴 건데요, 잠깐 BGM 틀어드릴 테니까 편하게 들어주세요. 사연 주신 분들 감사합니다 💜"</div>
+          <div class="step-desc">"자, 이제 밍글데이 라디오 코너를 시작할게요 🎙️ 여러분이 보내주신 소중한 사연들을 읽어드릴 건데요, 잠깐 BGM 틀어드릴 테니까 편하게 들어주세요. 💜"</div>
         </div>
       </div>
       <div class="step">
         <div class="step-num">🎮</div>
         <div class="step-content">
           <div class="step-title">게임 전환 멘트</div>
-          <div class="step-desc">"감동적인 사연들 잘 들으셨나요? 이제 분위기 전환해서 게임 시작해볼게요! 오늘 첫 번째 게임은 OX 퀴즈입니다. 규칙은 간단해요. 제가 문제를 읽으면 O라고 생각하시는 분은 맵 오른쪽, X라고 생각하시는 분은 왼쪽으로 이동해주세요!"</div>
+          <div class="step-desc">"감동적인 사연들 잘 들으셨나요? 이제 분위기 전환해서 게임 시작해볼게요! 오늘 첫 번째 게임은 OX 퀴즈입니다!"</div>
         </div>
       </div>
       <div class="step">
         <div class="step-num">🏆</div>
         <div class="step-content">
           <div class="step-title">클로징 멘트</div>
-          <div class="step-desc">"오늘 밍글데이 어떠셨나요? 짧은 시간이었지만 다들 너무 열심히 참여해주셔서 진행하는 저도 너무 즐거웠어요 😊 발표회까지 정말 고생 많으셨고, 앞으로도 여러분의 디자인 여정을 응원합니다! 오늘 하루도 수고하셨어요 💜"</div>
+          <div class="step-desc">"오늘 밍글데이 어떠셨나요? 발표회까지 정말 고생 많으셨고, 앞으로도 여러분의 디자인 여정을 응원합니다! 💜"</div>
         </div>
       </div>
     </div>
@@ -831,9 +668,8 @@
   </div>
 
   <footer>
-    🎨 디자인 부트캠프 밍글데이 이벤트 진행 가이드 | 매니저/튜터 내부용
+    🎨 디자인 부트캠프 밍글데이 이벤트 진행 가이드 | 매니저/튜터 내부용 (이부용M 제작)
   </footer>
 
 </body>
-
 </html>
