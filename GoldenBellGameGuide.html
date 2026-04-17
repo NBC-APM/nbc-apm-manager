@@ -5,15 +5,17 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>골든벨 가이드 | 밍글데이 운영진</title>
 <style>
+  /* ── 페이지 accent 색상 override ── */
   :root {
     --p: #7C3AED; --pl: #EDE9FE; --p2: #A78BFA;
-    --bell: #D97706; --bell2: #F59E0B; --belll: #FFFBEB;
     --bg: #F8F7FF; --c: #fff; --t: #1E1B2E;
     --s: #6B7280; --b: #E5E7EB; --r: 14px;
+    --accent: #D97706; --accentl: #FFFBEB;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: "Apple SD Gothic Neo","Malgun Gothic",sans-serif; background: var(--bg); color: var(--t); }
+  body { font-family: "Apple SD Gothic Neo","Malgun Gothic",sans-serif; background: var(--bg); color: var(--t); font-size: 13px; line-height: 1.6; }
 
+  /* NAV */
   nav { position: sticky; top: 0; z-index: 100; background: #fff; border-bottom: 2px solid var(--b); display: flex; align-items: center; padding: 0 24px; gap: 4px; box-shadow: 0 2px 12px rgba(124,58,237,.08); flex-wrap: wrap; }
   .nav-logo { font-size: 14px; font-weight: 800; color: var(--p); margin-right: 16px; white-space: nowrap; padding: 14px 0; display: flex; align-items: center; gap: 6px; }
   .nav-logo .dot { color: #FF6584; }
@@ -24,6 +26,7 @@
   .nav-tab.award { color: #D97706; }
   .nav-tab.award:hover { background: #FFFBEB; color: #B45309; }
 
+  /* AWARD BANNER */
   .award-banner { background: linear-gradient(90deg,#FEF3C7 0%,#FDE68A 50%,#FEF3C7 100%); border-bottom: 2px solid #FCD34D; padding: 10px 24px; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
   .award-banner-left { display: flex; align-items: center; gap: 10px; }
   .award-banner-icon { font-size: 20px; }
@@ -32,7 +35,8 @@
   .award-banner-btn { display: inline-flex; align-items: center; gap: 5px; background: #D97706; color: #fff; border-radius: 8px; padding: 7px 14px; font-size: 12px; font-weight: 700; text-decoration: none; transition: all .2s; white-space: nowrap; }
   .award-banner-btn:hover { background: #B45309; }
 
-  .hero { background: linear-gradient(135deg, #92400E 0%, #D97706 55%, #FCD34D 100%); padding: 36px 32px 32px; color: #fff; }
+  /* HERO */
+  .hero { background: linear-gradient(135deg,#92400E 0%,#D97706 55%,#FCD34D 100%); padding: 36px 32px 32px; color: #fff; }
   .hero-inner { max-width: 960px; margin: 0 auto; }
   .hero-badge { display: inline-block; background: rgba(255,255,255,.18); border: 1px solid rgba(255,255,255,.3); border-radius: 20px; padding: 4px 13px; font-size: 11.5px; font-weight: 700; margin-bottom: 12px; }
   .hero h1 { font-size: 24px; font-weight: 900; margin-bottom: 7px; letter-spacing: -.5px; }
@@ -40,41 +44,37 @@
   .hero-meta { display: flex; gap: 8px; flex-wrap: wrap; }
   .hero-meta-item { background: rgba(255,255,255,.18); border: 1px solid rgba(255,255,255,.3); border-radius: 8px; padding: 5px 12px; font-size: 12px; font-weight: 600; }
 
+  /* LAYOUT */
   .main { max-width: 960px; margin: 0 auto; padding: 28px 18px 60px; }
   .section { margin-bottom: 32px; }
-  .sec-title { font-size: 15px; font-weight: 800; color: var(--t); margin-bottom: 13px; display: flex; align-items: center; gap: 8px; }
-  .sec-title::before { content: ""; display: inline-block; width: 4px; height: 18px; background: var(--bell); border-radius: 4px; }
 
+  /* SECTION TITLE */
+  .sec-title { font-size: 15px; font-weight: 800; color: var(--t); margin-bottom: 13px; display: flex; align-items: center; gap: 8px; }
+  .sec-title::before { content: ""; display: inline-block; width: 4px; height: 18px; background: var(--accent); border-radius: 4px; }
+
+  /* OVERVIEW GRID */
+  .overview-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+  /* TABLE */
   .tbl-wrap { overflow-x: auto; border-radius: var(--r); border: 1px solid var(--b); }
   table { width: 100%; border-collapse: collapse; background: #fff; font-size: 12.5px; }
-  th { background: var(--belll); color: var(--bell); font-weight: 700; padding: 10px 13px; text-align: left; border-bottom: 2px solid var(--b); white-space: nowrap; }
+  th { background: var(--accentl); color: var(--accent); font-weight: 700; padding: 10px 13px; text-align: left; border-bottom: 2px solid var(--b); white-space: nowrap; }
   td { padding: 10px 13px; border-bottom: 1px solid var(--b); vertical-align: middle; line-height: 1.6; }
   tr:last-child td { border-bottom: none; }
   tr:hover td { background: #FAFAFA; }
 
-  .badge { display: inline-block; padding: 2px 9px; border-radius: 20px; font-size: 11px; font-weight: 700; white-space: nowrap; }
-  .badge-ops { background: #EFF6FF; color: #1D4ED8; }
-  .badge-design { background: #FDF4FF; color: #7C3AED; }
-  .badge-ai { background: #ECFDF5; color: #059669; }
-
-  .alert { border-radius: var(--r); padding: 12px 16px; font-size: 12.5px; line-height: 1.7; margin-bottom: 14px; display: flex; gap: 10px; align-items: flex-start; }
-  .alert-y { background: var(--belll); border-left: 4px solid var(--bell); }
-  .alert-r { background: #FEF2F2; border-left: 4px solid #EF4444; }
-  .alert-g { background: #F0FDF4; border-left: 4px solid #16A34A; }
-  .alert-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
-
   /* PREP */
   .prep-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
   .prep-card { background: var(--c); border: 1px solid var(--b); border-radius: var(--r); padding: 18px 20px; }
-  .prep-card-title { font-size: 13px; font-weight: 800; color: var(--bell); margin-bottom: 12px; }
+  .prep-card-title { font-size: 13px; font-weight: 800; color: var(--accent); margin-bottom: 12px; }
   .prep-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
   .prep-list li { font-size: 12.5px; line-height: 1.6; padding: 8px 11px; background: var(--bg); border-radius: 8px; border-left: 3px solid #FCD34D; display: flex; align-items: flex-start; gap: 8px; }
-  .prep-list li input[type=checkbox] { margin-top: 3px; flex-shrink: 0; accent-color: var(--bell); }
+  .prep-list li input[type=checkbox] { margin-top: 3px; flex-shrink: 0; accent-color: var(--accent); }
 
   /* ROLE */
   .role-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(200px,1fr)); gap: 12px; }
-  .role-card { background: var(--c); border: 1px solid var(--b); border-radius: var(--r); padding: 16px 18px; border-top: 4px solid var(--bell); }
-  .role-title { font-size: 12.5px; font-weight: 800; color: var(--bell); margin-bottom: 5px; }
+  .role-card { background: var(--c); border: 1px solid var(--b); border-radius: var(--r); padding: 16px 18px; border-top: 4px solid var(--accent); }
+  .role-title { font-size: 12.5px; font-weight: 800; color: var(--accent); margin-bottom: 5px; }
   .role-desc { font-size: 12px; color: var(--s); line-height: 1.6; }
   .role-who { margin-top: 9px; padding-top: 8px; border-top: 1px dashed var(--b); font-size: 11.5px; font-weight: 700; }
 
@@ -87,49 +87,63 @@
   .award-product { font-size: 12px; color: var(--t); font-weight: 600; margin-bottom: 3px; }
   .award-total { font-size: 11px; color: var(--s); }
 
-  /* ANNOUNCE */
+  /* STEPS — 공통 구조 */
+  .steps { display: flex; flex-direction: column; gap: 16px; }
+  .step-card { background: var(--c); border: 1px solid var(--b); border-radius: var(--r); overflow: hidden; }
+  .step-header { display: flex; align-items: center; gap: 14px; padding: 14px 20px; border-bottom: 1px solid var(--b); background: var(--accentl); }
+  .step-num { min-width: 34px; height: 34px; background: var(--accent); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 800; flex-shrink: 0; }
+  .step-header-text h3 { font-size: 13.5px; font-weight: 800; color: var(--accent); }
+  .step-header-text p { font-size: 11.5px; color: var(--s); margin-top: 2px; }
+  .step-body { padding: 16px 20px; }
+  .step-body > p { font-size: 12.5px; color: var(--s); line-height: 1.7; margin-bottom: 10px; }
+
+  /* SCRIPT */
+  .script-wrap { margin-top: 10px; }
+  .script-label { font-size: 11px; font-weight: 700; color: var(--s); margin-bottom: 6px; }
+  .script-box { background: #1E1E2E; color: #CDD6F4; border-radius: 10px; padding: 14px 18px; font-size: 12.5px; line-height: 2; font-family: "Apple SD Gothic Neo","Malgun Gothic",sans-serif; white-space: pre-wrap; }
+  .script-box .hl { color: #A6E3A1; font-weight: 700; }
+  .script-box .em { color: #FAB387; }
+  .script-box .warn { color: #F38BA8; font-weight: 700; }
+
+  /* FLOW */
+  .flow-list { display: flex; flex-direction: column; gap: 6px; }
+  .flow-item { display: flex; gap: 10px; align-items: flex-start; background: var(--bg); border-radius: 9px; padding: 9px 13px; font-size: 12.5px; line-height: 1.6; }
+  .flow-num { min-width: 22px; height: 22px; background: var(--accent); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; flex-shrink: 0; margin-top: 1px; }
+  .flow-sub { font-size: 11.5px; color: var(--s); margin-top: 2px; }
+
+  /* ALERT */
+  .alert { border-radius: var(--r); padding: 12px 16px; font-size: 12.5px; line-height: 1.7; margin-bottom: 14px; display: flex; gap: 10px; align-items: flex-start; }
+  .alert-ac  { background: var(--accentl); border-left: 4px solid var(--accent); }
+  .alert-r   { background: #FEF2F2; border-left: 4px solid #EF4444; }
+  .alert-g   { background: #F0FDF4; border-left: 4px solid #16A34A; }
+  .alert-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+
+  /* ANNOUNCE BOX */
   .announce-box { background: #1E1E2E; border-radius: var(--r); padding: 18px 22px; }
   .announce-title { font-size: 12px; font-weight: 700; color: #89DCEB; margin-bottom: 10px; }
   .announce-body { font-size: 12.5px; color: #CDD6F4; line-height: 2; white-space: pre-wrap; font-family: "Apple SD Gothic Neo","Malgun Gothic",sans-serif; }
   .announce-body .hl { color: #A6E3A1; font-weight: 700; }
   .announce-body .warn { color: #F38BA8; font-weight: 700; }
 
-  /* STEPS */
-  .steps { display: flex; flex-direction: column; gap: 16px; }
-  .step-card { background: var(--c); border: 1px solid var(--b); border-radius: var(--r); overflow: hidden; }
-  .step-header { display: flex; align-items: center; gap: 14px; padding: 14px 20px; border-bottom: 1px solid var(--b); background: var(--belll); }
-  .step-num { min-width: 34px; height: 34px; background: var(--bell); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 800; flex-shrink: 0; }
-  .step-header-text h3 { font-size: 13.5px; font-weight: 800; color: var(--bell); }
-  .step-header-text p { font-size: 11.5px; color: var(--s); margin-top: 2px; }
-  .step-body { padding: 16px 20px; }
-
-  .script-wrap { margin-top: 10px; }
-  .script-label { font-size: 11px; font-weight: 700; color: var(--s); margin-bottom: 6px; }
-  .script-box { background: #1E1E2E; color: #CDD6F4; border-radius: 10px; padding: 14px 18px; font-size: 12.5px; line-height: 2; font-family: "Apple SD Gothic Neo","Malgun Gothic",sans-serif; white-space: pre-wrap; }
-  .script-box .hl { color: #A6E3A1; font-weight: 700; }
-  .script-box .em { color: #FAB387; }
-
-  .flow-list { display: flex; flex-direction: column; gap: 6px; }
-  .flow-item { display: flex; gap: 10px; align-items: flex-start; background: var(--bg); border-radius: 9px; padding: 9px 13px; font-size: 12.5px; line-height: 1.6; }
-  .flow-num { min-width: 22px; height: 22px; background: var(--bell); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; flex-shrink: 0; margin-top: 1px; }
-  .flow-sub { font-size: 11.5px; color: var(--s); margin-top: 2px; }
+  /* BADGE */
+  .badge { display: inline-block; padding: 2px 9px; border-radius: 20px; font-size: 11px; font-weight: 700; white-space: nowrap; }
+  .badge-ops    { background: #EFF6FF; color: #1D4ED8; }
+  .badge-design { background: #FDF4FF; color: #7C3AED; }
+  .badge-ai     { background: #ECFDF5; color: #059669; }
 
   /* QUESTION TABLE */
   .q-section { margin-bottom: 24px; }
   .q-level-header { display: flex; align-items: center; gap: 10px; padding: 10px 16px; border-radius: 10px 10px 0 0; font-size: 13px; font-weight: 800; }
-  .q-level-low { background: #ECFDF5; color: #065F46; border: 1px solid #A7F3D0; border-bottom: none; }
-  .q-level-mid { background: #EFF6FF; color: #1E40AF; border: 1px solid #BFDBFE; border-bottom: none; }
+  .q-level-low  { background: #ECFDF5; color: #065F46; border: 1px solid #A7F3D0; border-bottom: none; }
+  .q-level-mid  { background: #EFF6FF; color: #1E40AF; border: 1px solid #BFDBFE; border-bottom: none; }
   .q-level-high { background: #FEF2F2; color: #991B1B; border: 1px solid #FECACA; border-bottom: none; }
   .q-tbl-wrap { overflow-x: auto; border-radius: 0 0 10px 10px; border: 1px solid var(--b); }
   .q-tbl-wrap table th { background: #F9FAFB; color: var(--t); font-size: 11.5px; }
-  .q-num { font-weight: 800; color: var(--bell); min-width: 28px; }
+  .q-num    { font-weight: 800; color: var(--accent); min-width: 28px; }
   .q-answer { font-weight: 700; color: #059669; }
-  .q-hint { font-size: 11.5px; color: #7C3AED; }
-  .q-desc { font-size: 11.5px; color: var(--s); line-height: 1.6; }
-  .q-note { font-size: 10.5px; color: #DC2626; font-weight: 700; margin-top: 3px; }
-
-  /* MENTOR TABLE */
-  .mentor-tbl th { background: #FEF3C7; color: #92400E; }
+  .q-hint   { font-size: 11.5px; color: #7C3AED; }
+  .q-desc   { font-size: 11.5px; color: var(--s); line-height: 1.6; }
+  .q-note   { font-size: 10.5px; color: #DC2626; font-weight: 700; margin-top: 3px; }
 
   /* EM */
   .em-list { display: flex; flex-direction: column; gap: 8px; }
@@ -143,7 +157,7 @@
   @media(max-width:640px) {
     .hero { padding: 22px 14px; } .hero h1 { font-size: 19px; }
     .main { padding: 16px 12px 50px; }
-    .prep-grid { grid-template-columns: 1fr; }
+    .overview-grid, .prep-grid { grid-template-columns: 1fr; }
     .em-sit { min-width: 120px; }
     nav { padding: 0 10px; }
     .award-banner { padding: 10px 14px; }
@@ -200,14 +214,14 @@
   <!-- 개요 + 타임라인 -->
   <div class="section">
     <div class="sec-title">📋 개요 &amp; 타임라인</div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+    <div class="overview-grid">
       <div class="tbl-wrap"><table>
         <tbody>
-          <tr><td style="width:110px;font-weight:700;color:var(--bell);">이벤트명</td><td>퀴즈 골든벨</td></tr>
-          <tr><td style="font-weight:700;color:var(--bell);">참여 인원</td><td>전체 약 130명</td></tr>
-          <tr><td style="font-weight:700;color:var(--bell);">진행 플랫폼</td><td>ZEP (미니게임 활용)</td></tr>
-          <tr><td style="font-weight:700;color:var(--bell);">소요 시간</td><td>약 20분 (19:40~20:00)</td></tr>
-          <tr><td style="font-weight:700;color:var(--bell);">진행 담당</td><td>전지현</td></tr>
+          <tr><td style="width:110px;font-weight:700;color:var(--accent);">이벤트명</td><td>퀴즈 골든벨</td></tr>
+          <tr><td style="font-weight:700;color:var(--accent);">참여 인원</td><td>전체 약 130명</td></tr>
+          <tr><td style="font-weight:700;color:var(--accent);">진행 플랫폼</td><td>ZEP (미니게임 활용)</td></tr>
+          <tr><td style="font-weight:700;color:var(--accent);">소요 시간</td><td>약 20분 (19:40~20:00)</td></tr>
+          <tr><td style="font-weight:700;color:var(--accent);">진행 담당</td><td>전지현</td></tr>
         </tbody>
       </table></div>
       <div class="tbl-wrap"><table>
@@ -278,7 +292,7 @@
         <div class="award-emoji">🥇</div>
         <div class="award-name">1명일 경우</div>
         <div class="award-point">젭포인트 2000</div>
-        <div class="award-product">BBQ 황을 + 콜라</div>
+        <div class="award-product">BBQ 황올 + 콜라</div>
         <div class="award-total">23,970원</div>
       </div>
       <div class="award-card" style="border-top:4px solid #9CA3AF;">
@@ -295,7 +309,7 @@
         <div class="award-product">맘터 싸이버거세트</div>
         <div class="award-total">21,690원</div>
       </div>
-      <div class="award-card" style="border-top:4px solid #1E1B2E; background:#F9FAFB;">
+      <div class="award-card" style="border-top:4px solid #1E1B2E;background:#F9FAFB;">
         <div class="award-emoji">💰</div>
         <div class="award-name">합계</div>
         <div class="award-point" style="background:#F3F4F6;color:#1E1B2E;">최소~최대</div>
@@ -365,12 +379,7 @@
           <div class="flow-list">
             <div class="flow-item"><div class="flow-num">①</div><div>진행자 문제 화면 공유 또는 채팅 발송</div></div>
             <div class="flow-item"><div class="flow-num">②</div><div>참가자 채팅창에 정답 입력 (15~20초)</div></div>
-            <div class="flow-item">
-              <div class="flow-num">③</div>
-              <div>진행자 정답 공개 + 해설 멘트
-                <div class="flow-sub">"정답은 OO입니다! 한 글자라도 다르게 입력하신 분은 아쉽게도 오답 처리됩니다 😢"</div>
-              </div>
-            </div>
+            <div class="flow-item"><div class="flow-num">③</div><div>진행자 정답 공개 + 해설 멘트<div class="flow-sub">"정답은 OO입니다! 한 글자라도 다르게 입력하신 분은 아쉽게도 오답 처리됩니다 😢"</div></div></div>
             <div class="flow-item"><div class="flow-num">④</div><div>오답자 탈락 처리 (채팅 모니터 담당 유재은 확인)</div></div>
             <div class="flow-item"><div class="flow-num">⑤</div><div>다음 문제로 넘어가기</div></div>
           </div>
@@ -403,18 +412,8 @@
         </div>
         <div class="step-body">
           <div class="flow-list">
-            <div class="flow-item">
-              <div class="flow-num">①</div>
-              <div>최종 생존 인원 수에 따라 시상 기준 적용
-                <div class="flow-sub">1명 → BBQ 황을+콜라 / 2명 → 스벅 아아2개+케이크 / 3명 → 맘터 싸이버거세트</div>
-              </div>
-            </div>
-            <div class="flow-item">
-              <div class="flow-num">②</div>
-              <div>젭포인트 지급 처리 (이부용 담당)
-                <div class="flow-sub">1등: 2000점 / 2등: 1500점 / 3등: 1000점</div>
-              </div>
-            </div>
+            <div class="flow-item"><div class="flow-num">①</div><div>최종 생존 인원 수에 따라 시상 기준 적용<div class="flow-sub">1명 → BBQ 황올+콜라 / 2명 → 스벅 아아2개+케이크 / 3명 → 맘터 싸이버거세트</div></div></div>
+            <div class="flow-item"><div class="flow-num">②</div><div>젭포인트 지급 처리 (이부용 담당)<div class="flow-sub">1등: 2000점 / 2등: 1500점 / 3등: 1000점</div></div></div>
             <div class="flow-item"><div class="flow-num">③</div><div>기프티콘 채팅 또는 DM으로 전달</div></div>
           </div>
         </div>
@@ -426,7 +425,7 @@
   <!-- 진행자 멘트 모음 -->
   <div class="section">
     <div class="sec-title">🎙️ 진행자용 정답 발표 멘트</div>
-    <div class="tbl-wrap"><table class="mentor-tbl">
+    <div class="tbl-wrap"><table>
       <thead><tr><th>상황</th><th>멘트</th></tr></thead>
       <tbody>
         <tr><td style="font-weight:700;white-space:nowrap;">정답 발표</td><td>"정답은 <strong>OO</strong> 입니다! 한 글자라도 다르게 입력하신 분은 아쉽게도 오답 처리돼서 탈락입니다.. 😢"</td></tr>
@@ -440,7 +439,7 @@
   <div class="section">
     <div class="sec-title">📋 골든벨 문제 구성표</div>
 
-    <div class="alert alert-y">
+    <div class="alert alert-ac">
       <div class="alert-icon">⚠️</div>
       <div><strong>문제는 변경될 수 있습니다.</strong> 문제가 바뀔 경우 이 페이지도 함께 수정해주세요. 정답 컬럼은 <span style="color:#059669;font-weight:700;">초록색</span>으로 표시됩니다.</div>
     </div>
@@ -448,245 +447,57 @@
     <!-- 난이도 하 -->
     <div class="q-section">
       <div class="q-level-header q-level-low">⭐ 난이도 하 (1~9번) — 힌트 있음</div>
-      <div class="q-tbl-wrap">
-        <table>
-          <thead><tr><th>#</th><th>카테고리</th><th>문제</th><th>정답</th><th>힌트 &amp; 입력 가이드</th><th>해설</th></tr></thead>
-          <tbody>
-            <tr>
-              <td class="q-num">1</td>
-              <td><span class="badge badge-ops">🏢 운영</span></td>
-              <td>내일배움캠프 수료를 위한 최소 출석률은 몇 %인가요?</td>
-              <td class="q-answer">80</td>
-              <td class="q-hint">숫자만 입력</td>
-              <td class="q-desc">수료 3가지 조건 중 하나. 전체 훈련 기간 대비 80% 이상 출석 필요</td>
-            </tr>
-            <tr>
-              <td class="q-num">2</td>
-              <td><span class="badge badge-ops">🏢 운영</span></td>
-              <td>하루 출석으로 인정받으려면 정확히 몇 시간 학습해야 하나요?</td>
-              <td class="q-answer">12</td>
-              <td class="q-hint">숫자만 입력</td>
-              <td class="q-desc">입실~퇴실 사이 학습 시간이 12시간 이상이어야 출석 인정</td>
-            </tr>
-            <tr>
-              <td class="q-num">3</td>
-              <td><span class="badge badge-ops">🏢 운영</span></td>
-              <td>지각·조퇴·외출이 몇 회 누적되면 결석 1회로 처리되나요?</td>
-              <td class="q-answer">3</td>
-              <td class="q-hint">숫자만 입력</td>
-              <td class="q-desc">6~11시간 59분 학습 시 지각/조퇴 1회로 간주, 3회 누적 시 결석 1회</td>
-            </tr>
-            <tr>
-              <td class="q-num">4</td>
-              <td><span class="badge badge-ops">🏢 운영</span></td>
-              <td>공가 신청은 사유 발생일 다음날 몇 시까지 가능한가요?</td>
-              <td class="q-answer">5</td>
-              <td class="q-hint">숫자만 입력<br><span class="q-note">힌트: 오후 O시</span></td>
-              <td class="q-desc">마이페이지 &gt; 출결/학습관리 하단에서 신청. 이후 신청 불가</td>
-            </tr>
-            <tr>
-              <td class="q-num">5</td>
-              <td><span class="badge badge-design">🎨 디자인</span></td>
-              <td>벡터 이미지와 래스터 이미지 중 확대해도 깨지지 않는 것은?</td>
-              <td class="q-answer">벡터</td>
-              <td class="q-hint">한글 2글자로 입력</td>
-              <td class="q-desc">벡터는 수학적 좌표로 이루어져 크기를 키워도 품질 유지. 일러스트레이터가 대표적</td>
-            </tr>
-            <tr>
-              <td class="q-num">6</td>
-              <td><span class="badge badge-design">🎨 디자인</span></td>
-              <td>RGB에서 G는 무슨 색의 약자인가요?</td>
-              <td class="q-answer">green</td>
-              <td class="q-hint">영어로 입력 (대소문자 무관)</td>
-              <td class="q-desc">RGB = Red, Green, Blue. 빛의 3원색으로 모니터·화면에 사용</td>
-            </tr>
-            <tr>
-              <td class="q-num">7</td>
-              <td><span class="badge badge-ai">🤖 AI</span></td>
-              <td>AI 이미지 생성 시 원하는 결과를 얻기 위해 입력하는 텍스트 명령어를 무엇이라고 하나요?</td>
-              <td class="q-answer">프롬프트</td>
-              <td class="q-hint">한글 4글자로 입력</td>
-              <td class="q-desc">생성형 AI에서 결과물의 방향을 지시하는 핵심 입력값</td>
-            </tr>
-            <tr>
-              <td class="q-num">8</td>
-              <td><span class="badge badge-design">🎨 디자인</span></td>
-              <td>일러스트레이터의 기본 저장 파일 확장자는?</td>
-              <td class="q-answer">ai</td>
-              <td class="q-hint">영어로 입력 (대소문자 무관)</td>
-              <td class="q-desc">Adobe Illustrator의 전용 포맷. 벡터 기반으로 편집 정보 유지</td>
-            </tr>
-            <tr>
-              <td class="q-num">9</td>
-              <td><span class="badge badge-design">🎨 디자인</span></td>
-              <td>포토샵(Photoshop)의 기본 저장 파일 확장자는?</td>
-              <td class="q-answer">psd</td>
-              <td class="q-hint">영어로 입력 (대소문자 무관)</td>
-              <td class="q-desc">Photoshop Document의 약자. 레이어 등 편집 정보를 그대로 유지하는 포토샵 전용 포맷</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+      <div class="q-tbl-wrap"><table>
+        <thead><tr><th>#</th><th>카테고리</th><th>문제</th><th>정답</th><th>힌트 &amp; 입력 가이드</th><th>해설</th></tr></thead>
+        <tbody>
+          <tr><td class="q-num">1</td><td><span class="badge badge-ops">🏢 운영</span></td><td>내일배움캠프 수료를 위한 최소 출석률은 몇 %인가요?</td><td class="q-answer">80</td><td class="q-hint">숫자만 입력</td><td class="q-desc">수료 3가지 조건 중 하나. 전체 훈련 기간 대비 80% 이상 출석 필요</td></tr>
+          <tr><td class="q-num">2</td><td><span class="badge badge-ops">🏢 운영</span></td><td>하루 출석으로 인정받으려면 정확히 몇 시간 학습해야 하나요?</td><td class="q-answer">12</td><td class="q-hint">숫자만 입력</td><td class="q-desc">입실~퇴실 사이 학습 시간이 12시간 이상이어야 출석 인정</td></tr>
+          <tr><td class="q-num">3</td><td><span class="badge badge-ops">🏢 운영</span></td><td>지각·조퇴·외출이 몇 회 누적되면 결석 1회로 처리되나요?</td><td class="q-answer">3</td><td class="q-hint">숫자만 입력</td><td class="q-desc">6~11시간 59분 학습 시 지각/조퇴 1회로 간주, 3회 누적 시 결석 1회</td></tr>
+          <tr><td class="q-num">4</td><td><span class="badge badge-ops">🏢 운영</span></td><td>공가 신청은 사유 발생일 다음날 몇 시까지 가능한가요?</td><td class="q-answer">5</td><td class="q-hint">숫자만 입력<br><span class="q-note">힌트: 오후 O시</span></td><td class="q-desc">마이페이지 &gt; 출결/학습관리 하단에서 신청. 이후 신청 불가</td></tr>
+          <tr><td class="q-num">5</td><td><span class="badge badge-design">🎨 디자인</span></td><td>벡터 이미지와 래스터 이미지 중 확대해도 깨지지 않는 것은?</td><td class="q-answer">벡터</td><td class="q-hint">한글 2글자로 입력</td><td class="q-desc">벡터는 수학적 좌표로 이루어져 크기를 키워도 품질 유지. 일러스트레이터가 대표적</td></tr>
+          <tr><td class="q-num">6</td><td><span class="badge badge-design">🎨 디자인</span></td><td>RGB에서 G는 무슨 색의 약자인가요?</td><td class="q-answer">green</td><td class="q-hint">영어로 입력 (대소문자 무관)</td><td class="q-desc">RGB = Red, Green, Blue. 빛의 3원색으로 모니터·화면에 사용</td></tr>
+          <tr><td class="q-num">7</td><td><span class="badge badge-ai">🤖 AI</span></td><td>AI 이미지 생성 시 원하는 결과를 얻기 위해 입력하는 텍스트 명령어를 무엇이라고 하나요?</td><td class="q-answer">프롬프트</td><td class="q-hint">한글 4글자로 입력</td><td class="q-desc">생성형 AI에서 결과물의 방향을 지시하는 핵심 입력값</td></tr>
+          <tr><td class="q-num">8</td><td><span class="badge badge-design">🎨 디자인</span></td><td>일러스트레이터의 기본 저장 파일 확장자는?</td><td class="q-answer">ai</td><td class="q-hint">영어로 입력 (대소문자 무관)</td><td class="q-desc">Adobe Illustrator의 전용 포맷. 벡터 기반으로 편집 정보 유지</td></tr>
+          <tr><td class="q-num">9</td><td><span class="badge badge-design">🎨 디자인</span></td><td>포토샵(Photoshop)의 기본 저장 파일 확장자는?</td><td class="q-answer">psd</td><td class="q-hint">영어로 입력 (대소문자 무관)</td><td class="q-desc">Photoshop Document의 약자. 레이어 등 편집 정보를 그대로 유지하는 포토샵 전용 포맷</td></tr>
+        </tbody>
+      </table></div>
     </div>
 
     <!-- 난이도 중 -->
     <div class="q-section">
       <div class="q-level-header q-level-mid">⭐⭐ 난이도 중 (10~21번) — 힌트 있음</div>
-      <div class="q-tbl-wrap">
-        <table>
-          <thead><tr><th>#</th><th>카테고리</th><th>문제</th><th>정답</th><th>힌트 &amp; 입력 가이드</th><th>해설</th></tr></thead>
-          <tbody>
-            <tr>
-              <td class="q-num">10</td>
-              <td><span class="badge badge-ops">🏢 운영</span></td>
-              <td>입사 면접 공가 신청 시 반드시 포함되어야 하는 것은?</td>
-              <td class="q-answer">기업직인</td>
-              <td class="q-hint">한글 4글자로 입력 (띄어쓰기 무관)</td>
-              <td class="q-desc">서명(싸인)만 있는 경우 단독 인정 불가. 기업 직인이 없으면 명함까지 추가 제출 필요</td>
-            </tr>
-            <tr>
-              <td class="q-num">11</td>
-              <td><span class="badge badge-ops">🏢 운영</span></td>
-              <td>수료 조건 중 강의 콘텐츠는 몇 % 수강해야 하나요?</td>
-              <td class="q-answer">100</td>
-              <td class="q-hint">숫자만 입력</td>
-              <td class="q-desc">이론·실습 영상 강의 전체를 100% 수강해야 수료 인정</td>
-            </tr>
-            <tr>
-              <td class="q-num">12</td>
-              <td><span class="badge badge-ops">🏢 운영</span></td>
-              <td>전체 훈련일수 대비 무단결석이 몇 %를 초과하면 제적되나요?</td>
-              <td class="q-answer">20</td>
-              <td class="q-hint">숫자만 입력</td>
-              <td class="q-desc">수료 기준 출석률 80%와 헷갈리기 쉬움. 무단결석 20% 초과 시 제적</td>
-            </tr>
-            <tr>
-              <td class="q-num">13</td>
-              <td><span class="badge badge-ops">🏢 운영</span></td>
-              <td>행정 매니저 DM 수신 후 증빙자료를 제출하지 않으면 며칠 이내에 공가가 자동 취소되나요?</td>
-              <td class="q-answer">3</td>
-              <td class="q-hint">숫자만 입력 (수신일 포함)</td>
-              <td class="q-desc">DM 수신일 포함 3일 이내 미회신 시 자동 취소. 수신일 포함이 포인트!</td>
-            </tr>
-            <tr>
-              <td class="q-num">14</td>
-              <td><span class="badge badge-design">🎨 디자인</span></td>
-              <td>인쇄물 디자인에 주로 사용하는 색상 모드는?</td>
-              <td class="q-answer">CMYK</td>
-              <td class="q-hint">영어로 입력 (대소문자 무관)</td>
-              <td class="q-desc">Cyan·Magenta·Yellow·Black의 약자. 인쇄 잉크 혼합 방식</td>
-            </tr>
-            <tr>
-              <td class="q-num">15</td>
-              <td><span class="badge badge-design">🎨 디자인</span></td>
-              <td>웹·화면용 디자인의 기본 해상도(ppi)는?</td>
-              <td class="q-answer">72</td>
-              <td class="q-hint">숫자만 입력</td>
-              <td class="q-desc">모니터 화면 기준 72ppi가 표준. 인쇄용 300dpi와 혼동 주의</td>
-            </tr>
-            <tr>
-              <td class="q-num">16</td>
-              <td><span class="badge badge-design">🎨 디자인</span></td>
-              <td>인쇄용 디자인의 권장 해상도(dpi)는?</td>
-              <td class="q-answer">300</td>
-              <td class="q-hint">숫자만 입력</td>
-              <td class="q-desc">인쇄 시 300dpi 이상이어야 선명하게 출력됨</td>
-            </tr>
-            <tr>
-              <td class="q-num">17</td>
-              <td><span class="badge badge-design">🎨 디자인</span></td>
-              <td>타이포그래피에서 줄과 줄 사이의 간격을 무엇이라고 하나요?</td>
-              <td class="q-answer">행간</td>
-              <td class="q-hint">한글 2글자로 입력</td>
-              <td class="q-desc">행간(줄 간격) vs 자간(글자 간격). 가독성에 직접적인 영향을 줌</td>
-            </tr>
-            <tr>
-              <td class="q-num">18</td>
-              <td><span class="badge badge-design">🎨 디자인</span></td>
-              <td>타이포그래피에서 글자와 글자 사이의 간격을 무엇이라고 하나요?</td>
-              <td class="q-answer">자간</td>
-              <td class="q-hint">한글 2글자로 입력</td>
-              <td class="q-desc">행간과 혼동하기 쉬운 개념. 자간 조절로 글자 밀도와 분위기 조절 가능</td>
-            </tr>
-            <tr>
-              <td class="q-num">19</td>
-              <td><span class="badge badge-design">🎨 디자인</span></td>
-              <td>색상환에서 서로 마주보는 색상 관계를 무엇이라고 하나요?</td>
-              <td class="q-answer">보색</td>
-              <td class="q-hint">한글 2글자로 입력</td>
-              <td class="q-desc">빨강-초록, 파랑-주황 등. 대비가 강해 강조·포인트 컬러로 활용</td>
-            </tr>
-            <tr>
-              <td class="q-num">20</td>
-              <td><span class="badge badge-ai">🤖 AI</span></td>
-              <td>AI 이미지 생성 시 원하지 않는 요소를 제외할 때 사용하는 프롬프트 옵션은?</td>
-              <td class="q-answer">네거티브프롬프트</td>
-              <td class="q-hint">한글 8글자로 입력 (띄어쓰기 무관)</td>
-              <td class="q-desc">생성 결과에서 제외하고 싶은 요소를 지정하는 옵션. 품질 향상에 핵심</td>
-            </tr>
-            <tr>
-              <td class="q-num">21</td>
-              <td><span class="badge badge-ai">🤖 AI</span></td>
-              <td>Adobe의 AI 이미지 생성 기능 브랜드 이름은?</td>
-              <td class="q-answer">파이어플라이</td>
-              <td class="q-hint">한글 6글자로 입력</td>
-              <td class="q-desc">Adobe Firefly. 포토샵·일러스트레이터에 통합되어 생성형 AI 기능 제공</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+      <div class="q-tbl-wrap"><table>
+        <thead><tr><th>#</th><th>카테고리</th><th>문제</th><th>정답</th><th>힌트 &amp; 입력 가이드</th><th>해설</th></tr></thead>
+        <tbody>
+          <tr><td class="q-num">10</td><td><span class="badge badge-ops">🏢 운영</span></td><td>입사 면접 공가 신청 시 반드시 포함되어야 하는 것은?</td><td class="q-answer">기업직인</td><td class="q-hint">한글 4글자로 입력 (띄어쓰기 무관)</td><td class="q-desc">서명(싸인)만 있는 경우 단독 인정 불가. 기업 직인이 없으면 명함까지 추가 제출 필요</td></tr>
+          <tr><td class="q-num">11</td><td><span class="badge badge-ops">🏢 운영</span></td><td>수료 조건 중 강의 콘텐츠는 몇 % 수강해야 하나요?</td><td class="q-answer">100</td><td class="q-hint">숫자만 입력</td><td class="q-desc">이론·실습 영상 강의 전체를 100% 수강해야 수료 인정</td></tr>
+          <tr><td class="q-num">12</td><td><span class="badge badge-ops">🏢 운영</span></td><td>전체 훈련일수 대비 무단결석이 몇 %를 초과하면 제적되나요?</td><td class="q-answer">20</td><td class="q-hint">숫자만 입력</td><td class="q-desc">수료 기준 출석률 80%와 헷갈리기 쉬움. 무단결석 20% 초과 시 제적</td></tr>
+          <tr><td class="q-num">13</td><td><span class="badge badge-ops">🏢 운영</span></td><td>행정 매니저 DM 수신 후 증빙자료를 제출하지 않으면 며칠 이내에 공가가 자동 취소되나요?</td><td class="q-answer">3</td><td class="q-hint">숫자만 입력 (수신일 포함)</td><td class="q-desc">DM 수신일 포함 3일 이내 미회신 시 자동 취소. 수신일 포함이 포인트!</td></tr>
+          <tr><td class="q-num">14</td><td><span class="badge badge-design">🎨 디자인</span></td><td>인쇄물 디자인에 주로 사용하는 색상 모드는?</td><td class="q-answer">CMYK</td><td class="q-hint">영어로 입력 (대소문자 무관)</td><td class="q-desc">Cyan·Magenta·Yellow·Black의 약자. 인쇄 잉크 혼합 방식</td></tr>
+          <tr><td class="q-num">15</td><td><span class="badge badge-design">🎨 디자인</span></td><td>웹·화면용 디자인의 기본 해상도(ppi)는?</td><td class="q-answer">72</td><td class="q-hint">숫자만 입력</td><td class="q-desc">모니터 화면 기준 72ppi가 표준. 인쇄용 300dpi와 혼동 주의</td></tr>
+          <tr><td class="q-num">16</td><td><span class="badge badge-design">🎨 디자인</span></td><td>인쇄용 디자인의 권장 해상도(dpi)는?</td><td class="q-answer">300</td><td class="q-hint">숫자만 입력</td><td class="q-desc">인쇄 시 300dpi 이상이어야 선명하게 출력됨</td></tr>
+          <tr><td class="q-num">17</td><td><span class="badge badge-design">🎨 디자인</span></td><td>타이포그래피에서 줄과 줄 사이의 간격을 무엇이라고 하나요?</td><td class="q-answer">행간</td><td class="q-hint">한글 2글자로 입력</td><td class="q-desc">행간(줄 간격) vs 자간(글자 간격). 가독성에 직접적인 영향을 줌</td></tr>
+          <tr><td class="q-num">18</td><td><span class="badge badge-design">🎨 디자인</span></td><td>타이포그래피에서 글자와 글자 사이의 간격을 무엇이라고 하나요?</td><td class="q-answer">자간</td><td class="q-hint">한글 2글자로 입력</td><td class="q-desc">행간과 혼동하기 쉬운 개념. 자간 조절로 글자 밀도와 분위기 조절 가능</td></tr>
+          <tr><td class="q-num">19</td><td><span class="badge badge-design">🎨 디자인</span></td><td>색상환에서 서로 마주보는 색상 관계를 무엇이라고 하나요?</td><td class="q-answer">보색</td><td class="q-hint">한글 2글자로 입력</td><td class="q-desc">빨강-초록, 파랑-주황 등. 대비가 강해 강조·포인트 컬러로 활용</td></tr>
+          <tr><td class="q-num">20</td><td><span class="badge badge-ai">🤖 AI</span></td><td>AI 이미지 생성 시 원하지 않는 요소를 제외할 때 사용하는 프롬프트 옵션은?</td><td class="q-answer">네거티브프롬프트</td><td class="q-hint">한글 8글자로 입력 (띄어쓰기 무관)</td><td class="q-desc">생성 결과에서 제외하고 싶은 요소를 지정하는 옵션. 품질 향상에 핵심</td></tr>
+          <tr><td class="q-num">21</td><td><span class="badge badge-ai">🤖 AI</span></td><td>Adobe의 AI 이미지 생성 기능 브랜드 이름은?</td><td class="q-answer">파이어플라이</td><td class="q-hint">한글 6글자로 입력</td><td class="q-desc">Adobe Firefly. 포토샵·일러스트레이터에 통합되어 생성형 AI 기능 제공</td></tr>
+        </tbody>
+      </table></div>
     </div>
 
     <!-- 난이도 상 -->
     <div class="q-section">
       <div class="q-level-header q-level-high">⭐⭐⭐ 난이도 상 — 결승 (22~26번) · 힌트 없이 진행 · 3~5명 남았을 때 사용</div>
-      <div class="q-tbl-wrap">
-        <table>
-          <thead><tr><th>#</th><th>카테고리</th><th>문제</th><th>정답</th><th>입력 가이드</th><th>해설</th></tr></thead>
-          <tbody>
-            <tr>
-              <td class="q-num">22</td>
-              <td><span class="badge badge-ops">🏢 운영</span></td>
-              <td>병원 진료 공가 신청 시 증빙서류에 반드시 명시되어 있어야 하는 것은?</td>
-              <td class="q-answer">질병코드</td>
-              <td class="q-hint">한글 4글자로 입력</td>
-              <td class="q-desc">진료비 영수증·계산서는 인정 불가. 병명 또는 질병코드가 명시된 진료확인서·처방전 필수</td>
-            </tr>
-            <tr>
-              <td class="q-num">23</td>
-              <td><span class="badge badge-design">🎨 디자인</span></td>
-              <td>포토샵에서 비파괴 편집을 가능하게 해주는 레이어 종류는?</td>
-              <td class="q-answer">스마트오브젝트</td>
-              <td class="q-hint">한글 7글자로 입력 (띄어쓰기 무관)</td>
-              <td class="q-desc">원본 데이터를 유지한 채 편집 가능. 크기 조절 후에도 품질 손상 없음</td>
-            </tr>
-            <tr>
-              <td class="q-num">24</td>
-              <td><span class="badge badge-design">🎨 디자인</span></td>
-              <td>포토샵에서 레이어를 합치지 않고 여러 레이어를 하나처럼 묶어 관리하는 기능은?</td>
-              <td class="q-answer">그룹</td>
-              <td class="q-hint">한글 2글자로 입력</td>
-              <td class="q-desc">레이어 패널에서 폴더처럼 묶는 기능. 병합(합치기)과 다르게 개별 편집 유지</td>
-            </tr>
-            <tr>
-              <td class="q-num">25</td>
-              <td><span class="badge badge-ai">🤖 AI</span></td>
-              <td>생성형 AI 이미지에서 동일한 스타일·분위기를 유지하기 위해 참고 이미지를 함께 입력하는 방식을 무엇이라고 하나요?</td>
-              <td class="q-answer">이미지프롬프트</td>
-              <td class="q-hint">한글 7글자로 입력 (띄어쓰기 무관)</td>
-              <td class="q-desc">텍스트 프롬프트만으로 표현하기 어려운 스타일을 이미지로 직접 지정하는 방식</td>
-            </tr>
-            <tr>
-              <td class="q-num">26</td>
-              <td><span class="badge badge-design">🎨 디자인</span></td>
-              <td>디자인에서 시각적 무게감의 균형을 맞추는 원리를 무엇이라고 하나요?</td>
-              <td class="q-answer">균형</td>
-              <td class="q-hint">한글 2글자로 입력</td>
-              <td class="q-desc">대칭·비대칭 균형 모두 포함. 레이아웃 안정감의 핵심 디자인 원리</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+      <div class="q-tbl-wrap"><table>
+        <thead><tr><th>#</th><th>카테고리</th><th>문제</th><th>정답</th><th>입력 가이드</th><th>해설</th></tr></thead>
+        <tbody>
+          <tr><td class="q-num">22</td><td><span class="badge badge-ops">🏢 운영</span></td><td>병원 진료 공가 신청 시 증빙서류에 반드시 명시되어 있어야 하는 것은?</td><td class="q-answer">질병코드</td><td class="q-hint">한글 4글자로 입력</td><td class="q-desc">진료비 영수증·계산서는 인정 불가. 병명 또는 질병코드가 명시된 진료확인서·처방전 필수</td></tr>
+          <tr><td class="q-num">23</td><td><span class="badge badge-design">🎨 디자인</span></td><td>포토샵에서 비파괴 편집을 가능하게 해주는 레이어 종류는?</td><td class="q-answer">스마트오브젝트</td><td class="q-hint">한글 7글자로 입력 (띄어쓰기 무관)</td><td class="q-desc">원본 데이터를 유지한 채 편집 가능. 크기 조절 후에도 품질 손상 없음</td></tr>
+          <tr><td class="q-num">24</td><td><span class="badge badge-design">🎨 디자인</span></td><td>포토샵에서 레이어를 합치지 않고 여러 레이어를 하나처럼 묶어 관리하는 기능은?</td><td class="q-answer">그룹</td><td class="q-hint">한글 2글자로 입력</td><td class="q-desc">레이어 패널에서 폴더처럼 묶는 기능. 병합(합치기)과 다르게 개별 편집 유지</td></tr>
+          <tr><td class="q-num">25</td><td><span class="badge badge-ai">🤖 AI</span></td><td>생성형 AI 이미지에서 동일한 스타일·분위기를 유지하기 위해 참고 이미지를 함께 입력하는 방식을 무엇이라고 하나요?</td><td class="q-answer">이미지프롬프트</td><td class="q-hint">한글 7글자로 입력 (띄어쓰기 무관)</td><td class="q-desc">텍스트 프롬프트만으로 표현하기 어려운 스타일을 이미지로 직접 지정하는 방식</td></tr>
+          <tr><td class="q-num">26</td><td><span class="badge badge-design">🎨 디자인</span></td><td>디자인에서 시각적 무게감의 균형을 맞추는 원리를 무엇이라고 하나요?</td><td class="q-answer">균형</td><td class="q-hint">한글 2글자로 입력</td><td class="q-desc">대칭·비대칭 균형 모두 포함. 레이아웃 안정감의 핵심 디자인 원리</td></tr>
+        </tbody>
+      </table></div>
     </div>
   </div>
 
@@ -698,4 +509,16 @@
       <div class="em-item"><div class="em-sit">⚡ 정답 논란 발생</div><div class="em-act">진행자가 최종 판단, 운영진 간 사전 기준 공유 필수</div></div>
       <div class="em-item"><div class="em-sit">⚡ 아무도 정답 못 맞힌 경우</div><div class="em-act">해당 문제 패스 후 다음 문제로 진행 (탈락자 없음 처리)</div></div>
       <div class="em-item"><div class="em-sit">⚡ ZEP 미니게임 오류</div><div class="em-act">채팅창 수동 진행으로 전환, 운영진이 탈락자 직접 체크</div></div>
-      <div class="em-item"><div class="em-sit">⚡ 최종 생존자가 없는 경우</div><div class="em-act">마지막 문제에서 가장 많이 살아남은 인원 기준으로 시상</div
+      <div class="em-item"><div class="em-sit">⚡ 최종 생존자가 없는 경우</div><div class="em-act">마지막 문제에서 가장 많이 살아남은 인원 기준으로 시상</div></div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div>내일배움캠프 AI 디자이너 4기 밍글데이 운영진 가이드</div>
+  <div><strong>이부용M 제작</strong> · 내부용 문서 · 외부 공유 금지</div>
+</footer>
+
+</body>
+</html>
