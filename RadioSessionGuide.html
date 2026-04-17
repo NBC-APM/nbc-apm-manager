@@ -5,276 +5,155 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>라디오 세션 가이드 | 밍글데이 운영진</title>
 <style>
+  /* ── 페이지 accent 색상 override ── */
   :root {
     --p: #7C3AED; --pl: #EDE9FE; --p2: #A78BFA;
-    --radio: #EC4899; --radiol: #FCE7F3;
     --bg: #F8F7FF; --c: #fff; --t: #1E1B2E;
     --s: #6B7280; --b: #E5E7EB; --r: 14px;
+    --accent: #EC4899; --accentl: #FCE7F3;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: "Apple SD Gothic Neo", "Malgun Gothic", sans-serif; background: var(--bg); color: var(--t); }
+  body { font-family: "Apple SD Gothic Neo","Malgun Gothic",sans-serif; background: var(--bg); color: var(--t); font-size: 13px; line-height: 1.6; }
 
   /* NAV */
-  nav {
-    position: sticky; top: 0; z-index: 100;
-    background: #fff; border-bottom: 2px solid var(--b);
-    display: flex; align-items: center;
-    padding: 0 24px; gap: 4px;
-    box-shadow: 0 2px 12px rgba(124,58,237,.08);
-    flex-wrap: wrap;
-  }
-  .nav-logo {
-    font-size: 14px; font-weight: 800; color: var(--p);
-    margin-right: 16px; white-space: nowrap;
-    padding: 14px 0; display: flex; align-items: center; gap: 6px;
-  }
+  nav { position: sticky; top: 0; z-index: 100; background: #fff; border-bottom: 2px solid var(--b); display: flex; align-items: center; padding: 0 24px; gap: 4px; box-shadow: 0 2px 12px rgba(124,58,237,.08); flex-wrap: wrap; }
+  .nav-logo { font-size: 14px; font-weight: 800; color: var(--p); margin-right: 16px; white-space: nowrap; padding: 14px 0; display: flex; align-items: center; gap: 6px; }
   .nav-logo .dot { color: #FF6584; }
   .nav-tabs { display: flex; overflow-x: auto; }
-  .nav-tab {
-    padding: 14px 13px; font-size: 12px; font-weight: 600; color: var(--s);
-    white-space: nowrap; border: none; border-bottom: 3px solid transparent;
-    background: none; transition: all .2s; text-decoration: none;
-    display: flex; align-items: center; gap: 5px; cursor: pointer;
-  }
+  .nav-tab { padding: 14px 13px; font-size: 12px; font-weight: 600; color: var(--s); white-space: nowrap; border: none; border-bottom: 3px solid transparent; background: none; transition: all .2s; text-decoration: none; display: flex; align-items: center; gap: 5px; cursor: pointer; }
   .nav-tab:hover { color: var(--p); background: var(--pl); }
   .nav-tab.active { color: var(--p); border-bottom: 3px solid var(--p); }
   .nav-tab.award { color: #D97706; }
   .nav-tab.award:hover { background: #FFFBEB; color: #B45309; }
 
   /* AWARD BANNER */
-  .award-banner {
-    background: linear-gradient(90deg, #FEF3C7 0%, #FDE68A 50%, #FEF3C7 100%);
-    border-bottom: 2px solid #FCD34D;
-    padding: 10px 24px;
-    display: flex; align-items: center; justify-content: space-between;
-    gap: 12px; flex-wrap: wrap;
-  }
+  .award-banner { background: linear-gradient(90deg,#FEF3C7 0%,#FDE68A 50%,#FEF3C7 100%); border-bottom: 2px solid #FCD34D; padding: 10px 24px; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
   .award-banner-left { display: flex; align-items: center; gap: 10px; }
   .award-banner-icon { font-size: 20px; }
   .award-banner-text { font-size: 12.5px; font-weight: 700; color: #92400E; }
   .award-banner-sub { font-size: 11px; color: #B45309; margin-top: 1px; }
-  .award-banner-btn {
-    display: inline-flex; align-items: center; gap: 5px;
-    background: #D97706; color: #fff;
-    border-radius: 8px; padding: 7px 14px;
-    font-size: 12px; font-weight: 700;
-    text-decoration: none; transition: all .2s; white-space: nowrap;
-  }
+  .award-banner-btn { display: inline-flex; align-items: center; gap: 5px; background: #D97706; color: #fff; border-radius: 8px; padding: 7px 14px; font-size: 12px; font-weight: 700; text-decoration: none; transition: all .2s; white-space: nowrap; }
   .award-banner-btn:hover { background: #B45309; }
 
   /* HERO */
-  .hero {
-    background: linear-gradient(135deg, #BE185D 0%, #EC4899 55%, #A78BFA 100%);
-    padding: 36px 32px 32px; color: #fff;
-  }
-  .hero-inner { max-width: 900px; margin: 0 auto; }
-  .hero-badge {
-    display: inline-block;
-    background: rgba(255,255,255,.18); border: 1px solid rgba(255,255,255,.3);
-    border-radius: 20px; padding: 4px 13px;
-    font-size: 11.5px; font-weight: 700; margin-bottom: 12px;
-  }
+  .hero { background: linear-gradient(135deg,#BE185D 0%,#EC4899 55%,#A78BFA 100%); padding: 36px 32px 32px; color: #fff; }
+  .hero-inner { max-width: 960px; margin: 0 auto; }
+  .hero-badge { display: inline-block; background: rgba(255,255,255,.18); border: 1px solid rgba(255,255,255,.3); border-radius: 20px; padding: 4px 13px; font-size: 11.5px; font-weight: 700; margin-bottom: 12px; }
   .hero h1 { font-size: 24px; font-weight: 900; margin-bottom: 7px; letter-spacing: -.5px; }
-  .hero p { font-size: 13px; opacity: .88; line-height: 1.7; margin-bottom: 14px; }
+  .hero p { font-size: 13px; opacity: .9; line-height: 1.7; margin-bottom: 14px; }
   .hero-meta { display: flex; gap: 8px; flex-wrap: wrap; }
-  .hero-meta-item {
-    background: rgba(255,255,255,.15); border: 1px solid rgba(255,255,255,.25);
-    border-radius: 8px; padding: 5px 12px; font-size: 12px; font-weight: 600;
-  }
+  .hero-meta-item { background: rgba(255,255,255,.18); border: 1px solid rgba(255,255,255,.3); border-radius: 8px; padding: 5px 12px; font-size: 12px; font-weight: 600; }
 
-  /* MAIN */
-  .main { max-width: 900px; margin: 0 auto; padding: 28px 18px 60px; }
+  /* LAYOUT */
+  .main { max-width: 960px; margin: 0 auto; padding: 28px 18px 60px; }
+  .section { margin-bottom: 32px; }
 
-  /* SECTION */
-  .section { margin-bottom: 30px; }
-  .sec-title {
-    font-size: 15px; font-weight: 800; color: var(--t);
-    margin-bottom: 13px; display: flex; align-items: center; gap: 8px;
-  }
-  .sec-title::before {
-    content: ""; display: inline-block;
-    width: 4px; height: 18px; background: var(--radio); border-radius: 4px;
-  }
+  /* SECTION TITLE */
+  .sec-title { font-size: 15px; font-weight: 800; color: var(--t); margin-bottom: 13px; display: flex; align-items: center; gap: 8px; }
+  .sec-title::before { content: ""; display: inline-block; width: 4px; height: 18px; background: var(--accent); border-radius: 4px; }
+
+  /* OVERVIEW GRID */
+  .overview-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
 
   /* TABLE */
   .tbl-wrap { overflow-x: auto; border-radius: var(--r); border: 1px solid var(--b); }
   table { width: 100%; border-collapse: collapse; background: #fff; font-size: 12.5px; }
-  th {
-    background: var(--radiol); color: var(--radio); font-weight: 700;
-    padding: 10px 13px; text-align: left; border-bottom: 2px solid var(--b); white-space: nowrap;
-  }
+  th { background: var(--accentl); color: var(--accent); font-weight: 700; padding: 10px 13px; text-align: left; border-bottom: 2px solid var(--b); white-space: nowrap; }
   td { padding: 10px 13px; border-bottom: 1px solid var(--b); vertical-align: middle; line-height: 1.6; }
   tr:last-child td { border-bottom: none; }
   tr:hover td { background: #FAFAFA; }
 
   /* PREP */
   .prep-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-  .prep-card {
-    background: var(--c); border: 1px solid var(--b);
-    border-radius: var(--r); padding: 18px 20px;
-  }
-  .prep-card-title {
-    font-size: 13px; font-weight: 800; color: var(--radio);
-    margin-bottom: 12px; display: flex; align-items: center; gap: 6px;
-  }
+  .prep-card { background: var(--c); border: 1px solid var(--b); border-radius: var(--r); padding: 18px 20px; }
+  .prep-card-title { font-size: 13px; font-weight: 800; color: var(--accent); margin-bottom: 12px; display: flex; align-items: center; gap: 6px; }
   .prep-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
-  .prep-list li {
-    font-size: 12.5px; line-height: 1.6; padding: 8px 11px;
-    background: var(--bg); border-radius: 8px; border-left: 3px solid #F9A8D4;
-    display: flex; align-items: flex-start; gap: 8px;
-  }
-  .prep-list li input[type=checkbox] { margin-top: 3px; flex-shrink: 0; accent-color: var(--radio); }
-
-  /* SHORTCUT BUTTONS */
-  .shortcut-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px; }
-  .shortcut-btn {
-    display: inline-flex; align-items: center; gap: 7px;
-    padding: 9px 16px; border-radius: 10px;
-    font-size: 12.5px; font-weight: 700;
-    text-decoration: none; transition: all .2s;
-    border: 2px dashed;
-  }
-  .shortcut-btn.form {
-    background: #FFF0F6; color: var(--radio);
-    border-color: #F9A8D4;
-  }
-  .shortcut-btn.form:hover { background: var(--radiol); border-style: solid; }
-  .shortcut-btn.sheet {
-    background: #F0FDF4; color: #16A34A;
-    border-color: #86EFAC;
-  }
-  .shortcut-btn.sheet:hover { background: #DCFCE7; border-style: solid; }
-  .shortcut-btn .coming {
-    font-size: 10px; font-weight: 600;
-    background: #E5E7EB; color: var(--s);
-    border-radius: 5px; padding: 1px 6px;
-  }
-
-  /* SCHEDULE CARD */
-  .schedule-card {
-    background: var(--c); border: 1px solid var(--b);
-    border-radius: var(--r); padding: 16px 20px;
-    display: flex; gap: 14px; align-items: flex-start;
-    margin-bottom: 10px;
-  }
-  .schedule-icon { font-size: 24px; flex-shrink: 0; }
-  .schedule-body h4 { font-size: 13px; font-weight: 800; margin-bottom: 4px; }
-  .schedule-body p { font-size: 12.5px; color: var(--s); line-height: 1.7; }
-  .schedule-date {
-    display: inline-block; background: var(--radiol); color: var(--radio);
-    border-radius: 7px; padding: 2px 10px; font-size: 11.5px; font-weight: 700;
-    margin-bottom: 6px;
-  }
+  .prep-list li { font-size: 12.5px; line-height: 1.6; padding: 8px 11px; background: var(--bg); border-radius: 8px; border-left: 3px solid var(--accentl); display: flex; align-items: flex-start; gap: 8px; }
+  .prep-list li input[type=checkbox] { margin-top: 3px; flex-shrink: 0; accent-color: var(--accent); }
 
   /* ROLE */
-  .role-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px,1fr)); gap: 12px; }
-  .role-card {
-    background: var(--c); border: 1px solid var(--b);
-    border-radius: var(--r); padding: 16px 18px;
-    border-top: 4px solid var(--radio);
-  }
-  .role-title { font-size: 12.5px; font-weight: 800; color: var(--radio); margin-bottom: 6px; }
+  .role-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(200px,1fr)); gap: 12px; }
+  .role-card { background: var(--c); border: 1px solid var(--b); border-radius: var(--r); padding: 16px 18px; border-top: 4px solid var(--accent); }
+  .role-title { font-size: 12.5px; font-weight: 800; color: var(--accent); margin-bottom: 5px; }
   .role-desc { font-size: 12px; color: var(--s); line-height: 1.6; }
-  .role-who { margin-top: 10px; padding-top: 8px; border-top: 1px dashed var(--b); font-size: 11.5px; font-weight: 700; }
+  .role-who { margin-top: 9px; padding-top: 8px; border-top: 1px dashed var(--b); font-size: 11.5px; font-weight: 700; }
 
-  /* AWARD */
-  .award-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px,1fr)); gap: 12px; }
-  .award-card {
-    background: var(--c); border: 1px solid var(--b);
-    border-radius: var(--r); padding: 16px 18px;
-  }
-  .award-emoji { font-size: 26px; margin-bottom: 6px; }
-  .award-name { font-size: 13px; font-weight: 800; margin-bottom: 3px; }
-  .award-criteria { font-size: 11.5px; color: var(--s); line-height: 1.5; margin-bottom: 8px; font-style: italic; }
-  .award-product {
-    display: inline-block; background: var(--radiol); color: var(--radio);
-    border-radius: 7px; padding: 3px 9px; font-size: 11px; font-weight: 700;
-  }
-  .award-total { font-size: 11px; color: var(--s); margin-top: 4px; }
-
-  /* ALERT */
-  .alert {
-    border-radius: var(--r); padding: 12px 16px;
-    font-size: 12.5px; line-height: 1.7; margin-bottom: 14px;
-    display: flex; gap: 10px; align-items: flex-start;
-  }
-  .alert-y { background: #FFFBEB; border-left: 4px solid #F59E0B; }
-  .alert-r { background: #FEF2F2; border-left: 4px solid #EF4444; }
-  .alert-p { background: var(--radiol); border-left: 4px solid var(--radio); }
-  .alert-g { background: #F0FDF4; border-left: 4px solid #16A34A; }
-  .alert-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
-
-  /* ANNOUNCE */
-  .announce-box {
-    background: #F0FDF4; border: 1px solid #BBF7D0;
-    border-radius: var(--r); padding: 16px 20px;
-  }
-  .announce-title { font-size: 13px; font-weight: 800; color: #166534; margin-bottom: 10px; }
-  .announce-body { font-size: 12.5px; color: #14532D; line-height: 1.9; white-space: pre-line; }
-
-  /* STEPS */
-  .steps { display: flex; flex-direction: column; gap: 14px; }
-  .step-card {
-    background: var(--c); border: 1px solid var(--b);
-    border-radius: var(--r); padding: 18px 20px;
-    display: flex; gap: 14px; align-items: flex-start;
-  }
-  .step-num {
-    min-width: 34px; height: 34px; background: var(--radio); color: #fff;
-    border-radius: 50%; display: flex; align-items: center; justify-content: center;
-    font-size: 13px; font-weight: 800; flex-shrink: 0;
-  }
-  .step-body { flex: 1; }
-  .step-body h3 { font-size: 13.5px; font-weight: 800; margin-bottom: 8px; }
-  .step-body p { font-size: 12.5px; color: var(--s); line-height: 1.7; margin-bottom: 6px; }
+  /* STEPS — 골든벨 공통 스타일 */
+  .steps { display: flex; flex-direction: column; gap: 16px; }
+  .step-card { background: var(--c); border: 1px solid var(--b); border-radius: var(--r); overflow: hidden; }
+  .step-header { display: flex; align-items: center; gap: 14px; padding: 14px 20px; border-bottom: 1px solid var(--b); background: var(--accentl); }
+  .step-num { min-width: 34px; height: 34px; background: var(--accent); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 800; flex-shrink: 0; }
+  .step-header-text h3 { font-size: 13.5px; font-weight: 800; color: var(--accent); }
+  .step-header-text p { font-size: 11.5px; color: var(--s); margin-top: 2px; }
+  .step-body { padding: 16px 20px; }
+  .step-body > p { font-size: 12.5px; color: var(--s); line-height: 1.7; margin-bottom: 10px; }
 
   /* SCRIPT */
-  .script-box {
-    background: #1E1E2E; color: #CDD6F4;
-    border-radius: var(--r); padding: 14px 18px;
-    font-size: 12.5px; line-height: 1.9;
-    font-family: "Courier New", monospace;
-    margin-top: 8px; white-space: pre-wrap;
-  }
+  .script-wrap { margin-top: 10px; }
+  .script-label { font-size: 11px; font-weight: 700; color: var(--s); margin-bottom: 6px; }
+  .script-box { background: #1E1E2E; color: #CDD6F4; border-radius: 10px; padding: 14px 18px; font-size: 12.5px; line-height: 2; font-family: "Apple SD Gothic Neo","Malgun Gothic",sans-serif; white-space: pre-wrap; }
+  .script-box .hl { color: #A6E3A1; font-weight: 700; }
 
   /* FLOW */
   .flow-list { display: flex; flex-direction: column; gap: 6px; }
-  .flow-item {
-    display: flex; gap: 10px; align-items: flex-start;
-    background: var(--bg); border-radius: 9px; padding: 9px 13px;
-    font-size: 12.5px; line-height: 1.6;
-  }
-  .flow-num {
-    min-width: 22px; height: 22px; background: var(--radio); color: #fff;
-    border-radius: 50%; display: flex; align-items: center; justify-content: center;
-    font-size: 11px; font-weight: 800; flex-shrink: 0; margin-top: 1px;
-  }
+  .flow-item { display: flex; gap: 10px; align-items: flex-start; background: var(--bg); border-radius: 9px; padding: 9px 13px; font-size: 12.5px; line-height: 1.6; }
+  .flow-num { min-width: 22px; height: 22px; background: var(--accent); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; flex-shrink: 0; margin-top: 1px; }
   .flow-sub { font-size: 11.5px; color: var(--s); margin-top: 2px; }
+
+  /* ALERT */
+  .alert { border-radius: var(--r); padding: 12px 16px; font-size: 12.5px; line-height: 1.7; margin-bottom: 14px; display: flex; gap: 10px; align-items: flex-start; }
+  .alert-y   { background: #FFFBEB; border-left: 4px solid #F59E0B; }
+  .alert-r   { background: #FEF2F2; border-left: 4px solid #EF4444; }
+  .alert-g   { background: #F0FDF4; border-left: 4px solid #16A34A; }
+  .alert-ac  { background: var(--accentl); border-left: 4px solid var(--accent); }
+  .alert-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+
+  /* AWARD */
+  .award-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(200px,1fr)); gap: 12px; }
+  .award-card { background: var(--c); border: 1px solid var(--b); border-radius: var(--r); padding: 16px 18px; }
+  .award-emoji { font-size: 26px; margin-bottom: 6px; }
+  .award-name { font-size: 13px; font-weight: 800; margin-bottom: 3px; }
+  .award-criteria { font-size: 11.5px; color: var(--s); line-height: 1.5; margin-bottom: 8px; font-style: italic; }
+  .award-product { display: inline-block; background: var(--accentl); color: var(--accent); border-radius: 7px; padding: 3px 9px; font-size: 11px; font-weight: 700; }
+  .award-total { font-size: 11px; color: var(--s); margin-top: 4px; }
+
+  /* SCHEDULE CARD */
+  .schedule-card { background: var(--c); border: 1px solid var(--b); border-radius: var(--r); padding: 16px 20px; display: flex; gap: 14px; align-items: flex-start; margin-bottom: 10px; }
+  .schedule-icon { font-size: 24px; flex-shrink: 0; }
+  .schedule-body h4 { font-size: 13px; font-weight: 800; margin-bottom: 4px; }
+  .schedule-body p { font-size: 12.5px; color: var(--s); line-height: 1.7; }
+  .schedule-date { display: inline-block; background: var(--accentl); color: var(--accent); border-radius: 7px; padding: 2px 10px; font-size: 11.5px; font-weight: 700; margin-bottom: 6px; }
+
+  /* SHORTCUT */
+  .shortcut-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px; }
+  .shortcut-btn { display: inline-flex; align-items: center; gap: 7px; padding: 9px 16px; border-radius: 10px; font-size: 12.5px; font-weight: 700; text-decoration: none; transition: all .2s; border: 2px dashed; }
+  .shortcut-btn.form { background: #FFF0F6; color: var(--accent); border-color: #F9A8D4; }
+  .shortcut-btn.form:hover { background: var(--accentl); border-style: solid; }
+  .shortcut-btn.sheet { background: #F0FDF4; color: #16A34A; border-color: #86EFAC; }
+  .shortcut-btn.sheet:hover { background: #DCFCE7; border-style: solid; }
+  .shortcut-btn .coming { font-size: 10px; font-weight: 600; background: #E5E7EB; color: var(--s); border-radius: 5px; padding: 1px 6px; }
+
+  /* ANNOUNCE */
+  .announce-box { background: #F0FDF4; border: 1px solid #BBF7D0; border-radius: var(--r); padding: 16px 20px; }
+  .announce-title { font-size: 13px; font-weight: 800; color: #166534; margin-bottom: 10px; }
+  .announce-body { font-size: 12.5px; color: #14532D; line-height: 1.9; white-space: pre-line; }
 
   /* EM */
   .em-list { display: flex; flex-direction: column; gap: 8px; }
-  .em-item {
-    background: var(--c); border: 1px solid var(--b);
-    border-radius: 10px; padding: 11px 15px;
-    display: flex; gap: 12px; align-items: flex-start;
-  }
+  .em-item { background: var(--c); border: 1px solid var(--b); border-radius: 10px; padding: 11px 15px; display: flex; gap: 12px; align-items: flex-start; }
   .em-sit { min-width: 200px; font-size: 12px; font-weight: 700; color: #DC2626; flex-shrink: 0; }
   .em-act { font-size: 12px; color: var(--t); line-height: 1.6; }
 
-  footer {
-    background: var(--t); color: rgba(255,255,255,.55);
-    text-align: center; padding: 22px 16px;
-    font-size: 11.5px; line-height: 1.8;
-  }
+  footer { background: var(--t); color: rgba(255,255,255,.55); text-align: center; padding: 22px 16px; font-size: 11.5px; line-height: 1.8; }
   footer strong { color: rgba(255,255,255,.85); }
 
   @media(max-width:640px) {
-    .hero { padding: 22px 14px; }
-    .hero h1 { font-size: 19px; }
+    .hero { padding: 22px 14px; } .hero h1 { font-size: 19px; }
     .main { padding: 16px 12px 50px; }
-    .prep-grid { grid-template-columns: 1fr; }
-    .em-sit { min-width: 130px; }
+    .overview-grid, .prep-grid { grid-template-columns: 1fr; }
+    .em-sit { min-width: 120px; }
     nav { padding: 0 10px; }
+    .award-banner { padding: 10px 14px; }
     .shortcut-row { flex-direction: column; }
   }
 </style>
@@ -285,18 +164,19 @@
 <nav>
   <div class="nav-logo">🎉 밍글데이 <span class="dot">·</span> 운영진 가이드</div>
   <div class="nav-tabs">
-    <a href="/nbc-apm-manager/index.html" class="nav-tab">🏠 홈</a>
-    <a href="/nbc-apm-manager/OpeningGuide.html" class="nav-tab">🎙️ 오프닝</a>
-    <a href="/nbc-apm-manager/OXQuizGuide.html" class="nav-tab">❓ OX 퀴즈</a>
-    <a href="/nbc-apm-manager/GoldenBellGameGuide.html" class="nav-tab">🔔 골든벨</a>
-    <a href="/nbc-apm-manager/PictureBingoManagerGuide.html" class="nav-tab">🎨 그림 빙고</a>
-    <a href="/nbc-apm-manager/RadioSessionGuide.html" class="nav-tab active">📻 라디오</a>
-    <a href="/nbc-apm-manager/CloseGuide.html" class="nav-tab">📸 마무리</a>
-    <a href="/nbc-apm-manager/AwardGuide.html" class="nav-tab award">🏆 상품 지급</a>
+    <a href="https://nbc-apm.github.io/nbc-apm-manager/index.html" class="nav-tab">🏠 홈</a>
+    <a href="https://nbc-apm.github.io/nbc-apm-manager/OpeningGuide.html" class="nav-tab">🎙️ 오프닝</a>
+    <a href="https://nbc-apm.github.io/nbc-apm-manager/OXQuizGuide.html" class="nav-tab">❓ OX 퀴즈</a>
+    <a href="https://nbc-apm.github.io/nbc-apm-manager/GoldenBellGameGuide.html" class="nav-tab">🔔 골든벨</a>
+    <a href="https://nbc-apm.github.io/nbc-apm-manager/PictureBingoManagerGuide.html" class="nav-tab">🎨 그림 빙고</a>
+    <a href="https://nbc-apm.github.io/nbc-apm-manager/RadioSessionGuide.html" class="nav-tab active">📻 라디오</a>
+    <a href="https://nbc-apm.github.io/nbc-apm-manager/CloseGuide.html" class="nav-tab">📸 마무리</a>
+    <a href="https://nbc-apm.github.io/nbc-apm-manager/AwardGuide.html" class="nav-tab award">🏆 상품 지급</a>
   </div>
 </nav>
 
-  <div class="award-banner">
+<!-- AWARD BANNER -->
+<div class="award-banner">
   <div class="award-banner-left">
     <div class="award-banner-icon">🏆</div>
     <div>
@@ -314,78 +194,67 @@
     <h1>📻 라디오 세션 진행 가이드</h1>
     <p>여러분의 사연을 함께 읽고 공감하는 따뜻한 마무리 세션 · 작성일 2026.04.17</p>
     <div class="hero-meta">
-      <div class="hero-meta-item">👥 약 130명</div>
-      <div class="hero-meta-item">📍 캠핑존</div>
       <div class="hero-meta-item">⏱️ 약 25분</div>
       <div class="hero-meta-item">🕐 20:30~20:55</div>
+      <div class="hero-meta-item">📍 캠핑존</div>
       <div class="hero-meta-item">👤 진행: 유재은</div>
+      <div class="hero-meta-item">👥 약 130명</div>
     </div>
   </div>
 </div>
 
 <div class="main">
 
-  <!-- 개요 -->
+  <!-- 개요 + 타임라인 -->
   <div class="section">
-    <div class="sec-title">📋 개요</div>
-    <div class="tbl-wrap"><table>
-      <tbody>
-        <tr><td style="width:140px;font-weight:700;color:var(--radio);">이벤트명</td><td>라디오 세션</td></tr>
-        <tr><td style="font-weight:700;color:var(--radio);">참여 인원</td><td>전체 약 130명</td></tr>
-        <tr><td style="font-weight:700;color:var(--radio);">진행 플랫폼</td><td>ZEP (캠핑존)</td></tr>
-        <tr><td style="font-weight:700;color:var(--radio);">예상 소요 시간</td><td>약 25분 (20:30~20:55)</td></tr>
-        <tr><td style="font-weight:700;color:var(--radio);">진행 담당</td><td>유재은</td></tr>
-        <tr><td style="font-weight:700;color:var(--radio);">사연 제출 방식</td><td>구글폼 사전 제출</td></tr>
-        <tr><td style="font-weight:700;color:var(--radio);">사연 접수 기간</td><td>4월 21일(화) 저녁 ~ 4월 28일(화) · 약 1주일</td></tr>
-        <tr><td style="font-weight:700;color:var(--radio);">비고</td><td>앞 세션 시간 남으면 일찍 시작 가능</td></tr>
-      </tbody>
-    </table></div>
-  </div>
-
-  <!-- 타임라인 -->
-  <div class="section">
-    <div class="sec-title">⏱️ 전체 타임라인</div>
-    <div class="tbl-wrap"><table>
-      <thead><tr><th>시간</th><th>내용</th></tr></thead>
-      <tbody>
-        <tr><td>00:00 ~ 00:02</td><td>오프닝 &amp; 세션 소개</td></tr>
-        <tr><td>00:02 ~ 00:05</td><td>코너 안내 &amp; 투표 방법 설명</td></tr>
-        <tr><td>00:05 ~ 00:22</td><td>사연 진행 (6~7개)</td></tr>
-        <tr><td>00:22 ~ 00:25</td><td>투표 집계 &amp; 시상 발표</td></tr>
-        <tr><td><strong>총 소요</strong></td><td><strong>약 25분</strong></td></tr>
-      </tbody>
-    </table></div>
+    <div class="sec-title">📋 개요 &amp; 타임라인</div>
+    <div class="overview-grid">
+      <div class="tbl-wrap"><table>
+        <tbody>
+          <tr><td style="width:130px;font-weight:700;color:var(--accent);">이벤트명</td><td>라디오 세션</td></tr>
+          <tr><td style="font-weight:700;color:var(--accent);">참여 인원</td><td>전체 약 130명</td></tr>
+          <tr><td style="font-weight:700;color:var(--accent);">진행 플랫폼</td><td>ZEP (캠핑존)</td></tr>
+          <tr><td style="font-weight:700;color:var(--accent);">소요 시간</td><td>약 25분 (20:30~20:55)</td></tr>
+          <tr><td style="font-weight:700;color:var(--accent);">진행 담당</td><td>유재은</td></tr>
+          <tr><td style="font-weight:700;color:var(--accent);">사연 제출</td><td>구글폼 사전 제출</td></tr>
+          <tr><td style="font-weight:700;color:var(--accent);">접수 기간</td><td>4/21(화) 저녁 ~ 4/28(화)</td></tr>
+          <tr><td style="font-weight:700;color:var(--accent);">비고</td><td>앞 세션 남으면 일찍 시작 가능</td></tr>
+        </tbody>
+      </table></div>
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>시간</th><th>내용</th></tr></thead>
+        <tbody>
+          <tr><td>00:00 ~ 00:02</td><td>오프닝 &amp; 세션 소개</td></tr>
+          <tr><td>00:02 ~ 00:05</td><td>코너 안내 &amp; 투표 방법 설명</td></tr>
+          <tr><td>00:05 ~ 00:22</td><td>사연 진행 (6~7개)</td></tr>
+          <tr><td>00:22 ~ 00:25</td><td>투표 집계 &amp; 시상 발표</td></tr>
+          <tr><td><strong>총 소요</strong></td><td><strong>약 25분</strong></td></tr>
+        </tbody>
+      </table></div>
+    </div>
   </div>
 
   <!-- 사연 접수 일정 -->
   <div class="section">
-    <div class="sec-title">📅 사연 접수 일정 및 바로가기</div>
-
+    <div class="sec-title">📅 사연 접수 일정 &amp; 바로가기</div>
     <div class="alert alert-g">
       <div class="alert-icon">ℹ️</div>
-      <div>
-        사연은 <strong>상 유형을 나눠서 받지 않습니다.</strong> 어떤 내용이 들어올지 모르기 때문에 자유롭게 받고,
-        들어오는 사연에 따라 시상 내용이 달라질 수 있습니다.
-      </div>
+      <div>사연은 <strong>상 유형을 나눠서 받지 않습니다.</strong> 자유롭게 받고 들어오는 사연에 따라 시상 내용이 달라질 수 있습니다.</div>
     </div>
-
     <div class="schedule-card">
       <div class="schedule-icon">📋</div>
       <div class="schedule-body">
         <div class="schedule-date">4월 21일(화) 저녁 ~ 4월 28일(화)</div>
         <h4>사연 구글폼 접수 기간</h4>
-        <p>약 1주일간 구글폼으로 사연을 받습니다. 사연 제출 시 상 유형 구분 없이 자유롭게 작성하도록 안내해주세요.</p>
+        <p>약 1주일간 구글폼으로 사연을 받습니다. 상 유형 구분 없이 자유롭게 작성하도록 안내해주세요.</p>
       </div>
     </div>
-
     <div class="shortcut-row">
-      <a href="#" class="shortcut-btn form" id="formLink" onclick="return false;">
-        📝 사연 제출 구글폼 바로가기
-        <span class="coming">링크 준비 중</span>
+      <a href="#" class="shortcut-btn form" onclick="return false;">
+        📝 사연 제출 구글폼 바로가기 <span class="coming">링크 준비 중</span>
       </a>
-      <a href="#" class="shortcut-btn sheet" id="sheetLink" onclick="return false;">
-        📊 사연 응답 스프레드시트 바로가기
-        <span class="coming">링크 준비 중</span>
+      <a href="#" class="shortcut-btn sheet" onclick="return false;">
+        📊 사연 응답 스프레드시트 바로가기 <span class="coming">링크 준비 중</span>
       </a>
     </div>
     <p style="font-size:11.5px;color:var(--s);margin-top:10px;">※ 구글폼 및 스프레드시트 링크는 제작 완료 후 연결 예정입니다.</p>
@@ -393,7 +262,7 @@
 
   <!-- 사전 준비 -->
   <div class="section">
-    <div class="sec-title">📦 사전 준비</div>
+    <div class="sec-title">📦 사전 준비 체크리스트</div>
     <div class="prep-grid">
       <div class="prep-card">
         <div class="prep-card-title">📅 사전 준비</div>
@@ -443,17 +312,12 @@
     <div class="sec-title">🏆 시상 구조</div>
     <div class="alert alert-y">
       <div class="alert-icon">⚠️</div>
-      <div>
-        <strong>상 중복 수상 불가</strong> · 인당 상품 금액 <strong>50,000원 제한</strong>이 있습니다.<br>
-        중복 수상 시 일부 상품을 받지 못할 수 있으니 해당 수상자에게 <strong>개인 안내 필수</strong>.<br>
-        초과 시 젭포인트로 대체 지급 또는 차순위에게 상이 넘어갈 수 있음을 사전 공지해주세요.
-      </div>
+      <div><strong>상 중복 수상 불가</strong> · 인당 상품 금액 <strong>50,000원 제한</strong>이 있습니다.<br>
+      중복 수상 시 해당 수상자에게 <strong>개인 안내 필수</strong>. 초과 시 젭포인트 대체 또는 차순위 이전.</div>
     </div>
-    <div class="alert alert-p">
+    <div class="alert alert-ac">
       <div class="alert-icon">📌</div>
-      <div>
-        사연은 상 유형 구분 없이 자유롭게 접수받으며, <strong>들어오는 사연 내용에 따라 시상 기준이 달라질 수 있습니다.</strong>
-      </div>
+      <div>사연은 상 유형 구분 없이 자유롭게 접수받으며, <strong>들어오는 사연 내용에 따라 시상 기준이 달라질 수 있습니다.</strong></div>
     </div>
     <div class="award-grid">
       <div class="award-card" style="border-top:4px solid #F59E0B;">
@@ -477,7 +341,7 @@
         <div class="award-product">BBQ 황올 + 콜라</div>
         <div class="award-total">23,970원</div>
       </div>
-      <div class="award-card" style="border-top:4px solid var(--radio);">
+      <div class="award-card" style="border-top:4px solid var(--accent);">
         <div class="award-emoji">💜</div>
         <div class="award-name">운영진 간택상</div>
         <div class="award-criteria">"저희 마음에 쏙 드는 사연이었어요.."</div>
@@ -488,15 +352,15 @@
         <div class="award-emoji">👏</div>
         <div class="award-name">참여상</div>
         <div class="award-criteria">참가 인원 전체</div>
-        <div class="award-product">젭포인트 500</div>
-        <div class="award-total">-</div>
+        <div class="award-product" style="background:#F3F4F6;color:var(--s);">젭포인트 500</div>
+        <div class="award-total">—</div>
       </div>
-      <div class="award-card" style="border-top:4px solid #1E1B2E; background:#F9FAFB;">
+      <div class="award-card" style="border-top:4px solid #1E1B2E;background:#F9FAFB;">
         <div class="award-emoji">💰</div>
         <div class="award-name">합계</div>
-        <div class="award-criteria">4명 수상 기준</div>
+        <div class="award-criteria">4명 수상 기준 · 중복 수상 X</div>
         <div class="award-product" style="background:#F3F4F6;color:#1E1B2E;">95,880원</div>
-        <div class="award-total">상 중복 수상 X</div>
+        <div class="award-total">인당 50,000원 제한</div>
       </div>
     </div>
   </div>
@@ -521,112 +385,74 @@
     <div class="steps">
 
       <div class="step-card">
-        <div class="step-num">1</div>
+        <div class="step-header">
+          <div class="step-num">1</div>
+          <div class="step-header-text">
+            <h3>STEP 1 · 오프닝 (2분)</h3>
+            <p>진행자 유재은 — 세션 소개 및 안내</p>
+          </div>
+        </div>
         <div class="step-body">
-          <h3>STEP 1 · 오프닝 (2분)</h3>
-          <p>진행자 안내 멘트</p>
-          <div class="script-box">"안녕하세요 여러분, 지금부터 밍글데이 라디오 세션을 시작합니다 📻
+          <div class="script-wrap">
+            <div class="script-label">🎙️ 진행자 대본</div>
+            <div class="script-box">"안녕하세요 여러분, 지금부터 밍글데이 라디오 세션을 시작합니다 📻
  오늘은 여러분이 보내주신 사연을 함께 읽고 공감하는 시간을 가질 거예요.
- 사연은 모두 익명으로 소개되며, 세션이 끝난 후 투표를 통해 4분께 상품을 드릴겁니다!
+ 사연은 모두 익명으로 소개되며, 세션이 끝난 후 투표를 통해 <span class="hl">4분께 상품을 드릴겁니다!</span>
  편안하게 즐겨주세요 🎶"</div>
-        </div>
-      </div>
-
-      <div class="step-card">
-        <div class="step-num">2</div>
-        <div class="step-body">
-          <h3>STEP 2 · 코너 안내 (3분)</h3>
-          <p>투표 방법 및 진행 방식 안내</p>
-          <div class="flow-list">
-            <div class="flow-item">
-              <div class="flow-num">①</div>
-              <div>투표 앱 링크 채팅창에 공유
-                <div class="flow-sub">"사연을 다 들으신 후 투표 링크로 마음에 드는 사연에 투표해주세요!"</div>
-              </div>
-            </div>
-            <div class="flow-item">
-              <div class="flow-num">②</div>
-              <div>사연 진행 방식 안내
-                <div class="flow-sub">"사연은 익명으로 소개되고, 각 사연마다 짧은 코멘트를 드릴 예정이에요. 채팅창으로 공감 반응 자유롭게 남겨주세요 😊"</div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
 
       <div class="step-card">
-        <div class="step-num">3</div>
+        <div class="step-header">
+          <div class="step-num">2</div>
+          <div class="step-header-text">
+            <h3>STEP 2 · 코너 안내 (3분)</h3>
+            <p>투표 방법 및 진행 방식 안내</p>
+          </div>
+        </div>
         <div class="step-body">
-          <h3>STEP 3 · 사연 진행 (20분)</h3>
-          <p>사연 1개당 약 2~3분 / 총 6~7개 진행</p>
           <div class="flow-list">
-            <div class="flow-item">
-              <div class="flow-num">①</div>
-              <div>사연 제목 또는 한 줄 요약 소개
-                <div class="flow-sub">"다음 사연 제목은 OOO입니다"</div>
-              </div>
-            </div>
-            <div class="flow-item">
-              <div class="flow-num">②</div>
-              <div>사연 읽기
-                <div class="flow-sub">익명 처리된 사연 낭독</div>
-              </div>
-            </div>
-            <div class="flow-item">
-              <div class="flow-num">③</div>
-              <div>공감 멘트
-                <div class="flow-sub">"정말 공감되는 사연이네요 / 많이 힘드셨겠다 싶었어요..."</div>
-              </div>
-            </div>
-            <div class="flow-item">
-              <div class="flow-num">④</div>
-              <div>짧은 진행자 코멘트
-                <div class="flow-sub">사연 내용에 맞는 따뜻한 한마디</div>
-              </div>
-            </div>
-            <div class="flow-item">
-              <div class="flow-num">⑤</div>
-              <div>마무리 멘트 후 다음 사연으로 연결
-                <div class="flow-sub">"다음 사연도 바로 소개할게요!"</div>
-              </div>
-            </div>
+            <div class="flow-item"><div class="flow-num">①</div><div>투표 앱 링크 채팅창에 공유<div class="flow-sub">"사연을 다 들으신 후 투표 링크로 마음에 드는 사연에 투표해주세요!"</div></div></div>
+            <div class="flow-item"><div class="flow-num">②</div><div>사연 진행 방식 안내<div class="flow-sub">"사연은 익명으로 소개되고, 각 사연마다 짧은 코멘트를 드릴 예정이에요. 채팅창으로 공감 반응 자유롭게 남겨주세요 😊"</div></div></div>
           </div>
         </div>
       </div>
 
       <div class="step-card">
-        <div class="step-num">4</div>
+        <div class="step-header">
+          <div class="step-num">3</div>
+          <div class="step-header-text">
+            <h3>STEP 3 · 사연 진행 (20분)</h3>
+            <p>사연 1개당 약 2~3분 / 총 6~7개 진행</p>
+          </div>
+        </div>
         <div class="step-body">
-          <h3>STEP 4 · 엔딩 &amp; 시상 (3분)</h3>
           <div class="flow-list">
-            <div class="flow-item">
-              <div class="flow-num">①</div>
-              <div>오늘 사연 전체 분위기 정리 멘트
-                <div class="flow-sub">"오늘 정말 다양한 사연들이 있었는데요, 웃기기도 하고 뭉클하기도 했던 것 같아요 🥹"</div>
-              </div>
-            </div>
-            <div class="flow-item">
-              <div class="flow-num">②</div>
-              <div>투표 링크 최종 안내 및 마감
-                <div class="flow-sub">"아직 투표 안 하신 분들은 지금 바로 참여해주세요! 곧 마감됩니다"</div>
-              </div>
-            </div>
-            <div class="flow-item">
-              <div class="flow-num">③</div>
-              <div>투표 결과 집계 확인 (투표 관리 담당 운영진)</div>
-            </div>
-            <div class="flow-item">
-              <div class="flow-num">④</div>
-              <div>수상자 발표
-                <div class="flow-sub">"감동상은 OO번 사연입니다 🥹" / "웃음상은 OO번 사연입니다 😂" / "고해성사상은 OO번 사연입니다 🙏" / "운영진 간택상은 OO번 사연입니다 💜"</div>
-              </div>
-            </div>
-            <div class="flow-item">
-              <div class="flow-num">⑤</div>
-              <div>참여 감사 인사 및 마무리
-                <div class="flow-sub">"오늘 사연 보내주신 모든 분들 감사합니다! 수상자분들께는 기프티콘 DM으로 전달드릴게요 🎁"</div>
-              </div>
-            </div>
+            <div class="flow-item"><div class="flow-num">①</div><div>사연 제목 또는 한 줄 요약 소개<div class="flow-sub">"다음 사연 제목은 OOO입니다"</div></div></div>
+            <div class="flow-item"><div class="flow-num">②</div><div>사연 읽기<div class="flow-sub">익명 처리된 사연 낭독</div></div></div>
+            <div class="flow-item"><div class="flow-num">③</div><div>공감 멘트<div class="flow-sub">"정말 공감되는 사연이네요 / 많이 힘드셨겠다 싶었어요..."</div></div></div>
+            <div class="flow-item"><div class="flow-num">④</div><div>짧은 진행자 코멘트<div class="flow-sub">사연 내용에 맞는 따뜻한 한마디</div></div></div>
+            <div class="flow-item"><div class="flow-num">⑤</div><div>마무리 멘트 후 다음 사연으로 연결<div class="flow-sub">"다음 사연도 바로 소개할게요!"</div></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-header">
+          <div class="step-num">4</div>
+          <div class="step-header-text">
+            <h3>STEP 4 · 엔딩 &amp; 시상 (3분)</h3>
+            <p>투표 집계 및 수상자 발표</p>
+          </div>
+        </div>
+        <div class="step-body">
+          <div class="flow-list">
+            <div class="flow-item"><div class="flow-num">①</div><div>오늘 사연 전체 분위기 정리 멘트<div class="flow-sub">"오늘 정말 다양한 사연들이 있었는데요, 웃기기도 하고 뭉클하기도 했던 것 같아요 🥹"</div></div></div>
+            <div class="flow-item"><div class="flow-num">②</div><div>투표 링크 최종 안내 및 마감<div class="flow-sub">"아직 투표 안 하신 분들은 지금 바로 참여해주세요! 곧 마감됩니다"</div></div></div>
+            <div class="flow-item"><div class="flow-num">③</div><div>투표 결과 집계 확인 (투표 관리 담당 이부용)</div></div>
+            <div class="flow-item"><div class="flow-num">④</div><div>수상자 발표<div class="flow-sub">"감동상은 OO번 사연입니다 🥹" / "웃음상은 OO번 사연입니다 😂" / "고해성사상은 OO번 사연입니다 🙏" / "운영진 간택상은 OO번 사연입니다 💜"</div></div></div>
+            <div class="flow-item"><div class="flow-num">⑤</div><div>참여 감사 인사 및 마무리<div class="flow-sub">"오늘 사연 보내주신 모든 분들 감사합니다! 수상자분들께는 기프티콘 DM으로 전달드릴게요 🎁"</div></div></div>
           </div>
         </div>
       </div>
@@ -638,30 +464,12 @@
   <div class="section">
     <div class="sec-title">⚠️ 돌발 상황 대비</div>
     <div class="em-list">
-      <div class="em-item">
-        <div class="em-sit">⚡ 사연 제출 수가 너무 적은 경우</div>
-        <div class="em-act">당일 즉석 사연 받기로 전환 (채팅창 입력 방식)</div>
-      </div>
-      <div class="em-item">
-        <div class="em-sit">⚡ 투표 오류 (ZEP)</div>
-        <div class="em-act">추가적인 투표 사이트에서 집계 받기 (슬랙 Poll 활용)</div>
-      </div>
-      <div class="em-item">
-        <div class="em-sit">⚡ 사연 내용이 부적절한 경우</div>
-        <div class="em-act">해당 사연 제외 후 다음 사연으로 자연스럽게 넘어가기</div>
-      </div>
-      <div class="em-item">
-        <div class="em-sit">⚡ 시간이 남는 경우</div>
-        <div class="em-act">예비 사연 1~2개 추가 진행 또는 즉석 사연 받기</div>
-      </div>
-      <div class="em-item">
-        <div class="em-sit">⚡ 앞 세션이 일찍 끝나는 경우</div>
-        <div class="em-act">바로 라디오 세션 시작 (사전 준비 완료 상태 유지 필수)</div>
-      </div>
-      <div class="em-item">
-        <div class="em-sit">⚡ 중복 수상 발생 시</div>
-        <div class="em-act">인당 50,000원 제한 초과 시 해당 수상자에게 개인 안내 후 젭포인트로 대체 또는 차순위에게 상 이전</div>
-      </div>
+      <div class="em-item"><div class="em-sit">⚡ 사연 제출 수가 너무 적은 경우</div><div class="em-act">당일 즉석 사연 받기로 전환 (채팅창 입력 방식)</div></div>
+      <div class="em-item"><div class="em-sit">⚡ 투표 오류 (ZEP)</div><div class="em-act">슬랙 Poll 활용하여 집계</div></div>
+      <div class="em-item"><div class="em-sit">⚡ 사연 내용이 부적절한 경우</div><div class="em-act">해당 사연 제외 후 다음 사연으로 자연스럽게 넘어가기</div></div>
+      <div class="em-item"><div class="em-sit">⚡ 시간이 남는 경우</div><div class="em-act">예비 사연 1~2개 추가 진행 또는 즉석 사연 받기</div></div>
+      <div class="em-item"><div class="em-sit">⚡ 앞 세션이 일찍 끝나는 경우</div><div class="em-act">바로 라디오 세션 시작 (사전 준비 완료 상태 유지 필수)</div></div>
+      <div class="em-item"><div class="em-sit">⚡ 중복 수상 발생 시</div><div class="em-act">인당 50,000원 초과 시 개인 안내 후 젭포인트 대체 또는 차순위에게 상 이전</div></div>
     </div>
   </div>
 
