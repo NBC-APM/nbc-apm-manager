@@ -1,675 +1,476 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>밍글데이 이벤트 진행 가이드</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Segoe UI', 'Apple SD Gothic Neo', sans-serif; background: #f5f3ff; color: #1e1b2e; }
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>밍글데이 운영진 가이드</title>
+<style>
+  :root {
+    --p: #7C3AED;
+    --pl: #EDE9FE;
+    --p2: #A78BFA;
+    --beach: #0EA5E9;
+    --camp: #16A34A;
+    --bg: #F8F7FF;
+    --c: #fff;
+    --t: #1E1B2E;
+    --s: #6B7280;
+    --b: #E5E7EB;
+    --r: 14px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: "Apple SD Gothic Neo", "Malgun Gothic", sans-serif; background: var(--bg); color: var(--t); }
 
-    nav {
-      position: sticky; top: 0; z-index: 999;
-      background: rgba(255,255,255,0.95);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid #ede9fe;
-      padding: 0 24px;
-      display: flex; align-items: center; justify-content: space-between;
-      height: 52px;
-      box-shadow: 0 1px 8px rgba(124,58,237,0.08);
-      font-family: 'Segoe UI', 'Apple SD Gothic Neo', sans-serif;
-    }
+  /* NAV */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: #fff;
+    border-bottom: 2px solid var(--b);
+    display: flex; align-items: center;
+    padding: 0 24px; gap: 4px;
+    box-shadow: 0 2px 12px rgba(124,58,237,.08);
+    flex-wrap: wrap;
+  }
+  .nav-logo {
+    font-size: 14px; font-weight: 800; color: var(--p);
+    margin-right: 16px; white-space: nowrap;
+    padding: 14px 0; display: flex; align-items: center; gap: 6px;
+  }
+  .nav-logo .dot { color: #FF6584; }
+  .nav-tabs { display: flex; gap: 0; overflow-x: auto; }
+  .nav-tab {
+    padding: 14px 13px;
+    font-size: 12px; font-weight: 600; color: var(--s);
+    cursor: pointer; white-space: nowrap;
+    border: none; border-bottom: 3px solid transparent;
+    background: none; transition: all .2s; text-decoration: none;
+    display: flex; align-items: center; gap: 5px;
+  }
+  .nav-tab:hover { color: var(--p); background: var(--pl); }
+  .nav-tab.active { color: var(--p); border-bottom: 3px solid var(--p); }
+  .nav-tab.award {
+    color: #D97706;
+    border-bottom: 3px solid transparent;
+  }
+  .nav-tab.award:hover { background: #FFFBEB; color: #B45309; }
 
-    .hero {
-      background: linear-gradient(135deg, #7c3aed, #a855f7, #ec4899);
-      color: white;
-      padding: 60px 40px;
-      text-align: center;
-    }
-    .hero .badge {
-      display: inline-block;
-      background: rgba(255,255,255,0.2);
-      border: 1px solid rgba(255,255,255,0.4);
-      border-radius: 999px;
-      padding: 6px 18px;
-      font-size: 13px;
-      margin-bottom: 16px;
-      letter-spacing: 1px;
-    }
-    .hero h1 { font-size: 42px; font-weight: 800; margin-bottom: 12px; }
-    .hero p { font-size: 16px; opacity: 0.85; max-width: 600px; margin: 0 auto; line-height: 1.7; }
-    .hero .meta {
-      display: flex; justify-content: center; gap: 24px; margin-top: 28px; flex-wrap: wrap;
-    }
-    .hero .meta span {
-      background: rgba(255,255,255,0.15);
-      border-radius: 8px;
-      padding: 8px 18px;
-      font-size: 14px;
-    }
+  /* AWARD BANNER */
+  .award-banner {
+    background: linear-gradient(90deg, #FEF3C7 0%, #FDE68A 50%, #FEF3C7 100%);
+    border-bottom: 2px solid #FCD34D;
+    padding: 10px 24px;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 12px; flex-wrap: wrap;
+  }
+  .award-banner-left {
+    display: flex; align-items: center; gap: 10px;
+  }
+  .award-banner-icon { font-size: 20px; }
+  .award-banner-text { font-size: 12.5px; font-weight: 700; color: #92400E; }
+  .award-banner-sub { font-size: 11px; color: #B45309; margin-top: 1px; }
+  .award-banner-btn {
+    display: inline-flex; align-items: center; gap: 5px;
+    background: #D97706; color: #fff;
+    border-radius: 8px; padding: 7px 14px;
+    font-size: 12px; font-weight: 700;
+    text-decoration: none; transition: all .2s;
+    white-space: nowrap;
+  }
+  .award-banner-btn:hover { background: #B45309; }
 
-    .container { max-width: 960px; margin: 0 auto; padding: 40px 24px; }
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, #7C3AED 0%, #A78BFA 60%, #60A5FA 100%);
+    padding: 40px 32px 36px;
+    color: #fff;
+  }
+  .hero-inner { max-width: 900px; margin: 0 auto; }
+  .hero-badge {
+    display: inline-block;
+    background: rgba(255,255,255,.18);
+    border: 1px solid rgba(255,255,255,.3);
+    border-radius: 20px; padding: 4px 13px;
+    font-size: 11.5px; font-weight: 700; margin-bottom: 12px;
+  }
+  .hero h1 { font-size: 26px; font-weight: 900; margin-bottom: 8px; letter-spacing: -0.5px; }
+  .hero p { font-size: 13.5px; opacity: .88; line-height: 1.7; margin-bottom: 16px; }
+  .hero-meta { display: flex; gap: 8px; flex-wrap: wrap; }
+  .hero-meta-item {
+    background: rgba(255,255,255,.15);
+    border: 1px solid rgba(255,255,255,.25);
+    border-radius: 8px; padding: 5px 12px;
+    font-size: 12px; font-weight: 600;
+  }
 
-    .section-title {
-      font-size: 22px; font-weight: 800;
-      display: flex; align-items: center; gap: 10px;
-      margin-bottom: 20px; margin-top: 48px;
-      color: #4c1d95;
-    }
-    .section-title .icon {
-      width: 36px; height: 36px;
-      background: linear-gradient(135deg, #7c3aed, #ec4899);
-      border-radius: 10px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 18px; color: white;
-    }
+  /* MAIN */
+  .main { max-width: 900px; margin: 0 auto; padding: 28px 18px 40px; }
 
-    .timeline { position: relative; padding-left: 32px; }
-    .timeline::before {
-      content: '';
-      position: absolute; left: 10px; top: 0; bottom: 0;
-      width: 2px; background: linear-gradient(to bottom, #7c3aed, #ec4899);
-    }
-    .timeline-item { position: relative; margin-bottom: 24px; }
-    .timeline-item::before {
-      content: '';
-      position: absolute; left: -26px; top: 6px;
-      width: 12px; height: 12px;
-      border-radius: 50%;
-      background: #7c3aed;
-      border: 2px solid white;
-      box-shadow: 0 0 0 2px #7c3aed;
-    }
-    .timeline-item .time {
-      font-size: 12px; font-weight: 700;
-      color: #7c3aed;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 4px;
-    }
-    .timeline-item .title { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
-    .timeline-item .desc { font-size: 14px; color: #555; line-height: 1.6; }
+  /* ALERT */
+  .alert {
+    border-radius: var(--r); padding: 12px 16px;
+    font-size: 12.5px; line-height: 1.7;
+    margin-bottom: 20px;
+    display: flex; gap: 10px; align-items: flex-start;
+  }
+  .alert-p { background: var(--pl); border-left: 4px solid var(--p); }
+  .alert-y { background: #FFFBEB; border-left: 4px solid #F59E0B; }
+  .alert-icon { font-size: 16px; margin-top: 1px; flex-shrink: 0; }
 
-    .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
-    .card {
-      background: white;
-      border-radius: 16px;
-      padding: 24px;
-      box-shadow: 0 2px 12px rgba(124,58,237,0.08);
-      border: 1px solid #ede9fe;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(124,58,237,0.15); }
-    .card .card-header {
-      display: flex; align-items: center; gap: 12px; margin-bottom: 14px;
-    }
-    .card .card-icon {
-      width: 44px; height: 44px; border-radius: 12px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 22px; flex-shrink: 0;
-    }
-    .card .card-title { font-size: 16px; font-weight: 700; }
-    .card .card-sub { font-size: 12px; color: #888; margin-top: 2px; }
-    .card .card-body { font-size: 14px; color: #444; line-height: 1.7; }
-    .card .tag-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
-    .tag {
-      display: inline-block;
-      padding: 3px 10px;
-      border-radius: 999px;
-      font-size: 11px; font-weight: 600;
-    }
-    .tag-purple { background: #ede9fe; color: #6d28d9; }
-    .tag-pink { background: #fce7f3; color: #be185d; }
-    .tag-green { background: #d1fae5; color: #065f46; }
-    .tag-blue { background: #dbeafe; color: #1e40af; }
-    .tag-orange { background: #ffedd5; color: #9a3412; }
+  /* SECTION */
+  .section { margin-bottom: 28px; }
+  .sec-title {
+    font-size: 15px; font-weight: 800; color: var(--t);
+    margin-bottom: 13px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .sec-title::before {
+    content: ""; display: inline-block;
+    width: 4px; height: 18px;
+    background: var(--p); border-radius: 4px;
+  }
 
-    .steps { display: flex; flex-direction: column; gap: 16px; }
-    .step {
-      background: white;
-      border-radius: 14px;
-      padding: 20px 24px;
-      border-left: 4px solid #7c3aed;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-      display: flex; gap: 16px; align-items: flex-start;
-    }
-    .step .step-num {
-      width: 32px; height: 32px; flex-shrink: 0;
-      background: linear-gradient(135deg, #7c3aed, #a855f7);
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      color: white; font-weight: 800; font-size: 14px;
-    }
-    .step .step-content .step-title { font-size: 15px; font-weight: 700; margin-bottom: 6px; }
-    .step .step-content .step-desc { font-size: 13px; color: #555; line-height: 1.7; }
+  /* TIMETABLE */
+  .tbl-wrap { overflow-x: auto; border-radius: var(--r); border: 1px solid var(--b); }
+  table { width: 100%; border-collapse: collapse; background: #fff; font-size: 12.5px; }
+  th {
+    background: var(--pl); color: var(--p);
+    font-weight: 700; padding: 10px 13px;
+    text-align: left; border-bottom: 2px solid var(--b);
+    white-space: nowrap;
+  }
+  td { padding: 10px 13px; border-bottom: 1px solid var(--b); vertical-align: middle; line-height: 1.6; }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: #FAFAFA; }
+  .badge {
+    display: inline-block; padding: 2px 9px;
+    border-radius: 20px; font-size: 11px; font-weight: 700;
+    white-space: nowrap;
+  }
+  .badge-p { background: var(--pl); color: var(--p); }
+  .badge-b { background: #EFF6FF; color: #2563EB; }
+  .badge-g { background: #ECFDF5; color: #059669; }
+  .badge-y { background: #FFFBEB; color: #D97706; }
+  .badge-r { background: #FEF2F2; color: #DC2626; }
+  .gift-tag {
+    display: inline-flex; align-items: center; gap: 4px;
+    background: #FEF3C7; color: #92400E;
+    border-radius: 6px; padding: 2px 8px;
+    font-size: 11px; font-weight: 700;
+  }
+  .guide-link {
+    display: inline-flex; align-items: center; gap: 4px;
+    background: var(--pl); color: var(--p);
+    border-radius: 7px; padding: 3px 9px;
+    font-size: 11px; font-weight: 700;
+    text-decoration: none; transition: all .2s;
+  }
+  .guide-link:hover { background: var(--p); color: #fff; }
 
-    .radio-box {
-      background: linear-gradient(135deg, #1e1b2e, #2d1b69);
-      border-radius: 20px;
-      padding: 32px;
-      color: white;
-      margin-bottom: 20px;
-    }
-    .radio-box h3 { font-size: 20px; margin-bottom: 8px; }
-    .radio-box p { opacity: 0.8; font-size: 14px; line-height: 1.7; margin-bottom: 20px; }
-    .radio-items { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; }
-    .radio-item {
-      background: rgba(255,255,255,0.1);
-      border: 1px solid rgba(255,255,255,0.15);
-      border-radius: 12px;
-      padding: 14px;
-    }
-    .radio-item .ri-title { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
-    .radio-item .ri-desc { font-size: 12px; opacity: 0.7; line-height: 1.5; }
+  /* MAP */
+  .map-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .map-card {
+    background: var(--c); border: 1px solid var(--b);
+    border-radius: var(--r); padding: 18px 20px;
+    position: relative; overflow: hidden;
+  }
+  .map-card::before {
+    content: ""; position: absolute;
+    top: 0; left: 0; right: 0; height: 4px;
+  }
+  .map-card.beach::before { background: var(--beach); }
+  .map-card.camp::before { background: var(--camp); }
+  .map-icon { font-size: 28px; margin-bottom: 8px; }
+  .map-title { font-size: 14px; font-weight: 800; margin-bottom: 4px; }
+  .map-sub { font-size: 11.5px; color: var(--s); margin-bottom: 12px; }
+  .map-events { display: flex; flex-direction: column; gap: 5px; }
+  .map-event {
+    display: flex; align-items: center; gap: 7px;
+    font-size: 12px; padding: 5px 9px;
+    border-radius: 7px; font-weight: 500;
+  }
+  .map-event.beach-ev { background: #EFF6FF; color: #1D4ED8; }
+  .map-event.camp-ev { background: #ECFDF5; color: #166534; }
 
-    .checklist { background: white; border-radius: 16px; padding: 24px; box-shadow: 0 2px 12px rgba(0,0,0,0.05); }
-    .checklist-item {
-      display: flex; align-items: flex-start; gap: 12px;
-      padding: 10px 0; border-bottom: 1px solid #f3f0ff;
-      font-size: 14px;
-    }
-    .checklist-item:last-child { border-bottom: none; }
-    .checklist-item .check-box {
-      width: 20px; height: 20px; flex-shrink: 0;
-      border: 2px solid #7c3aed; border-radius: 5px;
-      margin-top: 1px;
-    }
-    .checklist-item .check-label { line-height: 1.6; }
-    .checklist-item .check-label strong { color: #4c1d95; }
+  /* FLOW */
+  .flow-wrap {
+    background: var(--c); border: 1px solid var(--b);
+    border-radius: var(--r); padding: 20px 24px;
+  }
+  .flow-steps { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; }
+  .flow-box {
+    background: var(--pl); color: var(--p);
+    border-radius: 9px; padding: 7px 13px;
+    font-size: 12px; font-weight: 700; text-align: center;
+    white-space: nowrap;
+  }
+  .flow-box.beach { background: #EFF6FF; color: #1D4ED8; }
+  .flow-box.camp { background: #ECFDF5; color: #166534; }
+  .flow-arrow { color: var(--s); font-size: 14px; font-weight: 700; }
 
-    .notice {
-      background: #fff7ed;
-      border: 1px solid #fed7aa;
-      border-radius: 14px;
-      padding: 20px 24px;
-      margin-top: 16px;
-    }
-    .notice .notice-title { font-size: 15px; font-weight: 700; color: #9a3412; margin-bottom: 10px; }
-    .notice ul { padding-left: 18px; }
-    .notice ul li { font-size: 13px; color: #7c2d12; line-height: 1.8; }
+  /* GUIDE CARDS */
+  .guide-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px,1fr)); gap: 12px; }
+  .guide-card {
+    background: var(--c); border: 1px solid var(--b);
+    border-radius: var(--r); padding: 18px 20px;
+    text-decoration: none; color: var(--t);
+    transition: all .2s; display: block;
+    position: relative; overflow: hidden;
+  }
+  .guide-card::before {
+    content: ""; position: absolute;
+    top: 0; left: 0; right: 0; height: 4px;
+    background: var(--p);
+  }
+  .guide-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(124,58,237,.12); border-color: var(--p2); }
+  .guide-card-icon { font-size: 26px; margin-bottom: 8px; }
+  .guide-card-time { font-size: 10.5px; color: var(--s); font-weight: 600; margin-bottom: 4px; }
+  .guide-card-title { font-size: 14px; font-weight: 800; margin-bottom: 5px; }
+  .guide-card-desc { font-size: 11.5px; color: var(--s); line-height: 1.6; }
+  .guide-card-arrow {
+    position: absolute; right: 16px; top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px; color: var(--p2);
+  }
 
-    .tip-box {
-      background: linear-gradient(135deg, #ecfdf5, #d1fae5);
-      border: 1px solid #6ee7b7;
-      border-radius: 14px;
-      padding: 20px 24px;
-      margin-top: 16px;
-    }
-    .tip-box .tip-title { font-size: 15px; font-weight: 700; color: #065f46; margin-bottom: 10px; }
-    .tip-box ul { padding-left: 18px; }
-    .tip-box ul li { font-size: 13px; color: #064e3b; line-height: 1.8; }
+  /* FOOTER */
+  footer {
+    background: var(--t); color: rgba(255,255,255,.55);
+    text-align: center; padding: 22px 16px;
+    font-size: 11.5px; line-height: 1.8;
+  }
+  footer strong { color: rgba(255,255,255,.85); }
 
-    .divider {
-      height: 1px;
-      background: linear-gradient(to right, transparent, #c4b5fd, transparent);
-      margin: 40px 0;
-    }
-
-    footer {
-      text-align: center;
-      padding: 32px;
-      color: #888;
-      font-size: 13px;
-      border-top: 1px solid #ede9fe;
-      margin-top: 40px;
-    }
-
-    @media (max-width: 600px) {
-      .hero h1 { font-size: 28px; }
-      .card-grid { grid-template-columns: 1fr; }
-      .radio-items { grid-template-columns: 1fr; }
-    }
-  </style>
+  @media(max-width:600px) {
+    .hero { padding: 24px 16px; }
+    .hero h1 { font-size: 20px; }
+    .main { padding: 18px 12px 40px; }
+    .map-grid { grid-template-columns: 1fr; }
+    .flow-steps { gap: 4px; }
+    .flow-box { font-size: 11px; padding: 6px 9px; }
+    nav { padding: 0 10px; }
+    .award-banner { padding: 10px 14px; }
+  }
+</style>
 </head>
 <body>
 
-  <nav>
-    <div style="display:flex; align-items:center; gap:10px;">
-      <span style="font-size:20px;">🎉</span>
-      <span style="font-weight:800; font-size:15px; color:#4c1d95;">NBC APM Manager</span>
-    </div>
-    <div style="display:flex; gap:6px;">
-      <a href="/nbc-apm-manager/" style="
-        padding: 7px 16px; border-radius: 20px; font-size: 13px; font-weight: 700;
-        text-decoration: none;
-        background: linear-gradient(135deg, #7c3aed, #a855f7); color: white;
-      ">📋 진행 가이드</a>
-      <a href="/nbc-apm-manager/timetable.html" style="
-        padding: 7px 16px; border-radius: 20px; font-size: 13px; font-weight: 700;
-        text-decoration: none;
-        background: #f5f3ff; color: #7c3aed; border: 1.5px solid #ede9fe;
-      ">🗓️ 타임테이블</a>
-    </div>
-  </nav>
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">🎉 밍글데이 <span class="dot">·</span> 운영진 가이드</div>
+  <div class="nav-tabs">
+    <a href="/nbc-apm-manager/index.html" class="nav-tab active">🏠 홈</a>
+    <a href="/nbc-apm-manager/OpeningGuide.html" class="nav-tab">🎙️ 오프닝</a>
+    <a href="/nbc-apm-manager/OXQuizGuide.html" class="nav-tab">❓ OX 퀴즈</a>
+    <a href="/nbc-apm-manager/GoldenBellGameGuide.html" class="nav-tab">🔔 골든벨</a>
+    <a href="/nbc-apm-manager/PictureBingoManagerGuide.html" class="nav-tab">🎨 그림 빙고</a>
+    <a href="/nbc-apm-manager/RadioSessionGuide.html" class="nav-tab">📻 라디오</a>
+    <a href="/nbc-apm-manager/CloseGuide.html" class="nav-tab">📸 마무리</a>
+    <a href="/nbc-apm-manager/AwardGuide.html" class="nav-tab award">🏆 상품 지급</a>
+  </div>
+</nav>
 
-  <div class="hero">
-    <div class="badge">🎨 디자인 부트캠프 가이드 (초안)</div>
-    <h1>🎉 밍글데이 이벤트<br>진행 가이드</h1>
-    <p>발표회 이후 지친 수강생들을 위한<br>온라인 이벤트 & 미니게임 진행 매뉴얼</p>
-    <div class="meta">
-      <span>👥 약 130명+ 수강생</span>
-      <span>🧑‍💼 매니저 4명</span>
-      <span>🎓 튜터 5~10명</span>
-      <span>🖥️ 젭(ZEP) 기반</span>
+<!-- AWARD BANNER -->
+<div class="award-banner">
+  <div class="award-banner-left">
+    <div class="award-banner-icon">🏆</div>
+    <div>
+      <div class="award-banner-text">상품 지급 가이드 — 기프티콘 &amp; 젭 포인트 지급 안내</div>
+      <div class="award-banner-sub">지급 방식 · 지급 시점 · 담당자 확인은 상품 지급 가이드 페이지에서 확인하세요</div>
+    </div>
+  </div>
+  <a href="/nbc-apm-manager/AwardGuide.html" class="award-banner-btn">📄 상품 지급 가이드 보기 →</a>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">📌 내부용 운영진 가이드</div>
+    <h1>🎉 밍글데이 타임테이블</h1>
+    <p>OX 퀴즈 + ZEP 퀴즈 게임으로 운영진과 친해진 뒤,<br>팀 빙고로 협동심을 발휘하고 라디오로 따뜻하게 마무리</p>
+    <div class="hero-meta">
+      <div class="hero-meta-item">📅 04/30 (목) 19:00~21:00</div>
+      <div class="hero-meta-item">👥 약 130명</div>
+      <div class="hero-meta-item">💰 예산 40만원 기준</div>
+      <div class="hero-meta-item">⏱️ 총 2시간</div>
+    </div>
+  </div>
+</div>
+
+<div class="main">
+
+  <!-- 타임테이블 -->
+  <div class="section">
+    <div class="sec-title">전체 타임테이블</div>
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>소요 시간</th>
+            <th>일정</th>
+            <th>사용 맵</th>
+            <th>진행 담당</th>
+            <th>상품</th>
+            <th>비고</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="badge badge-p">10분</span><br><small style="color:var(--s);">19:00~19:10</small></td>
+            <td><strong>🎙️ 오프닝 &amp; 입장</strong></td>
+            <td>학습공간 → 해변존</td>
+            <td>이부용</td>
+            <td>-</td>
+            <td><a href="/nbc-apm-manager/OpeningGuide.html" class="guide-link">📄 가이드</a><br><small style="color:var(--s);">행사 안내, 규칙 설명</small></td>
+          </tr>
+          <tr>
+            <td><span class="badge badge-r">30분</span><br><small style="color:var(--s);">19:10~19:40</small></td>
+            <td><strong>❓ OX 퀴즈 (TMI)</strong></td>
+            <td>해변존</td>
+            <td>전지현</td>
+            <td><span class="gift-tag">🎁 기프티콘 지급 예정</span></td>
+            <td><a href="/nbc-apm-manager/OXQuizGuide.html" class="guide-link">📄 가이드</a><br><small style="color:var(--s);">문제 사전 세팅 필요</small></td>
+          </tr>
+          <tr>
+            <td><span class="badge badge-y">20분</span><br><small style="color:var(--s);">19:40~20:00</small></td>
+            <td><strong>🔤 퀴즈 골든벨</strong></td>
+            <td>해변존</td>
+            <td>전지현</td>
+            <td><span class="gift-tag">🎁 기프티콘 지급 예정</span></td>
+            <td><a href="/nbc-apm-manager/GoldenBellGameGuide.html" class="guide-link">📄 가이드</a><br><small style="color:var(--s);">ZEP 미니게임 활용</small></td>
+          </tr>
+          <tr>
+            <td><span class="badge badge-r">30분</span><br><small style="color:var(--s);">20:00~20:30</small></td>
+            <td><strong>🎨 그림 빙고</strong></td>
+            <td>해변존 → 캠핑존</td>
+            <td>이부용</td>
+            <td><span class="gift-tag">🎁 기프티콘 지급 예정</span></td>
+            <td><a href="/nbc-apm-manager/PictureBingoManagerGuide.html" class="guide-link">📄 가이드</a></td>
+          </tr>
+          <tr>
+            <td><span class="badge badge-g">25분</span><br><small style="color:var(--s);">20:30~20:55</small></td>
+            <td><strong>📻 라디오 세션</strong></td>
+            <td>캠핑존</td>
+            <td>유재은</td>
+            <td><span class="gift-tag">🎁 기프티콘 지급 예정</span></td>
+            <td><a href="/nbc-apm-manager/RadioSessionGuide.html" class="guide-link">📄 가이드</a><br><small style="color:var(--s);">투표 앱 사전 세팅</small></td>
+          </tr>
+          <tr>
+            <td><span class="badge badge-b">5분</span><br><small style="color:var(--s);">20:55~21:00</small></td>
+            <td><strong>📸 단체 사진 &amp; 마무리</strong></td>
+            <td>캠핑존</td>
+            <td>유재은</td>
+            <td>-</td>
+            <td><a href="/nbc-apm-manager/CloseGuide.html" class="guide-link">📄 가이드</a></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 
-  <div class="container">
-
-    <div class="section-title">
-      <div class="icon">⏱</div>
-      전체 진행 타임라인 (예시 2시간)
-    </div>
-
-    <div class="timeline">
-      <div class="timeline-item">
-        <div class="time">00:00 ~ 00:10</div>
-        <div class="title">🎬 오프닝 & 입장 안내</div>
-        <div class="desc">젭 입장 안내, BGM 시작, 진행자 소개, 오늘 이벤트 흐름 설명</div>
-      </div>
-      <div class="timeline-item">
-        <div class="time">00:10 ~ 00:30</div>
-        <div class="title">📻 사연 라디오 1부</div>
-        <div class="desc">사전 수집한 사연 낭독 + 공감 리액션 유도, 배경음악 함께 진행</div>
-      </div>
-      <div class="timeline-item">
-        <div class="time">00:30 ~ 00:55</div>
-        <div class="title">🎮 젭 미니게임 1라운드</div>
-        <div class="desc">OX 퀴즈 또는 스피드 퀴즈 진행 (전체 참여형)</div>
-      </div>
-      <div class="timeline-item">
-        <div class="time">00:55 ~ 01:10</div>
-        <div class="title">📻 사연 라디오 2부 + 자유 시간</div>
-        <div class="desc">감동/웃긴 사연 낭독, 젭 내 자유 이동 및 대화 시간</div>
-      </div>
-      <div class="timeline-item">
-        <div class="time">01:10 ~ 01:40</div>
-        <div class="title">🎮 미니게임 2라운드</div>
-        <div class="desc">이모지 게임 또는 빙고 / 팀 대항전 진행</div>
-      </div>
-      <div class="timeline-item">
-        <div class="time">01:40 ~ 01:55</div>
-        <div class="title">🏆 시상 & 경품 추첨</div>
-        <div class="desc">게임 우승자 발표, 랜덤 추첨 경품 증정</div>
-      </div>
-      <div class="timeline-item">
-        <div class="time">01:55 ~ 02:00</div>
-        <div class="title">🎤 클로징 & 단체 사진</div>
-        <div class="desc">마무리 멘트, 젭 단체 스크린샷, 다음 일정 안내</div>
-      </div>
-    </div>
-
-    <div class="divider"></div>
-
-    <div class="section-title">
-      <div class="icon">📻</div>
-      사연 라디오 진행 가이드
-    </div>
-
-    <div class="radio-box">
-      <h3>🎙️ 밍글데이 라디오</h3>
-      <p>발표회를 마친 수강생들의 솔직한 이야기를 라디오 형식으로 공유하는 코너입니다.<br>
-      진행자가 DJ처럼 사연을 읽고, 공감과 위로의 분위기를 만들어주세요.</p>
-      <div class="radio-items">
-        <div class="radio-item"><div class="ri-title">😭 고생했어요 사연</div><div class="ri-desc">발표 준비하면서 힘들었던 순간, 밤샘 작업 이야기</div></div>
-        <div class="radio-item"><div class="ri-title">😂 웃긴 에피소드</div><div class="ri-desc">발표 중 실수담, 팀원과의 웃긴 해프닝</div></div>
-        <div class="radio-item"><div class="ri-title">💌 감사 전하기</div><div class="ri-desc">튜터/매니저/팀원에게 전하고 싶은 감사 메시지</div></div>
-        <div class="radio-item"><div class="ri-title">🌟 나에게 한마디</div><div class="ri-desc">수료 후 자신에게 전하고 싶은 응원 메시지</div></div>
-        <div class="radio-item"><div class="ri-title">🤔 솔직 고백</div><div class="ri-desc">부트캠프 하면서 가장 후회한 것 / 잘한 것</div></div>
-        <div class="radio-item"><div class="ri-title">🎵 신청곡</div><div class="ri-desc">지금 이 순간 듣고 싶은 노래 + 사연 한 줄</div></div>
-      </div>
-    </div>
-
-    <div class="steps">
-      <div class="step">
-        <div class="step-num">1</div>
-        <div class="step-content">
-          <div class="step-title">사연 사전 수집 (이벤트 3~5일 전)</div>
-          <div class="step-desc">구글 폼 또는 노션 폼으로 사연 받기. 카테고리별로 분류하고, 읽어도 되는지 동의 여부 확인. 익명 처리 옵션도 제공하기.</div>
+  <!-- 맵 디자인 컨셉 -->
+  <div class="section">
+    <div class="sec-title">이벤트 맵 디자인 컨셉 (해변 / 캠핑 테마)</div>
+    <div class="map-grid">
+      <div class="map-card beach">
+        <div class="map-icon">🏖️</div>
+        <div class="map-title">해변존</div>
+        <div class="map-sub">19:00 ~ 20:00 · 전반부 진행</div>
+        <div class="map-events">
+          <div class="map-event beach-ev">❓ OX 퀴즈 (TMI)</div>
+          <div class="map-event beach-ev">🔤 퀴즈 골든벨</div>
         </div>
       </div>
-      <div class="step">
-        <div class="step-num">2</div>
-        <div class="step-content">
-          <div class="step-title">사연 큐레이션 (이벤트 1~2일 전)</div>
-          <div class="step-desc">수집된 사연 중 분위기에 맞는 것 선별. 웃긴 것 → 감동적인 것 순서로 배치. 너무 개인적이거나 민감한 내용은 제외.</div>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">3</div>
-        <div class="step-content">
-          <div class="step-title">라디오 진행 멘트 준비</div>
-          <div class="step-desc">각 사연 앞뒤로 DJ 멘트 준비. 예: "다음 사연은 익명의 OO 수강생분이 보내주셨어요~" / 사연 읽은 후 공감 코멘트 한 줄씩 준비.</div>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">4</div>
-        <div class="step-content">
-          <div class="step-title">실시간 사연도 받기 (선택)</div>
-          <div class="step-desc">젭 채팅창에 실시간으로 사연 받는 코너도 추가 가능. 진행자가 채팅 모니터링하며 즉석에서 읽어주는 방식. 매니저 1명이 채팅 모니터링 담당.</div>
+      <div class="map-card camp">
+        <div class="map-icon">🏕️</div>
+        <div class="map-title">캠핑존</div>
+        <div class="map-sub">20:00 ~ 21:00 · 후반부 진행</div>
+        <div class="map-events">
+          <div class="map-event camp-ev">🎨 그림 빙고</div>
+          <div class="map-event camp-ev">📻 라디오 세션</div>
+          <div class="map-event camp-ev">📸 단체 사진 &amp; 마무리</div>
         </div>
       </div>
     </div>
-
-    <div class="tip-box">
-      <div class="tip-title">🎵 라디오 분위기 연출 팁</div>
-      <ul>
-        <li>배경음악은 잔잔한 lo-fi 또는 감성 팝으로 낮게 깔기</li>
-        <li>진행자 목소리 톤을 평소보다 부드럽고 천천히 유지</li>
-        <li>사연 읽기 전 "잠깐 조용히 들어봐요~" 같은 멘트로 집중 유도</li>
-        <li>감동 사연 후에는 잠깐 침묵 + 이모지 리액션 유도 ("💜 눌러주세요~")</li>
-        <li>신청곡은 실제로 틀어주면 더 좋음 (유튜브 공유 화면)</li>
-      </ul>
-    </div>
-
-    <div class="divider"></div>
-
-    <div class="section-title">
-      <div class="icon">🎮</div>
-      젭(ZEP) 미니게임 목록
-    </div>
-
-    <div class="card-grid">
-      <div class="card">
-        <div class="card-header">
-          <div class="card-icon" style="background:#ede9fe;">🙋</div>
-          <div><div class="card-title">OX 퀴즈</div><div class="card-sub">전체 참여 · 10~15분</div></div>
-        </div>
-        <div class="card-body">
-          젭 맵에 O/X 구역 설정. 진행자가 문제 읽으면 수강생이 이동해서 답 선택. 틀리면 탈락, 마지막 생존자 우승.<br><br>
-          <strong>추천 문제 유형:</strong><br>· 부트캠프 관련 상식 퀴즈<br>· 디자인 트렌드 OX<br>· "이 사람이 한 말이다 OX"
-        </div>
-        <div class="tag-row">
-          <span class="tag tag-purple">전체참여</span>
-          <span class="tag tag-green">젭 기본기능</span>
-          <span class="tag tag-blue">쉬운난이도</span>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-header">
-          <div class="card-icon" style="background:#fce7f3;">⚡</div>
-          <div><div class="card-title">스피드 퀴즈</div><div class="card-sub">팀전 · 15~20분</div></div>
-        </div>
-        <div class="card-body">
-          팀을 나눠 한 명이 설명, 나머지가 채팅으로 답 입력. 제한 시간 내 가장 많이 맞힌 팀 우승.<br><br>
-          <strong>추천 주제:</strong><br>· 디자인 툴 이름 맞히기<br>· UI 용어 설명하기<br>· 부트캠프 추억 키워드
-        </div>
-        <div class="tag-row">
-          <span class="tag tag-pink">팀전</span>
-          <span class="tag tag-orange">채팅활용</span>
-          <span class="tag tag-blue">중간난이도</span>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-header">
-          <div class="card-icon" style="background:#d1fae5;">🎯</div>
-          <div><div class="card-title">이모지 빙고</div><div class="card-sub">개인전 · 15분</div></div>
-        </div>
-        <div class="card-body">
-          사전에 빙고판 배포. 진행자가 이모지/키워드 하나씩 부르면 해당하는 칸 체크. 빙고 완성되면 채팅에 "빙고!" 입력.<br><br>
-          <strong>빙고 칸 예시:</strong><br>· 밤샘한 적 있다 / 커피 3잔 이상 / 발표 떨렸다
-        </div>
-        <div class="tag-row">
-          <span class="tag tag-green">개인전</span>
-          <span class="tag tag-purple">사전준비필요</span>
-          <span class="tag tag-blue">쉬운난이도</span>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-header">
-          <div class="card-icon" style="background:#dbeafe;">🔤</div>
-          <div><div class="card-title">초성 퀴즈</div><div class="card-sub">전체 참여 · 10분</div></div>
-        </div>
-        <div class="card-body">
-          진행자가 초성 공개, 채팅에 먼저 정답 입력한 사람이 포인트 획득.<br><br>
-          <strong>추천 주제:</strong><br>· 디자인 관련 단어 (ㅍ ㄹ ㅌ ㅇ = 프로토타입)<br>· 부트캠프 관련 단어
-        </div>
-        <div class="tag-row">
-          <span class="tag tag-orange">채팅활용</span>
-          <span class="tag tag-green">빠른진행</span>
-          <span class="tag tag-blue">쉬운난이도</span>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-header">
-          <div class="card-icon" style="background:#ffedd5;">🗺️</div>
-          <div><div class="card-title">젭 보물찾기</div><div class="card-sub">개인전 · 15~20분</div></div>
-        </div>
-        <div class="card-body">
-          젭 맵 곳곳에 오브젝트(힌트판) 숨겨두기. 수강생들이 맵을 돌아다니며 힌트 수집 후 최종 정답 채팅 입력.<br><br>
-          <strong>힌트 예시:</strong><br>· 각 구역마다 단어 조각 숨기기<br>· 조각 모으면 문장 완성
-        </div>
-        <div class="tag-row">
-          <span class="tag tag-purple">젭맵활용</span>
-          <span class="tag tag-pink">사전세팅필요</span>
-          <span class="tag tag-orange">탐험형</span>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-header">
-          <div class="card-icon" style="background:#fef3c7;">🎨</div>
-          <div><div class="card-title">이 디자인 누구꺼?</div><div class="card-sub">전체 참여 · 10~15분</div></div>
-        </div>
-        <div class="card-body">
-          수강생들의 발표 결과물 일부를 화면 공유. 누구의 작품인지 채팅으로 맞히기.<br><br>
-          <strong>진행 팁:</strong><br>· 사전에 수강생 동의 받기<br>· 작품 일부만 크롭해서 공개
-        </div>
-        <div class="tag-row">
-          <span class="tag tag-pink">부트캠프특화</span>
-          <span class="tag tag-purple">화면공유</span>
-          <span class="tag tag-green">소통형</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="divider"></div>
-
-    <div class="section-title">
-      <div class="icon">✨</div>
-      추가 온라인 이벤트 아이디어
-    </div>
-
-    <div class="card-grid">
-      <div class="card">
-        <div class="card-header">
-          <div class="card-icon" style="background:#ede9fe;">🗳️</div>
-          <div><div class="card-title">실시간 투표 이벤트</div><div class="card-sub">Mentimeter / 슬리도 활용</div></div>
-        </div>
-        <div class="card-body">
-          멘티미터나 슬리도로 실시간 투표 진행. 결과를 화면 공유하며 반응 유도.<br><br>
-          <strong>투표 주제 예시:</strong><br>· 부트캠프 기간 중 가장 힘들었던 주차는?<br>· 나를 가장 잘 표현하는 이모지는?
-        </div>
-        <div class="tag-row">
-          <span class="tag tag-purple">외부툴활용</span>
-          <span class="tag tag-green">실시간반응</span>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-header">
-          <div class="card-icon" style="background:#fce7f3;">🏅</div>
-          <div><div class="card-title">수강생 어워즈</div><div class="card-sub">사전 투표 + 발표</div></div>
-        </div>
-        <div class="card-body">
-          수강생들이 서로 투표해서 시상하는 코너.<br><br>
-          <strong>추천 시상 카테고리:</strong><br>· 가장 열정적이었던 수강생<br>· 밤샘 황제/황후<br>· 피드백 장인
-        </div>
-        <div class="tag-row">
-          <span class="tag tag-pink">사전준비필요</span>
-          <span class="tag tag-orange">감동보장</span>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-header">
-          <div class="card-icon" style="background:#d1fae5;">📸</div>
-          <div><div class="card-title">포토부스 이벤트</div><div class="card-sub">젭 포토존 활용</div></div>
-        </div>
-        <div class="card-body">
-          젭 맵에 포토존 구역 만들기. 수강생들이 아바타로 포즈 잡고 스크린샷 찍어 채팅에 공유.<br><br>
-          <strong>포토존 아이디어:</strong><br>· 졸업 포토존 (학사모 오브젝트)<br>· 팀별 단체 포토존
-        </div>
-        <div class="tag-row">
-          <span class="tag tag-green">젭맵활용</span>
-          <span class="tag tag-blue">추억만들기</span>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-header">
-          <div class="card-icon" style="background:#dbeafe;">🎤</div>
-          <div><div class="card-title">1분 소감 릴레이</div><div class="card-sub">자발적 참여형</div></div>
-        </div>
-        <div class="card-body">
-          원하는 수강생이 마이크 켜고 1분 소감 발표.<br><br>
-          <strong>진행 팁:</strong><br>· 튜터/매니저가 먼저 시범 보이기<br>· 소감 후 박수 이모지 유도
-        </div>
-        <div class="tag-row">
-          <span class="tag tag-blue">자발참여</span>
-          <span class="tag tag-green">감동형</span>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-header">
-          <div class="card-icon" style="background:#ffedd5;">🎰</div>
-          <div><div class="card-title">랜덤 경품 추첨</div><div class="card-sub">클로징 이벤트</div></div>
-        </div>
-        <div class="card-body">
-          이벤트 참여 포인트 합산 or 단순 랜덤 추첨.<br><br>
-          <strong>추첨 툴:</strong><br>· 구글 랜덤 번호 생성기<br>· 휠오브네임즈 (wheelofnames.com)
-        </div>
-        <div class="tag-row">
-          <span class="tag tag-orange">클로징</span>
-          <span class="tag tag-purple">경품이벤트</span>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-header">
-          <div class="card-icon" style="background:#fef3c7;">💬</div>
-          <div><div class="card-title">익명 칭찬 릴레이</div><div class="card-sub">따뜻한 마무리 코너</div></div>
-        </div>
-        <div class="card-body">
-          사전에 구글 폼으로 특정 수강생에게 익명 칭찬 메시지 받기.<br><br>
-          <strong>진행 팁:</strong><br>· 모든 수강생이 최소 1개씩 받도록 유도<br>· 클로징 직전에 배치하면 감동 마무리 가능
-        </div>
-        <div class="tag-row">
-          <span class="tag tag-pink">감동보장</span>
-          <span class="tag tag-green">사전준비필요</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="divider"></div>
-
-    <div class="section-title">
-      <div class="icon">👥</div>
-      역할 분담 가이드
-    </div>
-
-    <div class="steps">
-      <div class="step">
-        <div class="step-num">🎙</div>
-        <div class="step-content">
-          <div class="step-title">메인 진행자 (1명)</div>
-          <div class="step-desc">전체 흐름 진행, 사연 낭독, 게임 규칙 설명, 분위기 리드. 목소리 톤 관리 중요.</div>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">💬</div>
-        <div class="step-content">
-          <div class="step-title">채팅 모니터링 담당 (1~2명)</div>
-          <div class="step-desc">젭 채팅창 실시간 확인. 게임 정답 확인, 실시간 사연 수집, 문제 발생 시 진행자에게 전달.</div>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">🖥</div>
-        <div class="step-content">
-          <div class="step-title">기술 담당 (1명)</div>
-          <div class="step-desc">화면 공유, BGM 조절, 젭 맵 관리, 투표 툴 세팅. 사전에 리허설 필수.</div>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">📋</div>
-        <div class="step-content">
-          <div class="step-title">점수/기록 담당 (1명)</div>
-          <div class="step-desc">게임 점수 집계, 우승자 기록, 추첨 명단 관리.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="divider"></div>
-
-    <div class="section-title">
-      <div class="icon">✅</div>
-      사전 준비 체크리스트
-    </div>
-
-    <div class="checklist">
-      <div class="checklist-item"><div class="check-box"></div><div class="check-label"><strong>[D-7]</strong> 이벤트 전체 기획안 확정 및 역할 분담</div></div>
-      <div class="checklist-item"><div class="check-box"></div><div class="check-label"><strong>[D-5]</strong> 사연 수집 구글 폼 제작 및 수강생 공지</div></div>
-      <div class="checklist-item"><div class="check-box"></div><div class="check-label"><strong>[D-5]</strong> 수강생 어워즈 / 익명 칭찬 투표 폼 제작</div></div>
-      <div class="checklist-item"><div class="check-box"></div><div class="check-label"><strong>[D-3]</strong> 젭 맵 이벤트용 세팅 (OX 구역, 포토존, 보물 오브젝트 등)</div></div>
-      <div class="checklist-item"><div class="check-box"></div><div class="check-label"><strong>[D-3]</strong> 퀴즈 문제 제작 (OX, 초성, 스피드퀴즈 각 10문제 이상)</div></div>
-      <div class="checklist-item"><div class="check-box"></div><div class="check-label"><strong>[D-3]</strong> 빙고판 이미지 제작 및 배포 방법 결정</div></div>
-      <div class="checklist-item"><div class="check-box"></div><div class="check-label"><strong>[D-2]</strong> 사연 큐레이션 완료 (읽을 순서 정하기)</div></div>
-      <div class="checklist-item"><div class="check-box"></div><div class="check-label"><strong>[D-2]</strong> BGM 플레이리스트 준비 (라디오용 / 게임용 구분)</div></div>
-      <div class="checklist-item"><div class="check-box"></div><div class="check-label"><strong>[D-2]</strong> 경품 준비 및 추첨 방식 결정</div></div>
-      <div class="checklist-item"><div class="check-box"></div><div class="check-label"><strong>[D-1]</strong> 전체 리허설 (기술 담당 + 진행자 함께)</div></div>
-      <div class="checklist-item"><div class="check-box"></div><div class="check-label"><strong>[D-1]</strong> 수강생에게 입장 링크 및 일정 최종 공지</div></div>
-      <div class="checklist-item"><div class="check-box"></div><div class="check-label"><strong>[D-Day]</strong> 이벤트 30분 전 담당자 전원 입장 및 최종 점검</div></div>
-    </div>
-
-    <div class="notice">
-      <div class="notice-title">⚠️ 주의사항</div>
-      <ul>
-        <li>발표회 직후라 수강생들이 피로할 수 있으므로, 강제 참여 요소는 최소화하세요</li>
-        <li>게임 규칙은 최대한 단순하게 유지 (복잡한 규칙은 혼란 야기)</li>
-        <li>수강생 작품/사진 사용 시 반드시 사전 동의 받기</li>
-        <li>젭 기술 오류 대비 백업 플랜 준비 (Zoom 또는 구글 미트)</li>
-        <li>이벤트 시간이 너무 길어지지 않도록 각 코너 시간 엄수</li>
-      </ul>
-    </div>
-
-    <div class="divider"></div>
-
-    <div class="section-title">
-      <div class="icon">📝</div>
-      진행자 스크립트 예시
-    </div>
-
-    <div class="steps">
-      <div class="step">
-        <div class="step-num">🎬</div>
-        <div class="step-content">
-          <div class="step-title">오프닝 멘트</div>
-          <div class="step-desc">"안녕하세요 여러분! 오늘 발표회 정말 수고 많으셨어요 👏 이제부터는 잠깐 머리 비우고 같이 놀아볼 시간입니다!"</div>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">📻</div>
-        <div class="step-content">
-          <div class="step-title">라디오 코너 시작 멘트</div>
-          <div class="step-desc">"자, 이제 밍글데이 라디오 코너를 시작할게요 🎙️ 여러분이 보내주신 소중한 사연들을 읽어드릴 건데요, 잠깐 BGM 틀어드릴 테니까 편하게 들어주세요. 💜"</div>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">🎮</div>
-        <div class="step-content">
-          <div class="step-title">게임 전환 멘트</div>
-          <div class="step-desc">"감동적인 사연들 잘 들으셨나요? 이제 분위기 전환해서 게임 시작해볼게요! 오늘 첫 번째 게임은 OX 퀴즈입니다!"</div>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">🏆</div>
-        <div class="step-content">
-          <div class="step-title">클로징 멘트</div>
-          <div class="step-desc">"오늘 밍글데이 어떠셨나요? 발표회까지 정말 고생 많으셨고, 앞으로도 여러분의 디자인 여정을 응원합니다! 💜"</div>
-        </div>
-      </div>
-    </div>
-
   </div>
 
-  <footer>
-    🎨 디자인 부트캠프 밍글데이 이벤트 진행 가이드 | 매니저/튜터 내부용 (이부용M 제작)
-  </footer>
+  <!-- 동선 플로우 -->
+  <div class="section">
+    <div class="sec-title">참여자 동선 플로우</div>
+    <div class="flow-wrap">
+      <div class="flow-steps">
+        <div class="flow-box beach">🚪 입장 (해변존)</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-box beach">🪑 팀별 착석</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-box beach">🔔 골든벨</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-box beach">❓ OX 퀴즈</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-box camp">🎨 빙고</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-box camp">📻 라디오</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-box camp">📸 단체 사진 &amp; 마무리</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 게임별 가이드 바로가기 -->
+  <div class="section">
+    <div class="sec-title">게임별 상세 가이드 바로가기</div>
+    <div class="guide-grid">
+      <a href="/nbc-apm-manager/OpeningGuide.html" class="guide-card">
+        <div class="guide-card-icon">🎙️</div>
+        <div class="guide-card-time">19:00~19:10 · 10분</div>
+        <div class="guide-card-title">오프닝 &amp; 입장</div>
+        <div class="guide-card-desc">행사 안내, 규칙 설명, 팀 배정 확인</div>
+        <div class="guide-card-arrow">›</div>
+      </a>
+      <a href="/nbc-apm-manager/OXQuizGuide.html" class="guide-card">
+        <div class="guide-card-icon">❓</div>
+        <div class="guide-card-time">19:10~19:40 · 30분</div>
+        <div class="guide-card-title">OX 퀴즈 (TMI)</div>
+        <div class="guide-card-desc">튜터 &amp; 매니저 TMI 기반 OX 퀴즈 · 기프티콘 지급 예정</div>
+        <div class="guide-card-arrow">›</div>
+      </a>
+      <a href="/nbc-apm-manager/GoldenBellGameGuide.html" class="guide-card">
+        <div class="guide-card-icon">🔔</div>
+        <div class="guide-card-time">19:40~20:00 · 20분</div>
+        <div class="guide-card-title">퀴즈 골든벨</div>
+        <div class="guide-card-desc">ZEP 미니게임 활용 · 기프티콘 지급 예정</div>
+        <div class="guide-card-arrow">›</div>
+      </a>
+      <a href="/nbc-apm-manager/PictureBingoManagerGuide.html" class="guide-card">
+        <div class="guide-card-icon">🎨</div>
+        <div class="guide-card-time">20:00~20:30 · 30분</div>
+        <div class="guide-card-title">그림 빙고</div>
+        <div class="guide-card-desc">유명 캐릭터 실루엣 그림 빙고 · 기프티콘 지급 예정</div>
+        <div class="guide-card-arrow">›</div>
+      </a>
+      <a href="/nbc-apm-manager/RadioSessionGuide.html" class="guide-card">
+        <div class="guide-card-icon">📻</div>
+        <div class="guide-card-time">20:30~20:55 · 25분</div>
+        <div class="guide-card-title">라디오 세션</div>
+        <div class="guide-card-desc">사연 투표 기반 감성 마무리 · 기프티콘 지급 예정</div>
+        <div class="guide-card-arrow">›</div>
+      </a>
+      <a href="/nbc-apm-manager/CloseGuide.html" class="guide-card">
+        <div class="guide-card-icon">📸</div>
+        <div class="guide-card-time">20:55~21:00 · 5분</div>
+        <div class="guide-card-title">단체 사진 &amp; 마무리</div>
+        <div class="guide-card-desc">단체 사진 촬영 및 행사 마무리 안내</div>
+        <div class="guide-card-arrow">›</div>
+      </a>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div>내일배움캠프 AI 디자이너 4기 밍글데이 운영진 가이드</div>
+  <div><strong>이부용M 제작</strong> · 내부용 문서 · 외부 공유 금지</div>
+</footer>
 
 </body>
 </html>
