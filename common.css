@@ -239,5 +239,19 @@ footer strong { color: rgba(255,255,255,.85); }
   .prep-grid { grid-template-columns: 1fr; }
   .em-sit { min-width: 120px; }
   nav { padding: 0 10px; }
+
+/* prep-list 내 small + a 스타일 */
+.prep-list li small {
+  display: block;
+  color: var(--s);
+  font-size: 11.5px;
+  margin-top: 2px;
+}
+.prep-list li input[type=checkbox] {
+  margin-top: 3px;
+  flex-shrink: 0;
+  accent-color: var(--accent);
+}
+
   .award-banner { padding: 10px 14px; }
 }
