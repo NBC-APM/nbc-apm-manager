@@ -1,1 +1,321 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>마무리 가이드 | 밍글데이 운영진</title>
+<style>
+  :root {
+    --p: #7C3AED; --pl: #EDE9FE; --p2: #A78BFA;
+    --close: #0EA5E9; --closel: #E0F2FE;
+    --bg: #F8F7FF; --c: #fff; --t: #1E1B2E;
+    --s: #6B7280; --b: #E5E7EB; --r: 14px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: "Apple SD Gothic Neo", "Malgun Gothic", sans-serif; background: var(--bg); color: var(--t); }
 
+  nav { position: sticky; top: 0; z-index: 100; background: #fff; border-bottom: 2px solid var(--b); display: flex; align-items: center; padding: 0 24px; gap: 4px; box-shadow: 0 2px 12px rgba(124,58,237,.08); flex-wrap: wrap; }
+  .nav-logo { font-size: 14px; font-weight: 800; color: var(--p); margin-right: 16px; white-space: nowrap; padding: 14px 0; display: flex; align-items: center; gap: 6px; }
+  .nav-logo .dot { color: #FF6584; }
+  .nav-tabs { display: flex; overflow-x: auto; }
+  .nav-tab { padding: 14px 13px; font-size: 12px; font-weight: 600; color: var(--s); white-space: nowrap; border: none; border-bottom: 3px solid transparent; background: none; transition: all .2s; text-decoration: none; display: flex; align-items: center; gap: 5px; cursor: pointer; }
+  .nav-tab:hover { color: var(--p); background: var(--pl); }
+  .nav-tab.active { color: var(--p); border-bottom: 3px solid var(--p); }
+  .nav-tab.award { color: #D97706; }
+  .nav-tab.award:hover { background: #FFFBEB; color: #B45309; }
+
+  .award-banner { background: linear-gradient(90deg,#FEF3C7 0%,#FDE68A 50%,#FEF3C7 100%); border-bottom: 2px solid #FCD34D; padding: 10px 24px; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  .award-banner-left { display: flex; align-items: center; gap: 10px; }
+  .award-banner-icon { font-size: 20px; }
+  .award-banner-text { font-size: 12.5px; font-weight: 700; color: #92400E; }
+  .award-banner-sub { font-size: 11px; color: #B45309; margin-top: 1px; }
+  .award-banner-btn { display: inline-flex; align-items: center; gap: 5px; background: #D97706; color: #fff; border-radius: 8px; padding: 7px 14px; font-size: 12px; font-weight: 700; text-decoration: none; transition: all .2s; white-space: nowrap; }
+  .award-banner-btn:hover { background: #B45309; }
+
+  .hero { background: linear-gradient(135deg, #0369A1 0%, #0EA5E9 55%, #38BDF8 100%); padding: 36px 32px 32px; color: #fff; }
+  .hero-inner { max-width: 900px; margin: 0 auto; }
+  .hero-badge { display: inline-block; background: rgba(255,255,255,.18); border: 1px solid rgba(255,255,255,.3); border-radius: 20px; padding: 4px 13px; font-size: 11.5px; font-weight: 700; margin-bottom: 12px; }
+  .hero h1 { font-size: 24px; font-weight: 900; margin-bottom: 7px; letter-spacing: -.5px; }
+  .hero p { font-size: 13px; opacity: .88; line-height: 1.7; margin-bottom: 14px; }
+  .hero-meta { display: flex; gap: 8px; flex-wrap: wrap; }
+  .hero-meta-item { background: rgba(255,255,255,.15); border: 1px solid rgba(255,255,255,.25); border-radius: 8px; padding: 5px 12px; font-size: 12px; font-weight: 600; }
+
+  .main { max-width: 900px; margin: 0 auto; padding: 28px 18px 60px; }
+  .section { margin-bottom: 30px; }
+  .sec-title { font-size: 15px; font-weight: 800; color: var(--t); margin-bottom: 13px; display: flex; align-items: center; gap: 8px; }
+  .sec-title::before { content: ""; display: inline-block; width: 4px; height: 18px; background: var(--close); border-radius: 4px; }
+
+  .tbl-wrap { overflow-x: auto; border-radius: var(--r); border: 1px solid var(--b); }
+  table { width: 100%; border-collapse: collapse; background: #fff; font-size: 12.5px; }
+  th { background: var(--closel); color: var(--close); font-weight: 700; padding: 10px 13px; text-align: left; border-bottom: 2px solid var(--b); white-space: nowrap; }
+  td { padding: 10px 13px; border-bottom: 1px solid var(--b); vertical-align: middle; line-height: 1.6; }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: #FAFAFA; }
+
+  .alert { border-radius: var(--r); padding: 12px 16px; font-size: 12.5px; line-height: 1.7; margin-bottom: 14px; display: flex; gap: 10px; align-items: flex-start; }
+  .alert-b { background: var(--closel); border-left: 4px solid var(--close); }
+  .alert-y { background: #FFFBEB; border-left: 4px solid #F59E0B; }
+  .alert-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+
+  .steps { display: flex; flex-direction: column; gap: 16px; }
+  .step-card { background: var(--c); border: 1px solid var(--b); border-radius: var(--r); overflow: hidden; }
+  .step-header { display: flex; align-items: center; gap: 14px; padding: 16px 20px; border-bottom: 1px solid var(--b); background: var(--closel); }
+  .step-num { min-width: 36px; height: 36px; background: var(--close); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 800; flex-shrink: 0; }
+  .step-header-text h3 { font-size: 14px; font-weight: 800; color: var(--close); }
+  .step-header-text p { font-size: 11.5px; color: var(--s); margin-top: 2px; }
+  .step-body { padding: 18px 20px; }
+
+  .script-wrap { margin-top: 10px; }
+  .script-label { font-size: 11px; font-weight: 700; color: var(--s); margin-bottom: 6px; display: flex; align-items: center; gap: 5px; }
+  .script-box { background: #1E1E2E; color: #CDD6F4; border-radius: 10px; padding: 16px 20px; font-size: 12.5px; line-height: 2; font-family: "Apple SD Gothic Neo","Malgun Gothic",sans-serif; white-space: pre-wrap; }
+  .script-box .hl { color: #A6E3A1; font-weight: 700; }
+  .script-box .em { color: #FAB387; }
+  .script-box .note { color: #89DCEB; font-size: 11.5px; }
+
+  .check-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .check-card { background: var(--c); border: 1px solid var(--b); border-radius: var(--r); padding: 16px 18px; }
+  .check-card-title { font-size: 12.5px; font-weight: 800; color: var(--close); margin-bottom: 10px; display: flex; align-items: center; gap: 6px; }
+  .check-list { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+  .check-list li { font-size: 12.5px; line-height: 1.6; padding: 7px 10px; background: var(--bg); border-radius: 8px; border-left: 3px solid #7DD3FC; display: flex; align-items: flex-start; gap: 8px; }
+  .check-list li input[type=checkbox] { margin-top: 3px; flex-shrink: 0; accent-color: var(--close); }
+
+  .flow-list { display: flex; flex-direction: column; gap: 6px; }
+  .flow-item { display: flex; gap: 10px; align-items: flex-start; background: var(--bg); border-radius: 9px; padding: 9px 13px; font-size: 12.5px; line-height: 1.6; }
+  .flow-num { min-width: 22px; height: 22px; background: var(--close); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; flex-shrink: 0; margin-top: 1px; }
+  .flow-sub { font-size: 11.5px; color: var(--s); margin-top: 2px; }
+
+  .role-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(200px,1fr)); gap: 12px; }
+  .role-card { background: var(--c); border: 1px solid var(--b); border-radius: var(--r); padding: 16px 18px; border-top: 4px solid var(--close); }
+  .role-title { font-size: 12.5px; font-weight: 800; color: var(--close); margin-bottom: 5px; }
+  .role-desc { font-size: 12px; color: var(--s); line-height: 1.6; }
+  .role-who { margin-top: 9px; padding-top: 8px; border-top: 1px dashed var(--b); font-size: 11.5px; font-weight: 700; }
+
+  /* PHOTO TIP CARDS */
+  .tip-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(200px,1fr)); gap: 12px; }
+  .tip-card { background: var(--c); border: 1px solid var(--b); border-radius: var(--r); padding: 16px 18px; }
+  .tip-icon { font-size: 24px; margin-bottom: 8px; }
+  .tip-title { font-size: 13px; font-weight: 800; margin-bottom: 5px; }
+  .tip-desc { font-size: 12px; color: var(--s); line-height: 1.6; }
+
+  .em-list { display: flex; flex-direction: column; gap: 8px; }
+  .em-item { background: var(--c); border: 1px solid var(--b); border-radius: 10px; padding: 11px 15px; display: flex; gap: 12px; align-items: flex-start; }
+  .em-sit { min-width: 180px; font-size: 12px; font-weight: 700; color: #DC2626; flex-shrink: 0; }
+  .em-act { font-size: 12px; color: var(--t); line-height: 1.6; }
+
+  /* AFTER CARD */
+  .after-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .after-card { background: var(--c); border: 1px solid var(--b); border-radius: var(--r); padding: 16px 18px; border-left: 4px solid var(--close); }
+  .after-title { font-size: 13px; font-weight: 800; margin-bottom: 8px; color: var(--close); }
+  .after-list { list-style: none; display: flex; flex-direction: column; gap: 6px; font-size: 12.5px; line-height: 1.7; color: var(--t); }
+  .after-list li::before { content: "✓ "; color: var(--close); font-weight: 700; }
+
+  footer { background: var(--t); color: rgba(255,255,255,.55); text-align: center; padding: 22px 16px; font-size: 11.5px; line-height: 1.8; }
+  footer strong { color: rgba(255,255,255,.85); }
+
+  @media(max-width:640px) {
+    .hero { padding: 22px 14px; } .hero h1 { font-size: 19px; }
+    .main { padding: 16px 12px 50px; }
+    .check-grid { grid-template-columns: 1fr; }
+    .after-grid { grid-template-columns: 1fr; }
+    .em-sit { min-width: 120px; }
+    nav { padding: 0 10px; }
+    .award-banner { padding: 10px 14px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">🎉 밍글데이 <span class="dot">·</span> 운영진 가이드</div>
+  <div class="nav-tabs">
+    <a href="https://nbc-apm.github.io/nbc-apm-manager/index.html" class="nav-tab">🏠 홈</a>
+    <a href="https://nbc-apm.github.io/nbc-apm-manager/OpeningGuide.html" class="nav-tab">🎙️ 오프닝</a>
+    <a href="https://nbc-apm.github.io/nbc-apm-manager/OXQuizGuide.html" class="nav-tab">❓ OX 퀴즈</a>
+    <a href="https://nbc-apm.github.io/nbc-apm-manager/GoldenBellGameGuide.html" class="nav-tab">🔔 골든벨</a>
+    <a href="https://nbc-apm.github.io/nbc-apm-manager/PictureBingoManagerGuide.html" class="nav-tab">🎨 그림 빙고</a>
+    <a href="https://nbc-apm.github.io/nbc-apm-manager/RadioSessionGuide.html" class="nav-tab">📻 라디오</a>
+    <a href="https://nbc-apm.github.io/nbc-apm-manager/CloseGuide.html" class="nav-tab active">📸 마무리</a>
+    <a href="https://nbc-apm.github.io/nbc-apm-manager/AwardGuide.html" class="nav-tab award">🏆 상품 지급</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">📸 마무리 · 매니저 가이드</div>
+    <h1>📸 단체 사진 &amp; 마무리 진행 가이드</h1>
+    <p>밍글데이의 마지막 5분 — 단체 사진 촬영과 따뜻한 마무리 인사 · 작성일 2026.04.17</p>
+    <div class="hero-meta">
+      <div class="hero-meta-item">⏱️ 5분</div>
+      <div class="hero-meta-item">🕐 20:55~21:00</div>
+      <div class="hero-meta-item">📍 캠핑존</div>
+      <div class="hero-meta-item">👤 진행: 유재은</div>
+    </div>
+  </div>
+</div>
+
+<div class="main">
+
+  <!-- 개요 -->
+  <div class="section">
+    <div class="sec-title">📋 개요</div>
+    <div class="tbl-wrap"><table>
+      <tbody>
+        <tr><td style="width:140px;font-weight:700;color:var(--close);">진행 시간</td><td>20:55 ~ 21:00 (5분)</td></tr>
+        <tr><td style="font-weight:700;color:var(--close);">진행 담당</td><td>유재은</td></tr>
+        <tr><td style="font-weight:700;color:var(--close);">사용 맵</td><td>캠핑존</td></tr>
+        <tr><td style="font-weight:700;color:var(--close);">주요 내용</td><td>단체 사진 촬영, 마무리 인사, 상품 지급 안내</td></tr>
+        <tr><td style="font-weight:700;color:var(--close);">상품</td><td>없음 (상품 지급은 행사 후 별도 진행)</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+
+  <!-- 사전 준비 -->
+  <div class="section">
+    <div class="sec-title">📦 사전 준비 체크리스트</div>
+    <div class="check-grid">
+      <div class="check-card">
+        <div class="check-card-title">📅 사전 준비</div>
+        <ul class="check-list">
+          <li><input type="checkbox"> ZEP 단체 사진 촬영 방식 사전 확인 (스크린샷 or 캡처)</li>
+          <li><input type="checkbox"> 마무리 멘트 대본 숙지</li>
+          <li><input type="checkbox"> 상품 지급 안내 문구 채팅 복붙용 사전 작성</li>
+          <li><input type="checkbox"> 행사 후기 설문 링크 준비 (있는 경우)</li>
+        </ul>
+      </div>
+      <div class="check-card">
+        <div class="check-card-title">🗓️ 당일 준비</div>
+        <ul class="check-list">
+          <li><input type="checkbox"> 라디오 세션 종료 직후 캠핑존 전체 집합 안내</li>
+          <li><input type="checkbox"> 전체 인원 캠핑존 집합 확인</li>
+          <li><input type="checkbox"> 단체 사진 촬영 후 저장 확인</li>
+          <li><input type="checkbox"> 상품 지급 안내 채팅 발송</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- 운영진 역할 -->
+  <div class="section">
+    <div class="sec-title">👥 운영진 역할 분담</div>
+    <div class="role-grid">
+      <div class="role-card">
+        <div class="role-title">🎙️ 진행자 (MC)</div>
+        <div class="role-desc">마무리 멘트, 단체 사진 촬영 진행, 상품 지급 안내</div>
+        <div class="role-who">담당: 유재은</div>
+      </div>
+      <div class="role-card">
+        <div class="role-title">📸 사진 촬영</div>
+        <div class="role-desc">단체 사진 스크린샷 캡처 및 저장</div>
+        <div class="role-who">담당: 이부용</div>
+      </div>
+      <div class="role-card">
+        <div class="role-title">💬 채팅 안내</div>
+        <div class="role-desc">상품 지급 안내 문구 채팅 발송, 마무리 공지</div>
+        <div class="role-who">담당: 전지현</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 진행 순서 -->
+  <div class="section">
+    <div class="sec-title">🎮 당일 진행 순서</div>
+    <div class="steps">
+
+      <div class="step-card">
+        <div class="step-header">
+          <div class="step-num">1</div>
+          <div class="step-header-text">
+            <h3>STEP 1 · 전체 집합 안내 (20:55~20:56)</h3>
+            <p>라디오 세션 종료 직후 캠핑존 집합 유도</p>
+          </div>
+        </div>
+        <div class="step-body">
+          <div class="flow-list">
+            <div class="flow-item">
+              <div class="flow-num">①</div>
+              <div>채팅창에 집합 안내 문구 발송
+                <div class="flow-sub">"단체 사진 촬영을 위해 캠핑존으로 모여주세요! 📸"</div>
+              </div>
+            </div>
+            <div class="flow-item">
+              <div class="flow-num">②</div>
+              <div>전체 인원 캠핑존 집합 확인 (약 1분)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-header">
+          <div class="step-num">2</div>
+          <div class="step-header-text">
+            <h3>STEP 2 · 단체 사진 촬영 (20:56~20:58)</h3>
+            <p>ZEP 캠핑존 전체 스크린샷 촬영</p>
+          </div>
+        </div>
+        <div class="step-body">
+          <div class="script-wrap">
+            <div class="script-label">🎙️ 진행자 대본</div>
+            <div class="script-box">"자, 이제 오늘 밍글데이의 마지막 순서입니다!
+다 같이 단체 사진을 찍어볼게요 📸
+
+<span class="hl">캠핑존 중앙</span>으로 캐릭터를 모아주세요!
+준비되셨으면 채팅창에 <span class="em">😊</span> 이모지 눌러주세요~
+
+<span class="note">// 이모지 반응 확인 후 촬영 진행</span>
+
+하나, 둘, 셋 — 찰칵! 📸
+오늘 함께해주셔서 정말 감사합니다 🎉"</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-header">
+          <div class="step-num">3</div>
+          <div class="step-header-text">
+            <h3>STEP 3 · 마무리 인사 (20:58~20:59)</h3>
+            <p>오늘 행사 전체 마무리 멘트</p>
+          </div>
+        </div>
+        <div class="step-body">
+          <div class="script-wrap">
+            <div class="script-label">🎙️ 진행자 대본</div>
+            <div class="script-box">"오늘 밍글데이 어떠셨나요? 😊
+
+OX 퀴즈, 골든벨, 그림 빙고, 라디오 세션까지
+정말 다양한 프로그램을 함께해주셔서 감사합니다!
+
+오늘 이 시간이 여러분에게 즐거운 추억이 되었으면 좋겠어요.
+<span class="hl">수상하신 분들</span>께는 기프티콘을 DM으로 전달드릴 예정이니
+슬랙 DM을 확인해주세요 🎁
+
+앞으로도 내일배움캠프에서 함께 성장해나가요!
+오늘 밍글데이, 이것으로 마치겠습니다. 감사합니다 🎉"</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-header">
+          <div class="step-num">4</div>
+          <div class="step-header-text">
+            <h3>STEP 4 · 상품 지급 안내 채팅 발송 (20:59~21:00)</h3>
+            <p>수상자 상품 지급 방법 채팅 공지</p>
+          </div>
+        </div>
+        <div class="step-body">
+          <div class="script-wrap">
+            <div class="script-label">💬 채팅 안내 문구 (복붙용)</div>
+            <div class="script-box">🎁 오늘 밍글데이 수상자 상품 안내
+
+수상하신 분들께는 <span class="hl">슬랙 DM</span>으로 기프티콘을 전달드릴 예정입니다.
+젭포인트는 순차적으로 지급될 예정이에요.
+
+오늘 함께해주신 모든 분들 감사합니다! 🎉
+내일배움캠프에서 계속 함께해요 💜</div>
+          </div>
+        </div>
+      </div>
+
+    
