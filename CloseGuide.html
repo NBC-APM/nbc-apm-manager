@@ -7,12 +7,12 @@
 <style>
   :root {
     --p: #7C3AED; --pl: #EDE9FE; --p2: #A78BFA;
-    --close: #0EA5E9; --closel: #E0F2FE;
     --bg: #F8F7FF; --c: #fff; --t: #1E1B2E;
     --s: #6B7280; --b: #E5E7EB; --r: 14px;
+    --accent: #0EA5E9; --accentl: #E0F2FE;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: "Apple SD Gothic Neo", "Malgun Gothic", sans-serif; background: var(--bg); color: var(--t); }
+  body { font-family: "Apple SD Gothic Neo","Malgun Gothic",sans-serif; background: var(--bg); color: var(--t); font-size: 13px; line-height: 1.6; }
 
   nav { position: sticky; top: 0; z-index: 100; background: #fff; border-bottom: 2px solid var(--b); display: flex; align-items: center; padding: 0 24px; gap: 4px; box-shadow: 0 2px 12px rgba(124,58,237,.08); flex-wrap: wrap; }
   .nav-logo { font-size: 14px; font-weight: 800; color: var(--p); margin-right: 16px; white-space: nowrap; padding: 14px 0; display: flex; align-items: center; gap: 6px; }
@@ -32,82 +32,69 @@
   .award-banner-btn { display: inline-flex; align-items: center; gap: 5px; background: #D97706; color: #fff; border-radius: 8px; padding: 7px 14px; font-size: 12px; font-weight: 700; text-decoration: none; transition: all .2s; white-space: nowrap; }
   .award-banner-btn:hover { background: #B45309; }
 
-  .hero { background: linear-gradient(135deg, #0369A1 0%, #0EA5E9 55%, #38BDF8 100%); padding: 36px 32px 32px; color: #fff; }
-  .hero-inner { max-width: 900px; margin: 0 auto; }
+  .hero { background: linear-gradient(135deg,#0369A1 0%,#0EA5E9 55%,#38BDF8 100%); padding: 36px 32px 32px; color: #fff; }
+  .hero-inner { max-width: 960px; margin: 0 auto; }
   .hero-badge { display: inline-block; background: rgba(255,255,255,.18); border: 1px solid rgba(255,255,255,.3); border-radius: 20px; padding: 4px 13px; font-size: 11.5px; font-weight: 700; margin-bottom: 12px; }
   .hero h1 { font-size: 24px; font-weight: 900; margin-bottom: 7px; letter-spacing: -.5px; }
-  .hero p { font-size: 13px; opacity: .88; line-height: 1.7; margin-bottom: 14px; }
+  .hero p { font-size: 13px; opacity: .9; line-height: 1.7; margin-bottom: 14px; }
   .hero-meta { display: flex; gap: 8px; flex-wrap: wrap; }
-  .hero-meta-item { background: rgba(255,255,255,.15); border: 1px solid rgba(255,255,255,.25); border-radius: 8px; padding: 5px 12px; font-size: 12px; font-weight: 600; }
+  .hero-meta-item { background: rgba(255,255,255,.18); border: 1px solid rgba(255,255,255,.3); border-radius: 8px; padding: 5px 12px; font-size: 12px; font-weight: 600; }
 
-  .main { max-width: 900px; margin: 0 auto; padding: 28px 18px 60px; }
-  .section { margin-bottom: 30px; }
+  .main { max-width: 960px; margin: 0 auto; padding: 28px 18px 60px; }
+  .section { margin-bottom: 32px; }
   .sec-title { font-size: 15px; font-weight: 800; color: var(--t); margin-bottom: 13px; display: flex; align-items: center; gap: 8px; }
-  .sec-title::before { content: ""; display: inline-block; width: 4px; height: 18px; background: var(--close); border-radius: 4px; }
+  .sec-title::before { content: ""; display: inline-block; width: 4px; height: 18px; background: var(--accent); border-radius: 4px; }
 
   .tbl-wrap { overflow-x: auto; border-radius: var(--r); border: 1px solid var(--b); }
   table { width: 100%; border-collapse: collapse; background: #fff; font-size: 12.5px; }
-  th { background: var(--closel); color: var(--close); font-weight: 700; padding: 10px 13px; text-align: left; border-bottom: 2px solid var(--b); white-space: nowrap; }
+  th { background: var(--accentl); color: var(--accent); font-weight: 700; padding: 10px 13px; text-align: left; border-bottom: 2px solid var(--b); white-space: nowrap; }
   td { padding: 10px 13px; border-bottom: 1px solid var(--b); vertical-align: middle; line-height: 1.6; }
   tr:last-child td { border-bottom: none; }
   tr:hover td { background: #FAFAFA; }
 
   .alert { border-radius: var(--r); padding: 12px 16px; font-size: 12.5px; line-height: 1.7; margin-bottom: 14px; display: flex; gap: 10px; align-items: flex-start; }
-  .alert-b { background: var(--closel); border-left: 4px solid var(--close); }
-  .alert-y { background: #FFFBEB; border-left: 4px solid #F59E0B; }
+  .alert-ac { background: var(--accentl); border-left: 4px solid var(--accent); }
+  .alert-y  { background: #FFFBEB; border-left: 4px solid #F59E0B; }
   .alert-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
 
   .steps { display: flex; flex-direction: column; gap: 16px; }
   .step-card { background: var(--c); border: 1px solid var(--b); border-radius: var(--r); overflow: hidden; }
-  .step-header { display: flex; align-items: center; gap: 14px; padding: 16px 20px; border-bottom: 1px solid var(--b); background: var(--closel); }
-  .step-num { min-width: 36px; height: 36px; background: var(--close); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 800; flex-shrink: 0; }
-  .step-header-text h3 { font-size: 14px; font-weight: 800; color: var(--close); }
+  .step-header { display: flex; align-items: center; gap: 14px; padding: 14px 20px; border-bottom: 1px solid var(--b); background: var(--accentl); }
+  .step-num { min-width: 34px; height: 34px; background: var(--accent); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 800; flex-shrink: 0; }
+  .step-header-text h3 { font-size: 13.5px; font-weight: 800; color: var(--accent); }
   .step-header-text p { font-size: 11.5px; color: var(--s); margin-top: 2px; }
-  .step-body { padding: 18px 20px; }
+  .step-body { padding: 16px 20px; }
+  .step-body > p { font-size: 12.5px; color: var(--s); line-height: 1.7; margin-bottom: 10px; }
 
   .script-wrap { margin-top: 10px; }
   .script-label { font-size: 11px; font-weight: 700; color: var(--s); margin-bottom: 6px; display: flex; align-items: center; gap: 5px; }
-  .script-box { background: #1E1E2E; color: #CDD6F4; border-radius: 10px; padding: 16px 20px; font-size: 12.5px; line-height: 2; font-family: "Apple SD Gothic Neo","Malgun Gothic",sans-serif; white-space: pre-wrap; }
+  .script-box { background: #1E1E2E; color: #CDD6F4; border-radius: 10px; padding: 14px 18px; font-size: 12.5px; line-height: 2; font-family: "Apple SD Gothic Neo","Malgun Gothic",sans-serif; white-space: pre-wrap; }
   .script-box .hl { color: #A6E3A1; font-weight: 700; }
   .script-box .em { color: #FAB387; }
   .script-box .note { color: #89DCEB; font-size: 11.5px; }
 
   .check-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
   .check-card { background: var(--c); border: 1px solid var(--b); border-radius: var(--r); padding: 16px 18px; }
-  .check-card-title { font-size: 12.5px; font-weight: 800; color: var(--close); margin-bottom: 10px; display: flex; align-items: center; gap: 6px; }
+  .check-card-title { font-size: 12.5px; font-weight: 800; color: var(--accent); margin-bottom: 10px; display: flex; align-items: center; gap: 6px; }
   .check-list { list-style: none; display: flex; flex-direction: column; gap: 7px; }
   .check-list li { font-size: 12.5px; line-height: 1.6; padding: 7px 10px; background: var(--bg); border-radius: 8px; border-left: 3px solid #7DD3FC; display: flex; align-items: flex-start; gap: 8px; }
-  .check-list li input[type=checkbox] { margin-top: 3px; flex-shrink: 0; accent-color: var(--close); }
+  .check-list li input[type=checkbox] { margin-top: 3px; flex-shrink: 0; accent-color: var(--accent); }
 
   .flow-list { display: flex; flex-direction: column; gap: 6px; }
   .flow-item { display: flex; gap: 10px; align-items: flex-start; background: var(--bg); border-radius: 9px; padding: 9px 13px; font-size: 12.5px; line-height: 1.6; }
-  .flow-num { min-width: 22px; height: 22px; background: var(--close); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; flex-shrink: 0; margin-top: 1px; }
+  .flow-num { min-width: 22px; height: 22px; background: var(--accent); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; flex-shrink: 0; margin-top: 1px; }
   .flow-sub { font-size: 11.5px; color: var(--s); margin-top: 2px; }
 
   .role-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(200px,1fr)); gap: 12px; }
-  .role-card { background: var(--c); border: 1px solid var(--b); border-radius: var(--r); padding: 16px 18px; border-top: 4px solid var(--close); }
-  .role-title { font-size: 12.5px; font-weight: 800; color: var(--close); margin-bottom: 5px; }
+  .role-card { background: var(--c); border: 1px solid var(--b); border-radius: var(--r); padding: 16px 18px; border-top: 4px solid var(--accent); }
+  .role-title { font-size: 12.5px; font-weight: 800; color: var(--accent); margin-bottom: 5px; }
   .role-desc { font-size: 12px; color: var(--s); line-height: 1.6; }
   .role-who { margin-top: 9px; padding-top: 8px; border-top: 1px dashed var(--b); font-size: 11.5px; font-weight: 700; }
 
-  /* PHOTO TIP CARDS */
-  .tip-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(200px,1fr)); gap: 12px; }
-  .tip-card { background: var(--c); border: 1px solid var(--b); border-radius: var(--r); padding: 16px 18px; }
-  .tip-icon { font-size: 24px; margin-bottom: 8px; }
-  .tip-title { font-size: 13px; font-weight: 800; margin-bottom: 5px; }
-  .tip-desc { font-size: 12px; color: var(--s); line-height: 1.6; }
-
   .em-list { display: flex; flex-direction: column; gap: 8px; }
   .em-item { background: var(--c); border: 1px solid var(--b); border-radius: 10px; padding: 11px 15px; display: flex; gap: 12px; align-items: flex-start; }
-  .em-sit { min-width: 180px; font-size: 12px; font-weight: 700; color: #DC2626; flex-shrink: 0; }
+  .em-sit { min-width: 200px; font-size: 12px; font-weight: 700; color: #DC2626; flex-shrink: 0; }
   .em-act { font-size: 12px; color: var(--t); line-height: 1.6; }
-
-  /* AFTER CARD */
-  .after-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-  .after-card { background: var(--c); border: 1px solid var(--b); border-radius: var(--r); padding: 16px 18px; border-left: 4px solid var(--close); }
-  .after-title { font-size: 13px; font-weight: 800; margin-bottom: 8px; color: var(--close); }
-  .after-list { list-style: none; display: flex; flex-direction: column; gap: 6px; font-size: 12.5px; line-height: 1.7; color: var(--t); }
-  .after-list li::before { content: "✓ "; color: var(--close); font-weight: 700; }
 
   footer { background: var(--t); color: rgba(255,255,255,.55); text-align: center; padding: 22px 16px; font-size: 11.5px; line-height: 1.8; }
   footer strong { color: rgba(255,255,255,.85); }
@@ -116,7 +103,6 @@
     .hero { padding: 22px 14px; } .hero h1 { font-size: 19px; }
     .main { padding: 16px 12px 50px; }
     .check-grid { grid-template-columns: 1fr; }
-    .after-grid { grid-template-columns: 1fr; }
     .em-sit { min-width: 120px; }
     nav { padding: 0 10px; }
     .award-banner { padding: 10px 14px; }
@@ -139,6 +125,17 @@
   </div>
 </nav>
 
+<div class="award-banner">
+  <div class="award-banner-left">
+    <div class="award-banner-icon">🏆</div>
+    <div>
+      <div class="award-banner-text">상품 지급 가이드 — 기프티콘 &amp; 젭 포인트 지급 안내</div>
+      <div class="award-banner-sub">지급 방식 · 지급 시점 · 담당자 확인은 상품 지급 가이드 페이지에서 확인하세요</div>
+    </div>
+  </div>
+  <a href="https://nbc-apm.github.io/nbc-apm-manager/AwardGuide.html" class="award-banner-btn">📄 상품 지급 가이드 보기 →</a>
+</div>
+
 <div class="hero">
   <div class="hero-inner">
     <div class="hero-badge">📸 마무리 · 매니저 가이드</div>
@@ -155,21 +152,19 @@
 
 <div class="main">
 
-  <!-- 개요 -->
   <div class="section">
     <div class="sec-title">📋 개요</div>
     <div class="tbl-wrap"><table>
       <tbody>
-        <tr><td style="width:140px;font-weight:700;color:var(--close);">진행 시간</td><td>20:55 ~ 21:00 (5분)</td></tr>
-        <tr><td style="font-weight:700;color:var(--close);">진행 담당</td><td>유재은</td></tr>
-        <tr><td style="font-weight:700;color:var(--close);">사용 맵</td><td>캠핑존</td></tr>
-        <tr><td style="font-weight:700;color:var(--close);">주요 내용</td><td>단체 사진 촬영, 마무리 인사, 상품 지급 안내</td></tr>
-        <tr><td style="font-weight:700;color:var(--close);">상품</td><td>없음 (상품 지급은 행사 후 별도 진행)</td></tr>
+        <tr><td style="width:140px;font-weight:700;color:var(--accent);">진행 시간</td><td>20:55 ~ 21:00 (5분)</td></tr>
+        <tr><td style="font-weight:700;color:var(--accent);">진행 담당</td><td>유재은</td></tr>
+        <tr><td style="font-weight:700;color:var(--accent);">사용 맵</td><td>캠핑존</td></tr>
+        <tr><td style="font-weight:700;color:var(--accent);">주요 내용</td><td>단체 사진 촬영, 마무리 인사, 상품 지급 안내</td></tr>
+        <tr><td style="font-weight:700;color:var(--accent);">상품</td><td>없음 (상품 지급은 행사 후 별도 진행)</td></tr>
       </tbody>
     </table></div>
   </div>
 
-  <!-- 사전 준비 -->
   <div class="section">
     <div class="sec-title">📦 사전 준비 체크리스트</div>
     <div class="check-grid">
@@ -194,7 +189,6 @@
     </div>
   </div>
 
-  <!-- 운영진 역할 -->
   <div class="section">
     <div class="sec-title">👥 운영진 역할 분담</div>
     <div class="role-grid">
@@ -216,7 +210,6 @@
     </div>
   </div>
 
-  <!-- 진행 순서 -->
   <div class="section">
     <div class="sec-title">🎮 당일 진행 순서</div>
     <div class="steps">
@@ -231,16 +224,8 @@
         </div>
         <div class="step-body">
           <div class="flow-list">
-            <div class="flow-item">
-              <div class="flow-num">①</div>
-              <div>채팅창에 집합 안내 문구 발송
-                <div class="flow-sub">"단체 사진 촬영을 위해 캠핑존으로 모여주세요! 📸"</div>
-              </div>
-            </div>
-            <div class="flow-item">
-              <div class="flow-num">②</div>
-              <div>전체 인원 캠핑존 집합 확인 (약 1분)</div>
-            </div>
+            <div class="flow-item"><div class="flow-num">①</div><div>채팅창에 집합 안내 문구 발송<div class="flow-sub">"단체 사진 촬영을 위해 캠핑존으로 모여주세요! 📸"</div></div></div>
+            <div class="flow-item"><div class="flow-num">②</div><div>전체 인원 캠핑존 집합 확인 (약 1분)</div></div>
           </div>
         </div>
       </div>
@@ -318,4 +303,14 @@ OX 퀴즈, 골든벨, 그림 빙고, 라디오 세션까지
         </div>
       </div>
 
-    
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div>내일배움캠프 AI 디자이너 4기 밍글데이 운영진 가이드</div>
+  <div><strong>이부용M 제작</strong> · 내부용 문서 · 외부 공유 금지</div>
+</footer>
+</body>
+</html>
