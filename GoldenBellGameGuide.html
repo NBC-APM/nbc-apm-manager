@@ -8,10 +8,15 @@
 <style>
   :root { --accent: #D97706; --accentl: #FFFBEB; }
   .hero { background: linear-gradient(135deg,#92400E 0%,#D97706 55%,#FCD34D 100%); }
-  .sheet-card-head { background: linear-gradient(135deg,#FFFBEB 0%,#FEF3C7 100%); border-bottom-color: #FDE68A; }
-  .sheet-card-title { color: #92400E; }
-  .sheet-card-desc  { color: #B45309; }
-  .sheet-feature    { border-color: #FDE68A; }
+  
+  /* 골든벨 시트 카드 색상 강제 적용 */
+  .sheet-card .sheet-card-head {
+    background: linear-gradient(135deg,#FFFBEB 0%,#FEF3C7 100%) !important;
+    border-bottom-color: #FDE68A !important;
+  }
+  .sheet-card .sheet-card-title { color: #92400E !important; }
+  .sheet-card .sheet-card-desc  { color: #B45309 !important; }
+  .sheet-card .sheet-feature    { border-color: #FDE68A !important; }
 
   /* 골든벨 전용 */
   .award-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(180px,1fr)); gap: 12px; }
