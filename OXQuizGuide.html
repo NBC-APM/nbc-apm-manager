@@ -12,6 +12,15 @@
   .sheet-card-title { color: #075985; }
   .sheet-card-desc  { color: #0369A1; }
   .sheet-feature    { border-color: #BAE6FD; }
+
+  /* OX 전용 시상 구조 */
+  .award-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(180px,1fr)); gap: 12px; }
+  .award-card { background: var(--c); border: 1px solid var(--b); border-radius: var(--r); padding: 16px 18px; text-align: center; }
+  .award-emoji { font-size: 28px; margin-bottom: 6px; }
+  .award-name  { font-size: 13px; font-weight: 800; margin-bottom: 4px; }
+  .award-point { display: inline-block; background: #E0F2FE; color: #075985; border-radius: 7px; padding: 2px 9px; font-size: 11px; font-weight: 700; margin-bottom: 6px; }
+  .award-product { font-size: 12px; color: var(--t); font-weight: 600; margin-bottom: 3px; }
+  .award-total   { font-size: 11px; color: var(--s); }
 </style>
 </head>
 <body>
@@ -123,6 +132,47 @@
         <div class="role-title">📊 시트 기록</div>
         <div class="role-desc">라운드별 생존자 수, 최종 생존자명, 진행 여부 기록</div>
         <div class="role-who">담당: 유재은</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-title">🏆 시상 구조</div>
+    <div class="award-grid">
+      <div class="award-card" style="border-top:4px solid #F59E0B;">
+        <div class="award-emoji">🥇</div>
+        <div class="award-name">1명일 경우</div>
+        <div class="award-point">젭포인트 2000</div>
+        <div class="award-product">스벅 아아 2개 + 케이크</div>
+        <div class="award-total">13,060원</div>
+      </div>
+      <div class="award-card" style="border-top:4px solid #9CA3AF;">
+        <div class="award-emoji">🥈</div>
+        <div class="award-name">2명일 경우</div>
+        <div class="award-point">젭포인트 1500</div>
+        <div class="award-product">맘터 싸이버거세트</div>
+        <div class="award-total">7,230원 × 2 = 14,460원</div>
+      </div>
+      <div class="award-card" style="border-top:4px solid #CD7F32;">
+        <div class="award-emoji">🥉</div>
+        <div class="award-name">3명일 경우</div>
+        <div class="award-point">젭포인트 1000</div>
+        <div class="award-product">맘터 싸이버거세트</div>
+        <div class="award-total">7,230원 × 3 = 21,690원</div>
+      </div>
+      <div class="award-card" style="border-top:4px solid #0EA5E9;">
+        <div class="award-emoji">🎯</div>
+        <div class="award-name">4~5명일 경우</div>
+        <div class="award-point">젭포인트 500</div>
+        <div class="award-product">스벅 아아</div>
+        <div class="award-total">4명: 15,960원 / 5명: 19,950원</div>
+      </div>
+      <div class="award-card" style="border-top:4px solid #1E1B2E;background:#F9FAFB;">
+        <div class="award-emoji">💰</div>
+        <div class="award-name">합계</div>
+        <div class="award-point" style="background:#F3F4F6;color:#1E1B2E;">최소~최대</div>
+        <div class="award-product" style="font-size:11.5px;">최소: 13,060원</div>
+        <div class="award-total">최대: 19,950원</div>
       </div>
     </div>
   </div>
