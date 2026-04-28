@@ -4,175 +4,14 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>OX 퀴즈 가이드 | 밍글데이 운영진</title>
-
 <link rel="stylesheet" href="common.css"/>
-
 <style>
-  :root {
-    --accent: #0EA5E9;
-    --accentl: #E0F2FE;
-  }
-
-  .hero {
-    background: linear-gradient(135deg,#0369A1 0%,#0EA5E9 55%,#38BDF8 100%);
-  }
-
-  /* OX 통합관리 시트 카드 */
-  .sheet-card {
-    background: var(--c);
-    border: 1px solid var(--b);
-    border-radius: var(--r);
-    overflow: hidden;
-    box-shadow: 0 8px 24px rgba(14,165,233,.08);
-  }
-
-  .sheet-card-head {
-    background: linear-gradient(135deg,#E0F2FE 0%,#F0F9FF 100%);
-    border-bottom: 1px solid #BAE6FD;
-    padding: 20px 22px;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 18px;
-    flex-wrap: wrap;
-  }
-
-  .sheet-card-title-wrap {
-    display: flex;
-    gap: 13px;
-    align-items: flex-start;
-  }
-
-  .sheet-card-icon {
-    width: 42px;
-    height: 42px;
-    border-radius: 13px;
-    background: var(--accent);
-    color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 21px;
-    flex-shrink: 0;
-    box-shadow: 0 8px 16px rgba(14,165,233,.22);
-  }
-
-  .sheet-card-title {
-    font-size: 16px;
-    font-weight: 900;
-    color: #075985;
-    margin-bottom: 4px;
-    letter-spacing: -.2px;
-  }
-
-  .sheet-card-desc {
-    font-size: 12.5px;
-    color: #0369A1;
-    line-height: 1.7;
-  }
-
-  .sheet-btn-main {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 7px;
-    background: var(--accent);
-    color: #fff;
-    border-radius: 10px;
-    padding: 10px 16px;
-    font-size: 12.5px;
-    font-weight: 800;
-    text-decoration: none;
-    white-space: nowrap;
-    transition: all .2s;
-    box-shadow: 0 8px 16px rgba(14,165,233,.22);
-  }
-
-  .sheet-btn-main:hover {
-    background: #0284C7;
-    transform: translateY(-1px);
-  }
-
-  .sheet-card-body {
-    padding: 18px 22px 20px;
-  }
-
-  .sheet-feature-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(190px,1fr));
-    gap: 12px;
-    margin-bottom: 16px;
-  }
-
-  .sheet-feature {
-    background: var(--bg);
-    border: 1px solid #E0E7FF;
-    border-radius: 12px;
-    padding: 13px 14px;
-  }
-
-  .sheet-feature-title {
-    font-size: 12.5px;
-    font-weight: 800;
-    color: var(--accent);
-    margin-bottom: 5px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-
-  .sheet-feature-desc {
-    font-size: 12px;
-    color: var(--s);
-    line-height: 1.6;
-  }
-
-  .sheet-guide-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 7px;
-    margin-top: 10px;
-  }
-
-  .sheet-guide-list li {
-    background: #F8FAFC;
-    border-left: 3px solid var(--accent);
-    border-radius: 8px;
-    padding: 8px 11px;
-    font-size: 12.5px;
-    line-height: 1.6;
-    color: var(--t);
-  }
-
-  .sheet-guide-list strong {
-    color: #0369A1;
-  }
-
-  .mini-note {
-    margin-top: 12px;
-    padding: 10px 13px;
-    border-radius: 10px;
-    background: #FFFBEB;
-    border-left: 4px solid #F59E0B;
-    font-size: 12px;
-    color: #92400E;
-    line-height: 1.6;
-  }
-
-  @media(max-width:640px) {
-    .sheet-card-head {
-      padding: 16px;
-    }
-
-    .sheet-card-body {
-      padding: 16px;
-    }
-
-    .sheet-btn-main {
-      width: 100%;
-    }
-  }
+  :root { --accent: #0EA5E9; --accentl: #E0F2FE; }
+  .hero { background: linear-gradient(135deg,#0369A1 0%,#0EA5E9 55%,#38BDF8 100%); }
+  .sheet-card-head { background: linear-gradient(135deg,#E0F2FE 0%,#F0F9FF 100%); border-bottom-color: #BAE6FD; }
+  .sheet-card-title { color: #075985; }
+  .sheet-card-desc  { color: #0369A1; }
+  .sheet-feature    { border-color: #BAE6FD; }
 </style>
 </head>
 <body>
@@ -290,7 +129,6 @@
 
   <div class="section">
     <div class="sec-title">📊 OX 퀴즈 통합관리 시트</div>
-
     <div class="sheet-card">
       <div class="sheet-card-head">
         <div class="sheet-card-title-wrap">
@@ -299,13 +137,12 @@
             <div class="sheet-card-title">OX 퀴즈 (TMI) 통합관리 시트</div>
             <div class="sheet-card-desc">
               문제은행, 라운드별 생존자 수, 탈락자 트래킹, 최종 생존자명까지 한 시트에서 관리합니다.<br>
-              최종 생존자 수는 수상자 관리 시트의 OX 퀴즈 항목과 연동됩니다.
+              최종 생존자 수는 수상자 관리 시트의 OX 퀴즈 항목과 자동 연동됩니다.
             </div>
           </div>
         </div>
         <a href="https://docs.google.com/spreadsheets/d/1g0zg3QJi4rzuyXkdXFh2P3O4FLCRBdZgRRembR-sXJQ/edit?pli=1&gid=1006696904#gid=1006696904" target="_blank" class="sheet-btn-main">📂 통합관리 시트 열기 →</a>
       </div>
-
       <div class="sheet-card-body">
         <div class="sheet-feature-grid">
           <div class="sheet-feature">
@@ -334,7 +171,16 @@
         </ul>
 
         <div class="mini-note">
-          💡 <strong>운영 팁</strong> — 문제 목록은 웹페이지에 별도 노출하지 않고, 최신 내용은 구글 시트에서만 관리합니다. 행사 중에는 이 시트를 기준으로 진행해주세요.
+          💡 <strong>운영 팁</strong> — OX 퀴즈 최종 생존자 수와 수상자명은 수상자 관리 시트와 자동으로 연결됩니다. 라운드별 생존자 수와 최종 이름을 정확히 입력해야 상품 구성이 올바르게 반영되므로, 진행 중 트래킹을 꼼꼼히 관리해주세요.
+        </div>
+
+        <div class="result-policy">
+          <div class="result-policy-title">🏆 최종 인원 처리 기준 (수상 가능 인원: 최대 5명)</div>
+          <ul class="result-policy-list">
+            <li><strong>생존자가 5명 이하로 줄었고, 문제와 시간이 남아있는 경우</strong> — 남은 인원만 대상으로 추가 라운드를 계속 진행해 최종 생존자를 더 명확히 확정합니다.</li>
+            <li><strong>시간이 없거나 남은 문제가 없는 경우</strong> — 당일 임의로 결정하지 않고, 다음날 오전 운영진 회의에서 최종 선정 방식과 수상 인원을 확정합니다.</li>
+            <li>확정된 최종 수상자명과 인원 수는 반드시 통합관리 시트와 수상자 관리 시트에 반영합니다.</li>
+          </ul>
         </div>
       </div>
     </div>
@@ -391,7 +237,7 @@
         </div>
         <div class="step-body">
           <div class="flow-list">
-            <div class="flow-item"><div class="flow-num">①</div><div>최후 생존자 1~3명 확정</div></div>
+            <div class="flow-item"><div class="flow-num">①</div><div>최후 생존자 1~5명 확정</div></div>
             <div class="flow-item"><div class="flow-num">②</div><div>통합관리 시트에 최종 생존자 수와 이름 입력</div></div>
             <div class="flow-item"><div class="flow-num">③</div><div>수상자 관리 시트 연동 여부 확인 후 시상</div></div>
             <div class="flow-item"><div class="flow-num">④</div><div>다음 이벤트 (골든벨) 안내</div></div>
@@ -406,7 +252,7 @@
     <div class="sec-title">⚠️ 돌발 상황 대비</div>
     <div class="em-list">
       <div class="em-item"><div class="em-sit">⚡ 이동 시간 내 미이동 참가자</div><div class="em-act">제자리에 있으면 자동 탈락 처리</div></div>
-      <div class="em-item"><div class="em-sit">⚡ 최후까지 아무도 없을 경우</div><div class="em-act">마지막 문제 전 생존자 전원 공동 수상</div></div>
+      <div class="em-item"><div class="em-sit">⚡ 생존자가 5명 남은 경우</div><div class="em-act">문제와 시간이 남아있으면 해당 5명 대상으로 추가 라운드 계속 진행 · 불가할 경우 다음날 오전 운영진 회의에서 선정 방식 결정</div></div>
       <div class="em-item"><div class="em-sit">⚡ 동시 탈락으로 생존자 0명</div><div class="em-act">해당 문제 무효 처리 후 재진행</div></div>
       <div class="em-item"><div class="em-sit">⚡ 문제 이의 제기</div><div class="em-act">출제자(튜터/매니저) 최종 판단 따름</div></div>
       <div class="em-item"><div class="em-sit">⚡ ZEP 렉으로 이동 불가</div><div class="em-act">채팅창에 O 또는 X 입력으로 대체</div></div>
