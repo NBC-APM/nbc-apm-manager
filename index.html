@@ -8,8 +8,8 @@
 <style>
   /* 홈 전용 추가 스타일 */
   :root {
-    --beach: #0EA5E9;
-    --camp: #16A34A;
+    --beach1: #0EA5E9;
+    --beach2: #8B5CF6;
   }
 
   .hero {
@@ -43,8 +43,8 @@
     content: ""; position: absolute;
     top: 0; left: 0; right: 0; height: 4px;
   }
-  .map-card.beach::before { background: var(--beach); }
-  .map-card.camp::before { background: var(--camp); }
+  .map-card.beach1::before { background: var(--beach1); }
+  .map-card.beach2::before { background: var(--beach2); }
   .map-icon { font-size: 28px; margin-bottom: 8px; }
   .map-title { font-size: 14px; font-weight: 800; margin-bottom: 4px; }
   .map-sub { font-size: 11.5px; color: var(--s); margin-bottom: 12px; }
@@ -54,8 +54,8 @@
     font-size: 12px; padding: 5px 9px;
     border-radius: 7px; font-weight: 500;
   }
-  .map-event.beach-ev { background: #EFF6FF; color: #1D4ED8; }
-  .map-event.camp-ev { background: #ECFDF5; color: #166534; }
+  .map-event.beach1-ev { background: #EFF6FF; color: #1D4ED8; }
+  .map-event.beach2-ev { background: #F5F3FF; color: #6D28D9; }
 
   /* FLOW */
   .flow-wrap {
@@ -69,8 +69,8 @@
     font-size: 12px; font-weight: 700; text-align: center;
     white-space: nowrap;
   }
-  .flow-box.beach { background: #EFF6FF; color: #1D4ED8; }
-  .flow-box.camp { background: #ECFDF5; color: #166534; }
+  .flow-box.beach1 { background: #EFF6FF; color: #1D4ED8; }
+  .flow-box.beach2 { background: #F5F3FF; color: #6D28D9; }
   .flow-arrow { color: var(--s); font-size: 14px; font-weight: 700; }
 
   /* GUIDE CARDS */
@@ -98,8 +98,9 @@
     font-size: 18px; color: var(--p2);
   }
 
-  @media(max-width:600px) {
+  @media(max-width:640px) {
     .map-grid { grid-template-columns: 1fr; }
+    .prep-grid { grid-template-columns: 1fr; }
     .flow-steps { gap: 4px; }
     .flow-box { font-size: 11px; padding: 6px 9px; }
   }
@@ -151,9 +152,60 @@
 
 <div class="main">
 
+  <!-- 운영 체크리스트 -->
+  <div class="section">
+    <div class="sec-title">📋 밍글데이 운영 체크리스트</div>
+    <div class="sheet-card">
+      <div class="sheet-card-head">
+        <div class="sheet-card-title-wrap">
+          <div class="sheet-card-icon">✅</div>
+          <div>
+            <div class="sheet-card-title">밍글데이 운영 체크리스트</div>
+            <div class="sheet-card-desc">
+              행사 전·중·후 체크리스트를 한눈에 확인하고, 실시간으로 완료 여부를 업데이트하세요.<br>
+              모든 운영진이 동일한 시트를 보며 진행 상황을 공유합니다.
+            </div>
+          </div>
+        </div>
+        <a href="https://docs.google.com/spreadsheets/d/1g0zg3QJi4rzuyXkdXFh2P3O4FLCRBdZgRRembR-sXJQ/edit?pli=1&gid=488979217#gid=488979217" target="_blank" rel="noopener noreferrer" class="sheet-btn-main">📂 체크리스트 열기 →</a>
+      </div>
+      <div class="sheet-card-body">
+        <div class="sheet-feature-grid">
+          <div class="sheet-feature">
+            <div class="sheet-feature-title">📅 행사 전 준비</div>
+            <div class="sheet-feature-desc">ZEP 맵 세팅, 문제 최종 확인, 기프티콘 구매, 투표 앱 세팅 등</div>
+          </div>
+          <div class="sheet-feature">
+            <div class="sheet-feature-title">🎮 행사 중 체크</div>
+            <div class="sheet-feature-desc">각 세션별 시작 시간, 생존자 기록, 시상 여부 확인</div>
+          </div>
+          <div class="sheet-feature">
+            <div class="sheet-feature-title">📸 행사 후 마무리</div>
+            <div class="sheet-feature-desc">단체 사진 공유, 기프티콘 지급 완료 확인, 회고 작성</div>
+          </div>
+          <div class="sheet-feature">
+            <div class="sheet-feature-title">👥 담당자 배정</div>
+            <div class="sheet-feature-desc">각 항목별 담당자와 완료 여부를 실시간으로 확인</div>
+          </div>
+        </div>
+
+        <ul class="sheet-guide-list">
+          <li><strong>행사 3일 전</strong> — ZEP 맵 세팅, 문제은행 최종 확인, 기프티콘 구매 완료</li>
+          <li><strong>행사 당일 오전</strong> — 투표 앱 세팅, 진행자 리허설, 운영진 최종 브리핑</li>
+          <li><strong>행사 진행 중</strong> — 각 세션 시작 시간 기록, 생존자 수 업데이트, 돌발 상황 메모</li>
+          <li><strong>행사 종료 후</strong> — 기프티콘 지급 완료 확인, 단체 사진 공유, 운영진 회고 작성</li>
+        </ul>
+
+        <div class="mini-note">
+          💡 <strong>운영 팁</strong> — 체크리스트는 모든 운영진이 실시간으로 확인할 수 있도록 구글 시트로 관리합니다. 각 항목 완료 시 담당자 이름과 완료 시간을 기록해 진행 상황을 투명하게 공유하세요.
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- 타임테이블 -->
   <div class="section">
-    <div class="sec-title">전체 타임테이블</div>
+    <div class="sec-title">⏰ 전체 타임테이블</div>
     <div class="tbl-wrap">
       <table>
         <thead>
@@ -170,7 +222,7 @@
           <tr>
             <td><span class="badge badge-p">10분</span><br><small style="color:var(--s);">19:00~19:10</small></td>
             <td><strong>🎙️ 오프닝 &amp; 입장</strong></td>
-            <td>학습공간 → 해변존</td>
+            <td>학습공간 → 해변존1</td>
             <td>이부용</td>
             <td>-</td>
             <td><a href="https://nbc-apm.github.io/nbc-apm-manager/OpeningGuide.html" class="guide-link">📄 가이드</a><br><small style="color:var(--s);">행사 안내, 규칙 설명</small></td>
@@ -178,7 +230,7 @@
           <tr>
             <td><span class="badge badge-r">30분</span><br><small style="color:var(--s);">19:10~19:40</small></td>
             <td><strong>❓ OX 퀴즈 (TMI)</strong></td>
-            <td>해변존</td>
+            <td>해변존1</td>
             <td>전지현</td>
             <td><span class="gift-tag">🎁 기프티콘 지급 예정</span></td>
             <td><a href="https://nbc-apm.github.io/nbc-apm-manager/OXQuizGuide.html" class="guide-link">📄 가이드</a><br><small style="color:var(--s);">문제 사전 세팅 필요</small></td>
@@ -186,7 +238,7 @@
           <tr>
             <td><span class="badge badge-y">20분</span><br><small style="color:var(--s);">19:40~20:00</small></td>
             <td><strong>🔤 퀴즈 골든벨</strong></td>
-            <td>해변존</td>
+            <td>해변존1</td>
             <td>전지현</td>
             <td><span class="gift-tag">🎁 기프티콘 지급 예정</span></td>
             <td><a href="https://nbc-apm.github.io/nbc-apm-manager/GoldenBellGameGuide.html" class="guide-link">📄 가이드</a><br><small style="color:var(--s);">ZEP 미니게임 활용</small></td>
@@ -194,7 +246,7 @@
           <tr>
             <td><span class="badge badge-r">30분</span><br><small style="color:var(--s);">20:00~20:30</small></td>
             <td><strong>🎨 그림 빙고</strong></td>
-            <td>해변존 → 캠핑존</td>
+            <td>해변존1 → 해변존2</td>
             <td>이부용</td>
             <td><span class="gift-tag">🎁 기프티콘 지급 예정</span></td>
             <td><a href="https://nbc-apm.github.io/nbc-apm-manager/PictureBingoManagerGuide.html" class="guide-link">📄 가이드</a></td>
@@ -202,7 +254,7 @@
           <tr>
             <td><span class="badge badge-g">25분</span><br><small style="color:var(--s);">20:30~20:55</small></td>
             <td><strong>📻 라디오 세션</strong></td>
-            <td>캠핑존</td>
+            <td>해변존2</td>
             <td>유재은</td>
             <td><span class="gift-tag">🎁 기프티콘 지급 예정</span></td>
             <td><a href="https://nbc-apm.github.io/nbc-apm-manager/RadioSessionGuide.html" class="guide-link">📄 가이드</a><br><small style="color:var(--s);">투표 앱 사전 세팅</small></td>
@@ -210,7 +262,7 @@
           <tr>
             <td><span class="badge badge-b">5분</span><br><small style="color:var(--s);">20:55~21:00</small></td>
             <td><strong>📸 단체 사진 &amp; 마무리</strong></td>
-            <td>캠핑존</td>
+            <td>해변존2</td>
             <td>유재은</td>
             <td>-</td>
             <td><a href="https://nbc-apm.github.io/nbc-apm-manager/CloseGuide.html" class="guide-link">📄 가이드</a></td>
@@ -222,25 +274,26 @@
 
   <!-- 맵 디자인 컨셉 -->
   <div class="section">
-    <div class="sec-title">이벤트 맵 디자인 컨셉 (해변 / 캠핑 테마)</div>
+    <div class="sec-title">🗺️ 이벤트 맵 디자인 컨셉 (해변존1 / 해변존2)</div>
     <div class="map-grid">
-      <div class="map-card beach">
+      <div class="map-card beach1">
         <div class="map-icon">🏖️</div>
-        <div class="map-title">해변존</div>
+        <div class="map-title">해변존1</div>
         <div class="map-sub">19:00 ~ 20:00 · 전반부 진행</div>
         <div class="map-events">
-          <div class="map-event beach-ev">❓ OX 퀴즈 (TMI)</div>
-          <div class="map-event beach-ev">🔤 퀴즈 골든벨</div>
+          <div class="map-event beach1-ev">🎙️ 오프닝 &amp; 입장</div>
+          <div class="map-event beach1-ev">❓ OX 퀴즈 (TMI)</div>
+          <div class="map-event beach1-ev">🔤 퀴즈 골든벨</div>
         </div>
       </div>
-      <div class="map-card camp">
-        <div class="map-icon">🏕️</div>
-        <div class="map-title">캠핑존</div>
+      <div class="map-card beach2">
+        <div class="map-icon">🌊</div>
+        <div class="map-title">해변존2</div>
         <div class="map-sub">20:00 ~ 21:00 · 후반부 진행</div>
         <div class="map-events">
-          <div class="map-event camp-ev">🎨 그림 빙고</div>
-          <div class="map-event camp-ev">📻 라디오 세션</div>
-          <div class="map-event camp-ev">📸 단체 사진 &amp; 마무리</div>
+          <div class="map-event beach2-ev">🎨 그림 빙고</div>
+          <div class="map-event beach2-ev">📻 라디오 세션</div>
+          <div class="map-event beach2-ev">📸 단체 사진 &amp; 마무리</div>
         </div>
       </div>
     </div>
@@ -248,29 +301,29 @@
 
   <!-- 동선 플로우 -->
   <div class="section">
-    <div class="sec-title">참여자 동선 플로우</div>
+    <div class="sec-title">🚶 참여자 동선 플로우</div>
     <div class="flow-wrap">
       <div class="flow-steps">
-        <div class="flow-box beach">🚪 입장 (해변존)</div>
+        <div class="flow-box beach1">🚪 입장 (해변존1)</div>
         <div class="flow-arrow">→</div>
-        <div class="flow-box beach">🪑 팀별 착석</div>
+        <div class="flow-box beach1">🪑 팀별 착석</div>
         <div class="flow-arrow">→</div>
-        <div class="flow-box beach">🔔 골든벨</div>
+        <div class="flow-box beach1">❓ OX 퀴즈</div>
         <div class="flow-arrow">→</div>
-        <div class="flow-box beach">❓ OX 퀴즈</div>
+        <div class="flow-box beach1">🔔 골든벨</div>
         <div class="flow-arrow">→</div>
-        <div class="flow-box camp">🎨 빙고</div>
+        <div class="flow-box beach2">🎨 빙고 (해변존2 이동)</div>
         <div class="flow-arrow">→</div>
-        <div class="flow-box camp">📻 라디오</div>
+        <div class="flow-box beach2">📻 라디오</div>
         <div class="flow-arrow">→</div>
-        <div class="flow-box camp">📸 단체 사진 &amp; 마무리</div>
+        <div class="flow-box beach2">📸 단체 사진 &amp; 마무리</div>
       </div>
     </div>
   </div>
 
   <!-- 게임별 가이드 바로가기 -->
   <div class="section">
-    <div class="sec-title">게임별 상세 가이드 바로가기</div>
+    <div class="sec-title">📚 게임별 상세 가이드 바로가기</div>
     <div class="guide-grid">
       <a href="https://nbc-apm.github.io/nbc-apm-manager/OpeningGuide.html" class="guide-card">
         <div class="guide-card-icon">🎙️</div>
